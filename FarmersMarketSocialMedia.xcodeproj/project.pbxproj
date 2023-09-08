@@ -17,6 +17,10 @@
 		AB35EBBE2AAA0E29006E3392 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB35EBBD2AAA0E29006E3392 /* Main.storyboard */; };
 		AB35EBC22AAA1137006E3392 /* MarketListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB35EBC12AAA1137006E3392 /* MarketListTableViewController.swift */; };
 		AB35EBC42AAA1155006E3392 /* MarketTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB35EBC32AAA1155006E3392 /* MarketTableViewCell.swift */; };
+		F30CC0202AAB7AB80067DC44 /* CreatePostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30CC01F2AAB7AB80067DC44 /* CreatePostsViewController.swift */; };
+		F30CC0222AAB7BA40067DC44 /* UserBusinessProfileViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30CC0212AAB7BA40067DC44 /* UserBusinessProfileViewViewController.swift */; };
+		F30CC0242AAB7F120067DC44 /* BusinessProfileViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30CC0232AAB7F120067DC44 /* BusinessProfileViewViewController.swift */; };
+		F30CC0262AAB7F3A0067DC44 /* EditBusinessProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30CC0252AAB7F3A0067DC44 /* EditBusinessProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +36,10 @@
 		AB35EBBD2AAA0E29006E3392 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		AB35EBC12AAA1137006E3392 /* MarketListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketListTableViewController.swift; sourceTree = "<group>"; };
 		AB35EBC32AAA1155006E3392 /* MarketTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketTableViewCell.swift; sourceTree = "<group>"; };
+		F30CC01F2AAB7AB80067DC44 /* CreatePostsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostsViewController.swift; sourceTree = "<group>"; };
+		F30CC0212AAB7BA40067DC44 /* UserBusinessProfileViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserBusinessProfileViewViewController.swift; sourceTree = "<group>"; };
+		F30CC0232AAB7F120067DC44 /* BusinessProfileViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessProfileViewViewController.swift; sourceTree = "<group>"; };
+		F30CC0252AAB7F3A0067DC44 /* EditBusinessProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBusinessProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +81,10 @@
 				AB35EBB02AA8DB8E006E3392 /* LaunchScreen.storyboard */,
 				AB35EBB32AA8DB8E006E3392 /* Info.plist */,
 				AB35EBBD2AAA0E29006E3392 /* Main.storyboard */,
+				F30CC0252AAB7F3A0067DC44 /* EditBusinessProfileViewController.swift */,
+				F30CC0232AAB7F120067DC44 /* BusinessProfileViewViewController.swift */,
+				F30CC0212AAB7BA40067DC44 /* UserBusinessProfileViewViewController.swift */,
+				F30CC01F2AAB7AB80067DC44 /* CreatePostsViewController.swift */,
 				AB35EBC12AAA1137006E3392 /* MarketListTableViewController.swift */,
 				AB35EBC32AAA1155006E3392 /* MarketTableViewCell.swift */,
 			);
@@ -152,11 +164,15 @@
 			files = (
 				AB35EBAA2AA8DB8B006E3392 /* ViewController.swift in Sources */,
 				AB35EBC42AAA1155006E3392 /* MarketTableViewCell.swift in Sources */,
+				F30CC0222AAB7BA40067DC44 /* UserBusinessProfileViewViewController.swift in Sources */,
 				AB35EBA62AA8DB8B006E3392 /* AppDelegate.swift in Sources */,
 				AB35EBBC2AA9021D006E3392 /* APIController.swift in Sources */,
 				AB35EBC22AAA1137006E3392 /* MarketListTableViewController.swift in Sources */,
+				F30CC0262AAB7F3A0067DC44 /* EditBusinessProfileViewController.swift in Sources */,
 				AB35EBA82AA8DB8B006E3392 /* SceneDelegate.swift in Sources */,
+				F30CC0202AAB7AB80067DC44 /* CreatePostsViewController.swift in Sources */,
 				AB35EBBA2AA9012B006E3392 /* FarmDataStructure.swift in Sources */,
+				F30CC0242AAB7F120067DC44 /* BusinessProfileViewViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
