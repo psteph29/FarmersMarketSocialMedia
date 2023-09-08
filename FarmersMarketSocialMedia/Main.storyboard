@@ -181,6 +181,30 @@
             </objects>
             <point key="canvasLocation" x="-385" y="-309"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="Y44-XQ-4SP">
+            <objects>
+                <viewController id="mbL-EA-oXY" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Meg-a8-V0T">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MJ Practice push" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O0f-0Q-RJG">
+                                <rect key="frame" x="138" y="335" width="132" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="R4R-de-b9R"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5X1-md-aYE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="470" y="-829"/>
+        </scene>
         <!--Collection View Controller-->
         <scene sceneID="U3Q-k8-2JV">
             <objects>
