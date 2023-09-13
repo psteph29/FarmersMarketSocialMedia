@@ -17,20 +17,24 @@ class APIController {
     var baseURL = URL(string:"https://www.usdalocalfoodportal.com/api/farmersmarket/")!
     let apiKey = "0oIrzX0VFY"
     
-    func fetchFarms(state: String?) async throws -> [Farm] {
+    func fetchFarms(zip: String?, radius: Int?) async throws -> [Farm] {
 
         var urlComps = URLComponents(url: baseURL, resolvingAgainstBaseURL: false)!
         
 
         var queryItems: [URLQueryItem] = [URLQueryItem(name: "apikey", value: apiKey)]
         
-        if let state = state {
-            queryItems.append(URLQueryItem(name: "state", value: state))
-        }
-
-//        if let zip = zip {
-//            queryItems.append(URLQueryItem(name: "zip", value: zip))
+//        if let state = state {
+//            queryItems.append(URLQueryItem(name: "state", value: state))
 //        }
+
+        if let zip = zip {
+            queryItems.append(URLQueryItem(name: "zip", value: zip))
+        }
+        
+        if let radius = radius {
+            queryItems.append(URLQueryItem(name: "radius", value: "\(radius)"))
+        }
         
         // Assign query items
         urlComps.queryItems = queryItems
