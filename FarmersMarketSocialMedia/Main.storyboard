@@ -1,14 +1,143 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aW1-NA-nFd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1L4-B2-dze">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="UIMenu" message="Requires Xcode 11 or later." minToolsVersion="11.0" requiredIntegratedClassName="UICommandDiff"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Search Collection View Controller-->
+        <scene sceneID="rcy-aX-zoX">
+            <objects>
+                <viewController id="1L4-B2-dze" customClass="SearchCollectionViewController" customModule="FarmersMarketSocialMedia" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RE6-UA-UCF">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" placeholder="Zip Code" translatesAutoresizingMaskIntoConstraints="NO" id="tNr-e5-zsY">
+                                <rect key="frame" x="0.0" y="59" width="317" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="1L4-B2-dze" id="orv-RQ-BHs"/>
+                                </connections>
+                            </searchBar>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xNq-KQ-eRH">
+                                <rect key="frame" x="317" y="66" width="72" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <menu key="menu" id="cCV-bt-ZNL">
+                                    <children>
+                                        <command title="10 miles" id="WZO-PS-Veu" userLabel="10 miles">
+                                            <connections>
+                                                <action selector="radiusButtonPressed:" destination="9CL-1v-uAb" id="Oqu-xv-pap"/>
+                                            </connections>
+                                        </command>
+                                        <command title="15 miles" id="QSZ-Ut-279" userLabel="15 miles">
+                                            <connections>
+                                                <action selector="radiusButtonPressed:" destination="9CL-1v-uAb" id="eXD-aY-zI4"/>
+                                            </connections>
+                                        </command>
+                                        <command title="25 miles" id="mxo-K0-7mk">
+                                            <connections>
+                                                <action selector="radiusButtonPressed:" destination="9CL-1v-uAb" id="Kwh-AN-IuU"/>
+                                            </connections>
+                                        </command>
+                                        <command title="50 miles" id="Zp4-yU-RdL">
+                                            <connections>
+                                                <action selector="radiusButtonPressed:" destination="9CL-1v-uAb" id="ual-pe-lJg"/>
+                                            </connections>
+                                        </command>
+                                    </children>
+                                </menu>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="radiusButtonPressed:" destination="1L4-B2-dze" eventType="touchUpInside" id="YdI-wP-wJE"/>
+                                </connections>
+                            </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="EYX-pC-VBa">
+                                <rect key="frame" x="0.0" y="115" width="393" height="703"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="L2a-ig-dav">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="searchResultCell" id="NKf-2j-X8t" customClass="BusinessSearchResultsCollectionViewCell" customModule="FarmersMarketSocialMedia" customModuleProvider="target">
+                                        <rect key="frame" x="86.666666666666671" y="0.0" width="220" height="163"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="5Q4-Mn-SJk">
+                                            <rect key="frame" x="0.0" y="0.0" width="220" height="163"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yg5-E6-05y">
+                                                    <rect key="frame" x="0.0" y="0.0" width="220" height="160"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" text="Business Name" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fs7-0e-mwD">
+                                                    <rect key="frame" x="8" y="7.9999999999999982" width="204" height="20.333333333333329"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="249" text="Address" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nZ7-nJ-v7T">
+                                                    <rect key="frame" x="8" y="36.333333333333343" width="204" height="60.666666666666657"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.53213924160000003" green="0.29942746780000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="yg5-E6-05y" secondAttribute="bottom" constant="3" id="7t3-cz-zBQ"/>
+                                                <constraint firstAttribute="trailing" secondItem="fs7-0e-mwD" secondAttribute="trailing" constant="8" id="8Lg-8h-5mN"/>
+                                                <constraint firstAttribute="trailing" secondItem="nZ7-nJ-v7T" secondAttribute="trailing" constant="8" id="8kR-Sy-3yX"/>
+                                                <constraint firstItem="yg5-E6-05y" firstAttribute="leading" secondItem="5Q4-Mn-SJk" secondAttribute="leading" id="FJY-YU-pjU"/>
+                                                <constraint firstItem="nZ7-nJ-v7T" firstAttribute="leading" secondItem="5Q4-Mn-SJk" secondAttribute="leading" constant="8" id="Sgi-Cd-JNG"/>
+                                                <constraint firstItem="yg5-E6-05y" firstAttribute="top" secondItem="5Q4-Mn-SJk" secondAttribute="top" id="XAa-To-yhC"/>
+                                                <constraint firstItem="fs7-0e-mwD" firstAttribute="leading" secondItem="5Q4-Mn-SJk" secondAttribute="leading" constant="8" id="ZIv-qP-2eQ"/>
+                                                <constraint firstItem="fs7-0e-mwD" firstAttribute="centerX" secondItem="yg5-E6-05y" secondAttribute="centerX" id="e4k-wX-E5b"/>
+                                                <constraint firstItem="nZ7-nJ-v7T" firstAttribute="top" secondItem="fs7-0e-mwD" secondAttribute="bottom" constant="8" id="hVF-CH-b1Y"/>
+                                                <constraint firstItem="fs7-0e-mwD" firstAttribute="top" secondItem="5Q4-Mn-SJk" secondAttribute="top" constant="8" id="qYa-Ac-igG"/>
+                                                <constraint firstItem="nZ7-nJ-v7T" firstAttribute="centerX" secondItem="yg5-E6-05y" secondAttribute="centerX" id="vYb-Ko-jK8"/>
+                                                <constraint firstAttribute="bottom" secondItem="nZ7-nJ-v7T" secondAttribute="bottom" constant="66" id="zsn-EL-0Ka"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="220" height="163"/>
+                                        <connections>
+                                            <outlet property="addressLabel" destination="nZ7-nJ-v7T" id="Bfh-5Z-axt"/>
+                                            <outlet property="businessNameLabel" destination="fs7-0e-mwD" id="hw9-AX-BmD"/>
+                                            <outlet property="imageView" destination="yg5-E6-05y" id="hwa-ff-D1c"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="elG-hu-aqa"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="tNr-e5-zsY" secondAttribute="trailing" constant="76" id="Byi-hw-IRz"/>
+                            <constraint firstItem="elG-hu-aqa" firstAttribute="trailing" secondItem="EYX-pC-VBa" secondAttribute="trailing" id="JYt-Fa-cYZ"/>
+                            <constraint firstItem="EYX-pC-VBa" firstAttribute="leading" secondItem="elG-hu-aqa" secondAttribute="leading" id="Miu-Ju-Qzl"/>
+                            <constraint firstItem="tNr-e5-zsY" firstAttribute="leading" secondItem="RE6-UA-UCF" secondAttribute="leading" id="dws-fI-TPF"/>
+                            <constraint firstItem="tNr-e5-zsY" firstAttribute="top" secondItem="elG-hu-aqa" secondAttribute="top" id="jdF-At-g5H"/>
+                            <constraint firstItem="elG-hu-aqa" firstAttribute="bottom" secondItem="EYX-pC-VBa" secondAttribute="bottom" id="oxh-7n-eir"/>
+                            <constraint firstItem="EYX-pC-VBa" firstAttribute="top" secondItem="tNr-e5-zsY" secondAttribute="bottom" id="ypc-ln-pEi"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="EYX-pC-VBa" id="oLz-ES-e1C"/>
+                        <outlet property="radiusButton" destination="xNq-KQ-eRH" id="M7Z-xB-Wp9"/>
+                        <outlet property="zipCodeSearchBar" destination="tNr-e5-zsY" id="PZT-zu-MU3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9CL-1v-uAb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2034.3511450381679" y="-732.3943661971831"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -98,6 +227,7 @@
             </objects>
             <point key="canvasLocation" x="-1259" y="-1"/>
         </scene>
+
         <!--View Controller-->
         <scene sceneID="Hay-fR-uWV">
             <objects>
@@ -457,6 +587,7 @@
             </objects>
             <point key="canvasLocation" x="634" y="-99"/>
         </scene>
+
     </scenes>
     <resources>
         <systemColor name="labelColor">
