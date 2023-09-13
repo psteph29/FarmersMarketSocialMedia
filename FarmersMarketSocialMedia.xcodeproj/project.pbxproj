@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		87AD87862AAF5F7D00C6B0BE /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AD87852AAF5F7D00C6B0BE /* SignInVC.swift */; };
 		AB35EBA62AA8DB8B006E3392 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB35EBA52AA8DB8B006E3392 /* AppDelegate.swift */; };
 		AB35EBA82AA8DB8B006E3392 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB35EBA72AA8DB8B006E3392 /* SceneDelegate.swift */; };
 		AB35EBAA2AA8DB8B006E3392 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB35EBA92AA8DB8B006E3392 /* ViewController.swift */; };
@@ -30,7 +29,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		87AD87852AAF5F7D00C6B0BE /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
 		AB35EBA22AA8DB8B006E3392 /* FarmersMarketSocialMedia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FarmersMarketSocialMedia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB35EBA52AA8DB8B006E3392 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB35EBA72AA8DB8B006E3392 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -93,11 +91,6 @@
 				AB35EBB02AA8DB8E006E3392 /* LaunchScreen.storyboard */,
 				AB35EBB32AA8DB8E006E3392 /* Info.plist */,
 				AB35EBBD2AAA0E29006E3392 /* Main.storyboard */,
-
-				AB35EBC12AAA1137006E3392 /* MarketListTableViewController.swift */,
-				AB35EBC32AAA1155006E3392 /* MarketTableViewCell.swift */,
-				87AD87852AAF5F7D00C6B0BE /* SignInVC.swift */,
-
 				F30CC0252AAB7F3A0067DC44 /* EditBusinessProfileViewController.swift */,
 				AB35EBD12AB21D7A006E3392 /* EditBusinessProfile.storyboard */,
 				F30CC0232AAB7F120067DC44 /* BusinessProfileViewController.swift */,
@@ -109,7 +102,6 @@
 				AB35EBC52AAB7666006E3392 /* SearchCollectionViewController.swift */,
 				AB35EBC72AAB7BF1006E3392 /* BusinessSearchResultsCollectionViewCell.swift */,
 				AB35EBC92AB21844006E3392 /* SearchCollection.storyboard */,
-
 			);
 			path = FarmersMarketSocialMedia;
 			sourceTree = "<group>";
@@ -192,12 +184,7 @@
 			files = (
 				AB35EBC62AAB7666006E3392 /* SearchCollectionViewController.swift in Sources */,
 				AB35EBAA2AA8DB8B006E3392 /* ViewController.swift in Sources */,
-
-				AB35EBC42AAA1155006E3392 /* MarketTableViewCell.swift in Sources */,
-				87AD87862AAF5F7D00C6B0BE /* SignInVC.swift in Sources */,
-
 				F30CC0222AAB7BA40067DC44 /* UserBusinessProfileViewController.swift in Sources */,
-
 				AB35EBA62AA8DB8B006E3392 /* AppDelegate.swift in Sources */,
 				AB35EBBC2AA9021D006E3392 /* APIController.swift in Sources */,
 				F30CC0262AAB7F3A0067DC44 /* EditBusinessProfileViewController.swift in Sources */,
