@@ -23,7 +23,7 @@ class SearchCollectionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        selectedRadius = 10
+//        selectedRadius = 10
         zipCodeSearchBar.delegate = self
         collectionView.dataSource = self
         collectionView.delegate = self
