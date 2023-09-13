@@ -1,5 +1,5 @@
 //
-//  UserBusinessProfileViewViewController.swift
+//  BusinessProfileViewViewController.swift
 //  FarmersMarketSocialMedia
 //
 //  Created by MJ Orton on 9/8/23.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class UserBusinessProfileViewViewController: UIViewController {
+class BusinessProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
