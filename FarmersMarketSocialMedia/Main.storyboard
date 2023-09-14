@@ -118,6 +118,14 @@
             </objects>
             <point key="canvasLocation" x="-2433" y="-779"/>
         </scene>
+        <!--SignIn-->
+        <scene sceneID="sCy-L5-3is">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SignIn" id="dc8-8F-9mU" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SXu-m0-Tae" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2071" y="-930"/>
+        </scene>
         <!--CreatePosts-->
         <scene sceneID="8Tj-Sf-CfS">
             <objects>
@@ -125,6 +133,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PSB-hq-kRE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2106" y="-848"/>
+        </scene>
+        <!--SignUp-->
+        <scene sceneID="9Kf-Q0-TD2">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SignUp" id="htB-v5-oZF" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E3J-b8-HgY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1854" y="-941"/>
         </scene>
         <!--BusinessProfile-->
         <scene sceneID="M8E-3e-r3Q">
@@ -150,10 +166,10 @@
             </objects>
             <point key="canvasLocation" x="-2122" y="-780"/>
         </scene>
-        <!--Sign In View Controller-->
+        <!--FindA Farm View Controller-->
         <scene sceneID="jYP-fb-9cK">
             <objects>
-                <viewController id="nCy-f2-Gre" customClass="SignInViewController" customModule="FarmersMarketSocialMedia" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="nCy-f2-Gre" customClass="FindAFarmViewController" customModule="FarmersMarketSocialMedia" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lTD-IQ-Yoj">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -240,6 +256,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="edI-jL-v45" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2194.6564885496182" y="-1487.323943661972"/>
+        </scene>
+        <!--Storyboard Reference-->
+        <scene sceneID="yzS-Qd-22y">
+            <objects>
+                <viewControllerPlaceholder id="rSf-8H-S6m" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5fz-3N-QR6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2098" y="-818"/>
         </scene>
     </scenes>
     <resources>
