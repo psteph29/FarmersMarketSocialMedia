@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB233CE92AB35E22006A3DB7 /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB233CE82AB35E22006A3DB7 /* SignIn.storyboard */; };
+		AB233CEB2AB35E28006A3DB7 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB233CEA2AB35E28006A3DB7 /* SignUp.storyboard */; };
+		AB233CED2AB35E4C006A3DB7 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB233CEC2AB35E4C006A3DB7 /* SignInViewController.swift */; };
+		AB233CEF2AB35E54006A3DB7 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB233CEE2AB35E54006A3DB7 /* SignUpViewController.swift */; };
 		AB35EBA62AA8DB8B006E3392 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB35EBA52AA8DB8B006E3392 /* AppDelegate.swift */; };
 		AB35EBA82AA8DB8B006E3392 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB35EBA72AA8DB8B006E3392 /* SceneDelegate.swift */; };
 		AB35EBAA2AA8DB8B006E3392 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB35EBA92AA8DB8B006E3392 /* ViewController.swift */; };
@@ -22,7 +26,7 @@
 		AB35EBCE2AB21CA9006E3392 /* UserBusinessProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB35EBCD2AB21CA9006E3392 /* UserBusinessProfile.storyboard */; };
 		AB35EBD02AB21D1F006E3392 /* BusinessProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB35EBCF2AB21D1F006E3392 /* BusinessProfile.storyboard */; };
 		AB35EBD22AB21D7A006E3392 /* EditBusinessProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB35EBD12AB21D7A006E3392 /* EditBusinessProfile.storyboard */; };
-		AB35EBD42AB3478D006E3392 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB35EBD32AB3478D006E3392 /* SignInViewController.swift */; };
+		AB35EBD42AB3478D006E3392 /* FindAFarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB35EBD32AB3478D006E3392 /* FindAFarmViewController.swift */; };
 		F30CC0202AAB7AB80067DC44 /* CreatePostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30CC01F2AAB7AB80067DC44 /* CreatePostsViewController.swift */; };
 		F30CC0222AAB7BA40067DC44 /* UserBusinessProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30CC0212AAB7BA40067DC44 /* UserBusinessProfileViewController.swift */; };
 		F30CC0242AAB7F120067DC44 /* BusinessProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30CC0232AAB7F120067DC44 /* BusinessProfileViewController.swift */; };
@@ -30,6 +34,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AB233CE82AB35E22006A3DB7 /* SignIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignIn.storyboard; sourceTree = "<group>"; };
+		AB233CEA2AB35E28006A3DB7 /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
+		AB233CEC2AB35E4C006A3DB7 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		AB233CEE2AB35E54006A3DB7 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		AB35EBA22AA8DB8B006E3392 /* FarmersMarketSocialMedia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FarmersMarketSocialMedia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB35EBA52AA8DB8B006E3392 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB35EBA72AA8DB8B006E3392 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,7 +55,7 @@
 		AB35EBCD2AB21CA9006E3392 /* UserBusinessProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserBusinessProfile.storyboard; sourceTree = "<group>"; };
 		AB35EBCF2AB21D1F006E3392 /* BusinessProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BusinessProfile.storyboard; sourceTree = "<group>"; };
 		AB35EBD12AB21D7A006E3392 /* EditBusinessProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditBusinessProfile.storyboard; sourceTree = "<group>"; };
-		AB35EBD32AB3478D006E3392 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		AB35EBD32AB3478D006E3392 /* FindAFarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindAFarmViewController.swift; sourceTree = "<group>"; };
 		F30CC01F2AAB7AB80067DC44 /* CreatePostsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostsViewController.swift; sourceTree = "<group>"; };
 		F30CC0212AAB7BA40067DC44 /* UserBusinessProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserBusinessProfileViewController.swift; sourceTree = "<group>"; };
 		F30CC0232AAB7F120067DC44 /* BusinessProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessProfileViewController.swift; sourceTree = "<group>"; };
@@ -93,7 +101,11 @@
 				AB35EBB02AA8DB8E006E3392 /* LaunchScreen.storyboard */,
 				AB35EBB32AA8DB8E006E3392 /* Info.plist */,
 				AB35EBBD2AAA0E29006E3392 /* Main.storyboard */,
-				AB35EBD32AB3478D006E3392 /* SignInViewController.swift */,
+				AB233CEC2AB35E4C006A3DB7 /* SignInViewController.swift */,
+				AB233CE82AB35E22006A3DB7 /* SignIn.storyboard */,
+				AB233CEE2AB35E54006A3DB7 /* SignUpViewController.swift */,
+				AB233CEA2AB35E28006A3DB7 /* SignUp.storyboard */,
+				AB35EBD32AB3478D006E3392 /* FindAFarmViewController.swift */,
 				F30CC0252AAB7F3A0067DC44 /* EditBusinessProfileViewController.swift */,
 				AB35EBD12AB21D7A006E3392 /* EditBusinessProfile.storyboard */,
 				F30CC0232AAB7F120067DC44 /* BusinessProfileViewController.swift */,
@@ -171,6 +183,8 @@
 				AB35EBCA2AB21844006E3392 /* SearchCollection.storyboard in Resources */,
 				AB35EBCE2AB21CA9006E3392 /* UserBusinessProfile.storyboard in Resources */,
 				AB35EBB22AA8DB8E006E3392 /* LaunchScreen.storyboard in Resources */,
+				AB233CEB2AB35E28006A3DB7 /* SignUp.storyboard in Resources */,
+				AB233CE92AB35E22006A3DB7 /* SignIn.storyboard in Resources */,
 				AB35EBAF2AA8DB8E006E3392 /* Assets.xcassets in Resources */,
 				AB35EBBE2AAA0E29006E3392 /* Main.storyboard in Resources */,
 				AB35EBD02AB21D1F006E3392 /* BusinessProfile.storyboard in Resources */,
@@ -185,7 +199,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB35EBD42AB3478D006E3392 /* SignInViewController.swift in Sources */,
+				AB35EBD42AB3478D006E3392 /* FindAFarmViewController.swift in Sources */,
 				AB35EBC62AAB7666006E3392 /* SearchCollectionViewController.swift in Sources */,
 				AB35EBAA2AA8DB8B006E3392 /* ViewController.swift in Sources */,
 				F30CC0222AAB7BA40067DC44 /* UserBusinessProfileViewController.swift in Sources */,
@@ -193,7 +207,9 @@
 				AB35EBBC2AA9021D006E3392 /* APIController.swift in Sources */,
 				F30CC0262AAB7F3A0067DC44 /* EditBusinessProfileViewController.swift in Sources */,
 				AB35EBA62AA8DB8B006E3392 /* AppDelegate.swift in Sources */,
+				AB233CED2AB35E4C006A3DB7 /* SignInViewController.swift in Sources */,
 				AB35EBBC2AA9021D006E3392 /* APIController.swift in Sources */,
+				AB233CEF2AB35E54006A3DB7 /* SignUpViewController.swift in Sources */,
 				AB35EBC82AAB7BF1006E3392 /* BusinessSearchResultsCollectionViewCell.swift in Sources */,
 				AB35EBA82AA8DB8B006E3392 /* SceneDelegate.swift in Sources */,
 				F30CC0202AAB7AB80067DC44 /* CreatePostsViewController.swift in Sources */,
