@@ -11,17 +11,20 @@
         <!--SignIn-->
         <scene sceneID="z04-sg-R1w">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="MmM-Dl-xpM" customClass="SignInVC" customModule="FarmersMarketSocialMedia" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="MmM-Dl-xpM" customClass="SignInViewController" customModule="FarmersMarketSocialMedia" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleAspectFill" id="A9L-NY-pxE">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oPN-3X-DRL">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="NDu-0z-GiO">
                                 <rect key="frame" x="16" y="353" width="361" height="146"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GI4-3R-7lB">
                                         <rect key="frame" x="0.0" y="0.0" width="361" height="40"/>
-                                        <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                        <color key="backgroundColor" red="0.99607843139999996" green="0.98039215690000003" blue="0.87843137250000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="zBb-3x-eks"/>
                                         </constraints>
@@ -35,7 +38,7 @@
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="037-mo-Edb">
                                         <rect key="frame" x="0.0" y="53" width="361" height="40"/>
-                                        <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                        <color key="backgroundColor" red="0.99607843139999996" green="0.98039215690000003" blue="0.87843137250000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="pOQ-7w-l48"/>
                                         </constraints>
@@ -44,25 +47,31 @@
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kz9-f1-478">
                                         <rect key="frame" x="0.0" y="106" width="361" height="40"/>
+                                        <color key="backgroundColor" red="0.86666666670000003" green="0.63137254899999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="zlz-SE-gQO"/>
                                         </constraints>
+                                        <color key="tintColor" red="0.86666666670000003" green="0.63137254899999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="gray" title="Submit">
                                             <fontDescription key="titleFontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="23"/>
                                             <color key="baseForegroundColor" systemColor="labelColor"/>
-                                            <color key="baseBackgroundColor" systemColor="systemBlueColor"/>
+                                            <color key="baseBackgroundColor" red="0.86666666670000003" green="0.63137254899999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </buttonConfiguration>
                                     </button>
                                 </subviews>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="rnK-6B-ADb"/>
-                        <color key="backgroundColor" red="0.67116119409999997" green="1" blue="0.99725967660000003" alpha="0.6003932823" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="NDu-0z-GiO" firstAttribute="leading" secondItem="rnK-6B-ADb" secondAttribute="leading" constant="16" id="2e9-tj-Icm"/>
+                            <constraint firstItem="rnK-6B-ADb" firstAttribute="trailing" secondItem="oPN-3X-DRL" secondAttribute="trailing" id="G7M-sR-XFm"/>
                             <constraint firstItem="NDu-0z-GiO" firstAttribute="centerY" secondItem="A9L-NY-pxE" secondAttribute="centerY" id="Xjw-2O-UaG"/>
+                            <constraint firstItem="oPN-3X-DRL" firstAttribute="top" secondItem="NDu-0z-GiO" secondAttribute="bottom" constant="-499" id="aNp-SE-nJA"/>
                             <constraint firstItem="rnK-6B-ADb" firstAttribute="trailing" secondItem="NDu-0z-GiO" secondAttribute="trailing" constant="16" id="ffs-Mf-5wo"/>
+                            <constraint firstItem="rnK-6B-ADb" firstAttribute="bottom" secondItem="oPN-3X-DRL" secondAttribute="bottom" constant="-34" id="iWa-QQ-ohq"/>
+                            <constraint firstItem="oPN-3X-DRL" firstAttribute="leading" secondItem="rnK-6B-ADb" secondAttribute="leading" id="zhK-xK-E5o"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="SignIn" leftItemsSupplementBackButton="YES" id="OgM-Wa-Fvc"/>
@@ -70,6 +79,7 @@
                         <outlet property="PasswordTextField" destination="037-mo-Edb" id="eHI-eb-tG3"/>
                         <outlet property="SubmitButton" destination="Kz9-f1-478" id="6gX-Rg-Mhr"/>
                         <outlet property="UserNameTextField" destination="GI4-3R-7lB" id="u2y-36-O0J"/>
+                        <outlet property="backgroundImage" destination="NDu-0z-GiO" id="stm-Wh-AYo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wlf-Jo-coJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -80,12 +90,6 @@
     <resources>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

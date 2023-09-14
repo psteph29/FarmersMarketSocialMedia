@@ -8,11 +8,15 @@
 import UIKit
 
 class SignInViewController: UIViewController {
-
+    
+    @IBOutlet weak var backgroundImage: UIStackView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        backgroundImage.image = UIImage(named: "leaves")
+        backgroundImage.alpha = 0.3
+        backgroundImage.contentMode = .scaleAspectFill
     }
     
 
