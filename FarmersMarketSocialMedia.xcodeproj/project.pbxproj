@@ -37,6 +37,7 @@
 		AB35EBD42AB3478D006E3392 /* FindAFarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB35EBD32AB3478D006E3392 /* FindAFarmViewController.swift */; };
 		ABA47ADC2AB4A6C9008F58EE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ABA47ADB2AB4A6C9008F58EE /* GoogleService-Info.plist */; };
 		ABA47AE12AB4ACE2008F58EE /* FavoritesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA47AE02AB4ACE2008F58EE /* FavoritesCollectionViewCell.swift */; };
+		ABA47AE32AB4B0B6008F58EE /* FavoritesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA47AE22AB4B0B6008F58EE /* FavoritesCollectionViewController.swift */; };
 		F30CC0202AAB7AB80067DC44 /* CreatePostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30CC01F2AAB7AB80067DC44 /* CreatePostsViewController.swift */; };
 		F30CC0222AAB7BA40067DC44 /* UserBusinessProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30CC0212AAB7BA40067DC44 /* UserBusinessProfileViewController.swift */; };
 		F30CC0242AAB7F120067DC44 /* BusinessProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30CC0232AAB7F120067DC44 /* BusinessProfileViewController.swift */; };
@@ -73,6 +74,7 @@
 		AB35EBD32AB3478D006E3392 /* FindAFarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindAFarmViewController.swift; sourceTree = "<group>"; };
 		ABA47ADB2AB4A6C9008F58EE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		ABA47AE02AB4ACE2008F58EE /* FavoritesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCollectionViewCell.swift; sourceTree = "<group>"; };
+		ABA47AE22AB4B0B6008F58EE /* FavoritesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCollectionViewController.swift; sourceTree = "<group>"; };
 		F30CC01F2AAB7AB80067DC44 /* CreatePostsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostsViewController.swift; sourceTree = "<group>"; };
 		F30CC0212AAB7BA40067DC44 /* UserBusinessProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserBusinessProfileViewController.swift; sourceTree = "<group>"; };
 		F30CC0232AAB7F120067DC44 /* BusinessProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessProfileViewController.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				F30CC0212AAB7BA40067DC44 /* UserBusinessProfileViewController.swift */,
 				AB35EBA72AA8DB8B006E3392 /* SceneDelegate.swift */,
 				AB35EBC52AAB7666006E3392 /* SearchCollectionViewController.swift */,
+				ABA47AE22AB4B0B6008F58EE /* FavoritesCollectionViewController.swift */,
 				0FA6FE042AB4947B00130021 /* CustomDB-APIController.swift */,
 			);
 			path = Controller;
@@ -281,6 +284,7 @@
 				0FA6FDFD2AB48D1800130021 /* DistanceCalcFunc.swift in Sources */,
 				AB233CED2AB35E4C006A3DB7 /* SignInViewController.swift in Sources */,
 				AB35EBBC2AA9021D006E3392 /* APIController.swift in Sources */,
+				ABA47AE32AB4B0B6008F58EE /* FavoritesCollectionViewController.swift in Sources */,
 				0FA6FE032AB48E5A00130021 /* BusinessListingStruct.swift in Sources */,
 				AB233CEF2AB35E54006A3DB7 /* SignUpViewController.swift in Sources */,
 				ABA47AE12AB4ACE2008F58EE /* FavoritesCollectionViewCell.swift in Sources */,
