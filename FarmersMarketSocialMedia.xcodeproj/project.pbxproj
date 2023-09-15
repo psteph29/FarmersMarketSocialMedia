@@ -10,7 +10,7 @@
 		0FA6FDFB2AB48CE600130021 /* ZipCodeStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA6FDFA2AB48CE600130021 /* ZipCodeStruct.swift */; };
 		0FA6FDFD2AB48D1800130021 /* DistanceCalcFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA6FDFC2AB48D1800130021 /* DistanceCalcFunc.swift */; };
 		0FA6FE032AB48E5A00130021 /* BusinessListingStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA6FE022AB48E5A00130021 /* BusinessListingStruct.swift */; };
-		0FA6FE052AB4947B00130021 /* CustomDB-APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA6FE042AB4947B00130021 /* CustomDB-APIController.swift */; };
+		0FA6FE052AB4947B00130021 /* FirebaseServiceControlelr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA6FE042AB4947B00130021 /* FirebaseServiceControlelr.swift */; };
 		0FA6FE082AB494E600130021 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 0FA6FE072AB494E600130021 /* FirebaseAuth */; };
 		0FA6FE0A2AB494E600130021 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 0FA6FE092AB494E600130021 /* FirebaseFirestore */; };
 		0FA6FE0C2AB494E600130021 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0FA6FE0B2AB494E600130021 /* FirebaseFirestoreSwift */; };
@@ -50,7 +50,7 @@
 		0FA6FDFC2AB48D1800130021 /* DistanceCalcFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceCalcFunc.swift; sourceTree = "<group>"; };
 		0FA6FE012AB48D8900130021 /* UpdatedZIPCODES.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = UpdatedZIPCODES.json; sourceTree = "<group>"; };
 		0FA6FE022AB48E5A00130021 /* BusinessListingStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessListingStruct.swift; sourceTree = "<group>"; };
-		0FA6FE042AB4947B00130021 /* CustomDB-APIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomDB-APIController.swift"; sourceTree = "<group>"; };
+		0FA6FE042AB4947B00130021 /* FirebaseServiceControlelr.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseServiceControlelr.swift; sourceTree = "<group>"; };
 		0FA6FE112AB4E30900130021 /* PostStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostStruct.swift; sourceTree = "<group>"; };
 		AB233CE82AB35E22006A3DB7 /* SignIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignIn.storyboard; sourceTree = "<group>"; };
 		AB233CEA2AB35E28006A3DB7 /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
@@ -143,7 +143,7 @@
 				AB35EBA72AA8DB8B006E3392 /* SceneDelegate.swift */,
 				AB35EBC52AAB7666006E3392 /* SearchCollectionViewController.swift */,
 				ABA47AE22AB4B0B6008F58EE /* FavoritesCollectionViewController.swift */,
-				0FA6FE042AB4947B00130021 /* CustomDB-APIController.swift */,
+				0FA6FE042AB4947B00130021 /* FirebaseServiceControlelr.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -297,7 +297,7 @@
 				F30CC0202AAB7AB80067DC44 /* CreatePostsViewController.swift in Sources */,
 				AB35EBBA2AA9012B006E3392 /* FarmDataStructure.swift in Sources */,
 				F30CC0242AAB7F120067DC44 /* BusinessProfileViewController.swift in Sources */,
-				0FA6FE052AB4947B00130021 /* CustomDB-APIController.swift in Sources */,
+				0FA6FE052AB4947B00130021 /* FirebaseServiceControlelr.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
