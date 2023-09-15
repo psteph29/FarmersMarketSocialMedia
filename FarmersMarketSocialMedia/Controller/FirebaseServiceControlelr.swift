@@ -12,6 +12,7 @@ struct FirebaseService {
     
     // Beginning of businessListing API Calls
     // Fetch or GET
+    // Tested and Successful.
     static func fetchBusinessListing(zipcodesArray: [Int], completion: @escaping ([BusinessListing]?) -> Void) {
         let db = Firestore.firestore()
         db.collection("USDAFarmersMarkets")
@@ -24,26 +25,36 @@ struct FirebaseService {
                 }
                 
                 let businessListings = snapshot?.documents.compactMap { document -> BusinessListing? in
-                    if let listing_USDA_id = document.get("listing_USDA_id") as? Int?,
-                       let listing_uuid = document.get("listing_uuid") as? String,
-                       let listing_name = document.get("listing_name") as? String,
-                       let listing_address = document.get("listing_address") as? String,
-                       let listing_zipcode = document.get("listing_zipcode") as? Int,
-                       let listing_username = document.get("listing_username") as? String,
-                       let listing_description = document.get("listing_description") as? String,
-                       let app_generated = document.get("app_generated") as? Bool
-                        {
-                        return BusinessListing(listing_USDA_id: listing_USDA_id, listing_uuid: listing_uuid, listing_name: listing_name, listing_address: listing_address, listing_zipcode: listing_zipcode, listing_username: listing_username, listing_description: listing_description, app_generated: app_generated)
-                    } else {
-                        print("Failed to parse document \(document.documentID)")
+                    guard
+                        let listing_uuid = document.get("listing_uuid") as? String,
+                        let listing_name = document.get("listing_name") as? String,
+                        let listing_address = document.get("listing_address") as? String,
+                        let listing_zipcode = document.get("listing_zipcode") as? Int
+                    else {
+                        print("Failed to parse document \(document.documentID) due to missing required fields")
+                        return nil
                     }
-                    return nil
+                    
+                    let listing_USDA_id = document.get("listing_USDA_id") as? Int
+                    let listing_username = document.get("listing_username") as? String
+                    let listing_description = document.get("listing_description") as? String
+                    let app_generated = document.get("app_generated") as? Bool
+
+                    return BusinessListing(
+                        listing_USDA_id: listing_USDA_id,
+                        listing_uuid: listing_uuid,
+                        listing_name: listing_name,
+                        listing_address: listing_address,
+                        listing_zipcode: listing_zipcode,
+                        listing_username: listing_username,
+                        listing_description: listing_description,
+                        app_generated: app_generated
+                    )
                 } ?? []
-                
+
                 completion(businessListings)
         }
     }
-    
     // Create or POST
     // Tested and works.
     func createBusinessListing(businessListing: BusinessListing) {
@@ -75,6 +86,7 @@ struct FirebaseService {
     }
     
     // Update or PUT
+    // Tested and successful.
     func updateBusinessListing(businessListing: BusinessListing) {
         let db = Firestore.firestore()
         
