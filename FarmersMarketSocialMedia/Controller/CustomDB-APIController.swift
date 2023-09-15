@@ -66,6 +66,10 @@ struct FirebaseService {
         // create UUID() and assign it to a string and also to id property in struct
     }
     
-    // Insert more here! :^)
+    // The following reqeusts still need to be made:
+    // GET request for posts made by a business_listing
+    // POST Request needed for posts
+    // PUT requests needed for businesslistings and Posts
+    // DELETE requests for businessListings and Posts
 
 }
