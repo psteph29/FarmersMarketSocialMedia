@@ -15,7 +15,6 @@
 		0FA6FE0A2AB494E600130021 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 0FA6FE092AB494E600130021 /* FirebaseFirestore */; };
 		0FA6FE0C2AB494E600130021 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0FA6FE0B2AB494E600130021 /* FirebaseFirestoreSwift */; };
 		0FA6FE0E2AB494E600130021 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 0FA6FE0D2AB494E600130021 /* FirebaseStorage */; };
-		0FA6FE102AB4955700130021 /* GoogleService-Info (2).plist in Resources */ = {isa = PBXBuildFile; fileRef = 0FA6FE0F2AB4955700130021 /* GoogleService-Info (2).plist */; };
 		AB233CE92AB35E22006A3DB7 /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB233CE82AB35E22006A3DB7 /* SignIn.storyboard */; };
 		AB233CEB2AB35E28006A3DB7 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB233CEA2AB35E28006A3DB7 /* SignUp.storyboard */; };
 		AB233CED2AB35E4C006A3DB7 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB233CEC2AB35E4C006A3DB7 /* SignInViewController.swift */; };
@@ -48,7 +47,6 @@
 		0FA6FE012AB48D8900130021 /* UpdatedZIPCODES.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = UpdatedZIPCODES.json; sourceTree = "<group>"; };
 		0FA6FE022AB48E5A00130021 /* BusinessListingStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessListingStruct.swift; sourceTree = "<group>"; };
 		0FA6FE042AB4947B00130021 /* CustomDB-APIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomDB-APIController.swift"; sourceTree = "<group>"; };
-		0FA6FE0F2AB4955700130021 /* GoogleService-Info (2).plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info (2).plist"; path = "../../../../../Downloads/GoogleService-Info (2).plist"; sourceTree = "<group>"; };
 		AB233CE82AB35E22006A3DB7 /* SignIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignIn.storyboard; sourceTree = "<group>"; };
 		AB233CEA2AB35E28006A3DB7 /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
 		AB233CEC2AB35E4C006A3DB7 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -164,7 +162,6 @@
 				0FA6FDFF2AB48D3300130021 /* View */,
 				0FA6FDFE2AB48D2A00130021 /* Model */,
 				AB35EBAE2AA8DB8E006E3392 /* Assets.xcassets */,
-				0FA6FE0F2AB4955700130021 /* GoogleService-Info (2).plist */,
 				AB35EBB32AA8DB8E006E3392 /* Info.plist */,
 			);
 			path = FarmersMarketSocialMedia;
@@ -242,7 +239,6 @@
 				AB35EBCE2AB21CA9006E3392 /* UserBusinessProfile.storyboard in Resources */,
 				AB35EBB22AA8DB8E006E3392 /* LaunchScreen.storyboard in Resources */,
 				AB233CEB2AB35E28006A3DB7 /* SignUp.storyboard in Resources */,
-				0FA6FE102AB4955700130021 /* GoogleService-Info (2).plist in Resources */,
 				AB233CE92AB35E22006A3DB7 /* SignIn.storyboard in Resources */,
 				AB35EBAF2AA8DB8E006E3392 /* Assets.xcassets in Resources */,
 				AB35EBBE2AAA0E29006E3392 /* Main.storyboard in Resources */,
