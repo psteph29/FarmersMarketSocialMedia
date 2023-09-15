@@ -129,5 +129,130 @@
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EEC46333-A357-4287-98D3-1717CC63122B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FarmersMarketSocialMedia/Controller/FavoritesCollectionViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C26BB648-DD83-4456-BC79-593E2728F8AA"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FarmersMarketSocialMedia/Controller/UserBusinessProfileViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "10"
+            endingLineNumber = "10"
+            landmarkName = "UserBusinessProfileViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "C26BB648-DD83-4456-BC79-593E2728F8AA - a3ed4a9f01425c74"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FarmersMarketSocialMedia.UserBusinessProfileViewController.__allocating_init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; FarmersMarketSocialMedia.UserBusinessProfileViewController"
+                  moduleName = "FarmersMarketSocialMedia"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/paigestephenson/Desktop/Mobile%20Development/Projects/FarmersMarketSocialMedia/FarmersMarketSocialMedia/Controller/UserBusinessProfileViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  uuid = "C26BB648-DD83-4456-BC79-593E2728F8AA - 5b1ab1b0bd9ed317"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FarmersMarketSocialMedia.UserBusinessProfileViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; FarmersMarketSocialMedia.UserBusinessProfileViewController"
+                  moduleName = "FarmersMarketSocialMedia"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/paigestephenson/Desktop/Mobile%20Development/Projects/FarmersMarketSocialMedia/FarmersMarketSocialMedia/Controller/UserBusinessProfileViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "264">
+               </Location>
+               <Location
+                  uuid = "C26BB648-DD83-4456-BC79-593E2728F8AA - 898096e8b374151c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FarmersMarketSocialMedia.UserBusinessProfileViewController.__allocating_init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;FarmersMarketSocialMedia.UserBusinessProfileViewController&gt;"
+                  moduleName = "FarmersMarketSocialMedia"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/paigestephenson/Desktop/Mobile%20Development/Projects/FarmersMarketSocialMedia/FarmersMarketSocialMedia/Controller/UserBusinessProfileViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  uuid = "C26BB648-DD83-4456-BC79-593E2728F8AA - 7977bb78c86023a7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FarmersMarketSocialMedia.UserBusinessProfileViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;FarmersMarketSocialMedia.UserBusinessProfileViewController&gt;"
+                  moduleName = "FarmersMarketSocialMedia"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/paigestephenson/Desktop/Mobile%20Development/Projects/FarmersMarketSocialMedia/FarmersMarketSocialMedia/Controller/UserBusinessProfileViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "164">
+               </Location>
+               <Location
+                  uuid = "C26BB648-DD83-4456-BC79-593E2728F8AA - 86322afc9a8c7e60"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FarmersMarketSocialMedia.UserBusinessProfileViewController.__deallocating_deinit"
+                  moduleName = "FarmersMarketSocialMedia"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/paigestephenson/Desktop/Mobile%20Development/Projects/FarmersMarketSocialMedia/FarmersMarketSocialMedia/Controller/UserBusinessProfileViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4128A9FC-7BB6-475C-95E0-0459B0CCD2A7"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FarmersMarketSocialMedia/Controller/UserBusinessProfileViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "12"
+            endingLineNumber = "12"
+            landmarkName = "UserBusinessProfileViewController"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

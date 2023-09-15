@@ -11,6 +11,9 @@ class FindAFarmViewController: UIViewController {
     
     
     @IBOutlet weak var backgroundImage: UIImageView!
+    @IBOutlet weak var findAFarmButton: UIButton!
+    @IBOutlet weak var signInButton: UIButton!
+    @IBOutlet weak var signUpButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()

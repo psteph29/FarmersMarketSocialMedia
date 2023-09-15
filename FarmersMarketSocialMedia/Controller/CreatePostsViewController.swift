@@ -8,7 +8,14 @@
 import UIKit
 
 class CreatePostsViewController: UIViewController {
-
+    
+    @IBOutlet weak var createPostLabel: UILabel!
+    @IBOutlet weak var postButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var businessNameLabel: UILabel!
+    @IBOutlet weak var postDescriptionTextField: UITextView!
+    @IBOutlet weak var leavesBackground: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

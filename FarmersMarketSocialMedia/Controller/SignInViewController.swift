@@ -9,7 +9,12 @@ import UIKit
 
 class SignInViewController: UIViewController {
     
-    @IBOutlet weak var backgroundImage: UIImageView! // UIStackView!
+
+    @IBOutlet weak var backgroundImage: UIImageView!
+    
+    @IBOutlet weak var userName: UITextField!
+    @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var submitButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()

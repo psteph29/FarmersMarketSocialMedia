@@ -8,6 +8,11 @@
 import UIKit
 
 class UserBusinessProfileViewController: UIViewController {
+    
+    @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var businessNameLabel: UILabel!
+    @IBOutlet weak var businessAddressLabel: UILabel!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
