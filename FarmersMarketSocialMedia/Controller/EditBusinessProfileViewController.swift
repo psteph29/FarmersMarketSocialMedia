@@ -8,7 +8,16 @@
 import UIKit
 
 class EditBusinessProfileViewController: UIViewController {
-
+    
+    @IBOutlet weak var editProfileLable: UIView!
+    @IBOutlet weak var profilePictureLabel: UILabel!
+    @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var businessNameLabel: UILabel!
+    @IBOutlet weak var businessNameTextField: UITextField!
+    @IBOutlet weak var DescriptionLabel: UILabel!
+    @IBOutlet weak var editDescriptionTextField: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
