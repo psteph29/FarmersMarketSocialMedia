@@ -36,6 +36,7 @@
 		AB35EBD22AB21D7A006E3392 /* EditBusinessProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB35EBD12AB21D7A006E3392 /* EditBusinessProfile.storyboard */; };
 		AB35EBD42AB3478D006E3392 /* FindAFarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB35EBD32AB3478D006E3392 /* FindAFarmViewController.swift */; };
 		ABA47ADC2AB4A6C9008F58EE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ABA47ADB2AB4A6C9008F58EE /* GoogleService-Info.plist */; };
+		ABA47AE12AB4ACE2008F58EE /* FavoritesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA47AE02AB4ACE2008F58EE /* FavoritesCollectionViewCell.swift */; };
 		F30CC0202AAB7AB80067DC44 /* CreatePostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30CC01F2AAB7AB80067DC44 /* CreatePostsViewController.swift */; };
 		F30CC0222AAB7BA40067DC44 /* UserBusinessProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30CC0212AAB7BA40067DC44 /* UserBusinessProfileViewController.swift */; };
 		F30CC0242AAB7F120067DC44 /* BusinessProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30CC0232AAB7F120067DC44 /* BusinessProfileViewController.swift */; };
@@ -71,6 +72,7 @@
 		AB35EBD12AB21D7A006E3392 /* EditBusinessProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditBusinessProfile.storyboard; sourceTree = "<group>"; };
 		AB35EBD32AB3478D006E3392 /* FindAFarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindAFarmViewController.swift; sourceTree = "<group>"; };
 		ABA47ADB2AB4A6C9008F58EE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		ABA47AE02AB4ACE2008F58EE /* FavoritesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCollectionViewCell.swift; sourceTree = "<group>"; };
 		F30CC01F2AAB7AB80067DC44 /* CreatePostsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostsViewController.swift; sourceTree = "<group>"; };
 		F30CC0212AAB7BA40067DC44 /* UserBusinessProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserBusinessProfileViewController.swift; sourceTree = "<group>"; };
 		F30CC0232AAB7F120067DC44 /* BusinessProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessProfileViewController.swift; sourceTree = "<group>"; };
@@ -135,7 +137,6 @@
 				F30CC0212AAB7BA40067DC44 /* UserBusinessProfileViewController.swift */,
 				AB35EBA72AA8DB8B006E3392 /* SceneDelegate.swift */,
 				AB35EBC52AAB7666006E3392 /* SearchCollectionViewController.swift */,
-				AB35EBC72AAB7BF1006E3392 /* BusinessSearchResultsCollectionViewCell.swift */,
 				0FA6FE042AB4947B00130021 /* CustomDB-APIController.swift */,
 			);
 			path = Controller;
@@ -161,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				ABA47ADB2AB4A6C9008F58EE /* GoogleService-Info.plist */,
+				ABA47ADF2AB4AC9D008F58EE /* Cells */,
 				0FA6FE002AB48D4200130021 /* Controller */,
 				0FA6FDFF2AB48D3300130021 /* View */,
 				0FA6FDFE2AB48D2A00130021 /* Model */,
@@ -168,6 +170,15 @@
 				AB35EBB32AA8DB8E006E3392 /* Info.plist */,
 			);
 			path = FarmersMarketSocialMedia;
+			sourceTree = "<group>";
+		};
+		ABA47ADF2AB4AC9D008F58EE /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				AB35EBC72AAB7BF1006E3392 /* BusinessSearchResultsCollectionViewCell.swift */,
+				ABA47AE02AB4ACE2008F58EE /* FavoritesCollectionViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,6 +283,7 @@
 				AB35EBBC2AA9021D006E3392 /* APIController.swift in Sources */,
 				0FA6FE032AB48E5A00130021 /* BusinessListingStruct.swift in Sources */,
 				AB233CEF2AB35E54006A3DB7 /* SignUpViewController.swift in Sources */,
+				ABA47AE12AB4ACE2008F58EE /* FavoritesCollectionViewCell.swift in Sources */,
 				AB35EBC82AAB7BF1006E3392 /* BusinessSearchResultsCollectionViewCell.swift in Sources */,
 				AB35EBA82AA8DB8B006E3392 /* SceneDelegate.swift in Sources */,
 				F30CC0202AAB7AB80067DC44 /* CreatePostsViewController.swift in Sources */,
