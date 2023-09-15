@@ -9,7 +9,10 @@ import Foundation
 import Firebase
 
 struct FirebaseService {
-    static func fetchFarmersMarkets(zipcodesArray: [Int], completion: @escaping ([BusinessListing]?) -> Void) {
+    
+    // Beginning of businessListing API Calls
+    // Fetch or GET
+    static func fetchBusinessListing(zipcodesArray: [Int], completion: @escaping ([BusinessListing]?) -> Void) {
         let db = Firestore.firestore()
         db.collection("USDAFarmersMarkets")
             .whereField("listing_zipcode", in: zipcodesArray)
@@ -40,17 +43,23 @@ struct FirebaseService {
                 completion(businessListings)
         }
     }
-
-    func createFarmersMarket(businessListing: BusinessListing) {
+    
+    // Create or POST
+    func createBusinessListing(businessListing: BusinessListing) {
         let db = Firestore.firestore()
         var ref: DocumentReference? = nil
         
+        // Generate UUID string
+        let generatedUUIDString = UUID().uuidString
+        
         var data: [String: Any] = [
+            "listing_uuid": generatedUUIDString,
             "listing_name": businessListing.listing_name,
+            "listing_address": businessListing.listing_address,
             "listing_zipcode": businessListing.listing_zipcode,
-            
-            
-            // Add other properties as needed
+            "listing_username": businessListing.listing_username ?? "Test username",
+            "listing_description": businessListing.listing_description ?? "Test description",
+            "app_generated": businessListing.app_generated ?? true
         ]
         
         ref = db.collection("farmersMarkets").addDocument(data: data) { error in
@@ -62,14 +71,118 @@ struct FirebaseService {
                 // Handle success
             }
         }
-        
-        // create UUID() and assign it to a string and also to id property in struct
     }
     
-    // The following reqeusts still need to be made:
-    // GET request for posts made by a business_listing
-    // POST Request needed for posts
-    // PUT requests needed for businesslistings and Posts
-    // DELETE requests for businessListings and Posts
+    // Update or PUT
+    func updateBusinessListing(businessListing: BusinessListing) {
+        let db = Firestore.firestore()
+        
+        var data: [String: Any] = [
+            "listing_name": businessListing.listing_name,
+            "listing_address": businessListing.listing_address,
+            "listing_zipcode": businessListing.listing_zipcode,
+            "listing_username": businessListing.listing_username ?? "Test username",
+            "listing_description": businessListing.listing_description ?? "Test description",
+        ]
+        
+        db.collection("USDAFarmersMarkets").document(businessListing.listing_uuid).updateData(data) { error in
+            if let error = error {
+                print("Error updating business listing: \(error)")
+            } else {
+                print("Business listing updated.")
+            }
+        }
+    }
 
+    // Delete or DELETE
+    func deleteBusinessListing(listingUUID: String) {
+        let db = Firestore.firestore()
+        
+        db.collection("USDAFarmersMarkets").document(listingUUID).delete() { error in
+            if let error = error {
+                print("Error deleting business listing: \(error)")
+            } else {
+                print("Business listing deleted.")
+            }
+        }
+    }
+    // End of API calls for businessListings
+
+    // Beginning of API calls for Posts by businessListings
+    // Fetch or GET
+    func fetchPostsByBusinessListing(listingUUID: String, completion: @escaping ([Post]?) -> Void) {
+        let db = Firestore.firestore()
+        db.collection("USDAFarmersMarkets").document(listingUUID).collection("posts").getDocuments { (snapshot, error) in
+            if let error = error {
+                print("Error fetching posts: \(error)")
+                completion(nil)
+                return
+            }
+            
+            let posts = snapshot?.documents.compactMap { document -> Post? in
+                if let post_description = document.get("description") as? String,
+                   let post_date = document.get("date") as? Date {
+                    let post_id = document.documentID
+                    // Something for images, will need to figure this out.
+                    return Post(id: post_id, description: post_description, date: post_date)
+                }
+                return nil
+            } ?? []
+            
+            completion(posts)
+        }
+    }
+
+    // Create or POST
+    func createPostForBusinessListing(listingUUID: String, post: Post) {
+        let db = Firestore.firestore()
+        var ref: DocumentReference? = nil
+        
+        let postData: [String: Any] = [
+            "description": post.description,
+            "date": Date.timeIntervalSinceReferenceDate
+        ]
+        
+        ref = db.collection("USDAFarmersMarkets").document(listingUUID).collection("posts").addDocument(data: postData) { error in
+            if let error = error {
+                print("Error adding post: \(error)")
+            } else {
+                print("Post added with ID: \(ref!.documentID)")
+            }
+        }
+    }
+    
+    // Update or PUT
+    func updatePostForBusinessListing(listingUUID: String, post: Post) {
+        let db = Firestore.firestore()
+        
+        let postData: [String: Any] = [
+            "description": post.description,
+            "date": post.date
+            // Image will need to be figured out.
+        ]
+        
+        db.collection("USDAFarmersMarkets").document(listingUUID).collection("posts").document(post.id).updateData(postData) { error in
+            if let error = error {
+                print("Error updating post: \(error)")
+            } else {
+                print("Post updated.")
+            }
+        }
+    }
+
+    // Delete or DELETE
+    func deletePostForBusinessListing(listingUUID: String, postID: String) {
+        let db = Firestore.firestore()
+        
+        db.collection("USDAFarmersMarkets").document(listingUUID).collection("posts").document(postID).delete() { error in
+            if let error = error {
+                print("Error deleting post: \(error)")
+            } else {
+                print("Post deleted.")
+            }
+        }
+    }
+    // End of API calls for Posts
+    // End of API calls for custom firestore database.
 }

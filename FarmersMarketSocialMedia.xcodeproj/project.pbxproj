@@ -15,6 +15,7 @@
 		0FA6FE0A2AB494E600130021 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 0FA6FE092AB494E600130021 /* FirebaseFirestore */; };
 		0FA6FE0C2AB494E600130021 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0FA6FE0B2AB494E600130021 /* FirebaseFirestoreSwift */; };
 		0FA6FE0E2AB494E600130021 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 0FA6FE0D2AB494E600130021 /* FirebaseStorage */; };
+		0FA6FE122AB4E30900130021 /* PostStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA6FE112AB4E30900130021 /* PostStruct.swift */; };
 		AB233CE92AB35E22006A3DB7 /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB233CE82AB35E22006A3DB7 /* SignIn.storyboard */; };
 		AB233CEB2AB35E28006A3DB7 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB233CEA2AB35E28006A3DB7 /* SignUp.storyboard */; };
 		AB233CED2AB35E4C006A3DB7 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB233CEC2AB35E4C006A3DB7 /* SignInViewController.swift */; };
@@ -50,6 +51,7 @@
 		0FA6FE012AB48D8900130021 /* UpdatedZIPCODES.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = UpdatedZIPCODES.json; sourceTree = "<group>"; };
 		0FA6FE022AB48E5A00130021 /* BusinessListingStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessListingStruct.swift; sourceTree = "<group>"; };
 		0FA6FE042AB4947B00130021 /* CustomDB-APIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomDB-APIController.swift"; sourceTree = "<group>"; };
+		0FA6FE112AB4E30900130021 /* PostStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostStruct.swift; sourceTree = "<group>"; };
 		AB233CE82AB35E22006A3DB7 /* SignIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignIn.storyboard; sourceTree = "<group>"; };
 		AB233CEA2AB35E28006A3DB7 /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
 		AB233CEC2AB35E4C006A3DB7 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				0FA6FE012AB48D8900130021 /* UpdatedZIPCODES.json */,
 				0FA6FDFA2AB48CE600130021 /* ZipCodeStruct.swift */,
 				0FA6FE022AB48E5A00130021 /* BusinessListingStruct.swift */,
+				0FA6FE112AB4E30900130021 /* PostStruct.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 				0FA6FDFB2AB48CE600130021 /* ZipCodeStruct.swift in Sources */,
 				0FA6FDFD2AB48D1800130021 /* DistanceCalcFunc.swift in Sources */,
 				AB233CED2AB35E4C006A3DB7 /* SignInViewController.swift in Sources */,
+				0FA6FE122AB4E30900130021 /* PostStruct.swift in Sources */,
 				AB35EBBC2AA9021D006E3392 /* APIController.swift in Sources */,
 				ABA47AE32AB4B0B6008F58EE /* FavoritesCollectionViewController.swift in Sources */,
 				0FA6FE032AB48E5A00130021 /* BusinessListingStruct.swift in Sources */,
