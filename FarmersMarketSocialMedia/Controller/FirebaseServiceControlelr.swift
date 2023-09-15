@@ -112,6 +112,7 @@ struct FirebaseService {
 
     // Beginning of API calls for Posts by businessListings
     // Fetch or GET
+    // Tested and successful.
     func fetchPostsByBusinessListing(listingUUID: String, completion: @escaping ([Post]?) -> Void) {
         let db = Firestore.firestore()
         db.collection("USDAFarmersMarkets").document(listingUUID).collection("posts").getDocuments { (snapshot, error) in
@@ -122,14 +123,17 @@ struct FirebaseService {
             }
             
             let posts = snapshot?.documents.compactMap { document -> Post? in
+                print("Attempting to map document: \(document.documentID)")
                 if let post_description = document.get("description") as? String,
-                   let post_date = document.get("date") as? Date {
+                   let timestamp = document.get("date") as? Timestamp {
+                    let post_date = timestamp.dateValue()
                     let post_id = document.documentID
-                    // Something for images, will need to figure this out.
                     return Post(id: post_id, description: post_description, date: post_date)
+                } else {
+                    print("Failed to map document: \(document.documentID)")
+                    return nil
                 }
-                return nil
-            } ?? []
+            }
             
             completion(posts)
         }
@@ -154,7 +158,6 @@ struct FirebaseService {
             }
         }
     }
-}
     
     // Update or PUT
     // Tested and successful.
