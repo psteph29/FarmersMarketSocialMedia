@@ -6,14 +6,18 @@
 //
 
 import UIKit
+// The below is needed to accessing the DB
+import Firebase
+import FirebaseCore
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // The below is needed to accessing the DB
+        FirebaseApp.configure()
         return true
     }
 
@@ -32,5 +36,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 
+    
+    
+    // The below might be necessary, time will tell.
+    // @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
 }
 

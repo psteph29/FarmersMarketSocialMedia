@@ -10,7 +10,6 @@ import Foundation // Make sure to import Foundation
 
 class ViewController: UIViewController {
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
