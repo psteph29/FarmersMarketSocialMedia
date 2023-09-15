@@ -142,7 +142,7 @@ struct FirebaseService {
         
         let postData: [String: Any] = [
             "description": post.description,
-            "date": Date.timeIntervalSinceReferenceDate
+            "date": post.date
         ]
         
         ref = db.collection("USDAFarmersMarkets").document(listingUUID).collection("posts").addDocument(data: postData) { error in
@@ -153,6 +153,25 @@ struct FirebaseService {
             }
         }
     }
+    
+    func createPostForBusinessListing(listingUUID: String, post: Post) {
+        let db = Firestore.firestore()
+
+        let postData: [String: Any] = [
+            "id": post.id,
+            "description": post.description,
+            "date": post.date
+        ]
+        
+        db.collection("USDAFarmersMarkets").document(listingUUID).collection("posts").document(post.id).setData(postData) { error in
+            if let error = error {
+                print("Error adding post: \(error)")
+            } else {
+                print("Post added with ID: \(post.id)")
+            }
+        }
+    }
+}
     
     // Update or PUT
     func updatePostForBusinessListing(listingUUID: String, post: Post) {
