@@ -136,24 +136,7 @@ struct FirebaseService {
     }
 
     // Create or POST
-    func createPostForBusinessListing(listingUUID: String, post: Post) {
-        let db = Firestore.firestore()
-        var ref: DocumentReference? = nil
-        
-        let postData: [String: Any] = [
-            "description": post.description,
-            "date": post.date
-        ]
-        
-        ref = db.collection("USDAFarmersMarkets").document(listingUUID).collection("posts").addDocument(data: postData) { error in
-            if let error = error {
-                print("Error adding post: \(error)")
-            } else {
-                print("Post added with ID: \(ref!.documentID)")
-            }
-        }
-    }
-    
+    // Tested and Successful.
     func createPostForBusinessListing(listingUUID: String, post: Post) {
         let db = Firestore.firestore()
 
@@ -174,6 +157,7 @@ struct FirebaseService {
 }
     
     // Update or PUT
+    // Tested and successful.
     func updatePostForBusinessListing(listingUUID: String, post: Post) {
         let db = Firestore.firestore()
         
@@ -193,6 +177,7 @@ struct FirebaseService {
     }
 
     // Delete or DELETE
+    // tested and successful.
     func deletePostForBusinessListing(listingUUID: String, postID: String) {
         let db = Firestore.firestore()
         
