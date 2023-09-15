@@ -45,15 +45,12 @@ struct FirebaseService {
     }
     
     // Create or POST
+    // Tested and works.
     func createBusinessListing(businessListing: BusinessListing) {
         let db = Firestore.firestore()
         var ref: DocumentReference? = nil
         
-        // Generate UUID string
-        let generatedUUIDString = UUID().uuidString
-        
-        var data: [String: Any] = [
-            "listing_uuid": generatedUUIDString,
+        let data: [String: Any] = [
             "listing_name": businessListing.listing_name,
             "listing_address": businessListing.listing_address,
             "listing_zipcode": businessListing.listing_zipcode,
@@ -62,12 +59,16 @@ struct FirebaseService {
             "app_generated": businessListing.app_generated ?? true
         ]
         
-        ref = db.collection("farmersMarkets").addDocument(data: data) { error in
+        ref = db.collection("USDAFarmersMarkets").addDocument(data: data) { error in
             if let error = error {
                 print("Error adding document: \(error)")
                 // Error
             } else {
-                print("Document added with ID: \(ref!.documentID)")
+                guard let docID = ref?.documentID else { return }
+                   print("Document added with ID: \(docID)")
+                   
+                   // Update the document to set its listing_uuid field to the generated document ID
+                   db.collection("USDAFarmersMarkets").document(docID).updateData(["listing_uuid": docID])
                 // Handle success
             }
         }
@@ -95,6 +96,7 @@ struct FirebaseService {
     }
 
     // Delete or DELETE
+    // Tested and works.
     func deleteBusinessListing(listingUUID: String) {
         let db = Firestore.firestore()
         
