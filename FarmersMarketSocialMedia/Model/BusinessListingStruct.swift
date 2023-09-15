@@ -7,8 +7,6 @@
 
 import Foundation
 
-// Properties will need to be changed to the actual desired names, couldnt remember as of now.
-
 struct BusinessListing: Identifiable, Encodable {
     var id: String { listing_uuid }
     

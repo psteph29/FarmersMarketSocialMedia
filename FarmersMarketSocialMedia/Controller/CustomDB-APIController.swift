@@ -21,11 +21,16 @@ struct FirebaseService {
                 }
                 
                 let businessListings = snapshot?.documents.compactMap { document -> BusinessListing? in
-                    if let listingUUID = document.get("listing_uuid") as? String,
-                       let name = document.get("listing_name") as? String,
-                       let address = document.get("listing_address") as? String,
-                       let zipcode = document.get("listing_zipcode") as? Int {
-                        return BusinessListing(listing_uuid: listingUUID, listing_name: name, listing_address: address, listing_zipcode: zipcode)
+                    if let listing_USDA_id = document.get("listing_USDA_id") as? Int?,
+                       let listing_uuid = document.get("listing_uuid") as? String,
+                       let listing_name = document.get("listing_name") as? String,
+                       let listing_address = document.get("listing_address") as? String,
+                       let listing_zipcode = document.get("listing_zipcode") as? Int,
+                       let listing_username = document.get("listing_username") as? String,
+                       let listing_description = document.get("listing_description") as? String,
+                       let app_generated = document.get("app_generated") as? Bool
+                        {
+                        return BusinessListing(listing_USDA_id: listing_USDA_id, listing_uuid: listing_uuid, listing_name: listing_name, listing_address: listing_address, listing_zipcode: listing_zipcode, listing_username: listing_username, listing_description: listing_description, app_generated: app_generated)
                     } else {
                         print("Failed to parse document \(document.documentID)")
                     }
@@ -58,7 +63,7 @@ struct FirebaseService {
             }
         }
         
-        // create uuid and assign it to a string and also to id property in struct
+        // create UUID() and assign it to a string and also to id property in struct
     }
     
     // Insert more here! :^)
