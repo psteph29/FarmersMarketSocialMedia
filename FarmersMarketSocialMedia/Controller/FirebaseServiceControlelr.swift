@@ -7,6 +7,7 @@
 
 import Foundation
 import Firebase
+import FirebaseStorage
 
 struct FirebaseService {
     
@@ -159,14 +160,15 @@ struct FirebaseService {
         let postData: [String: Any] = [
             "id": post.id,
             "description": post.description,
-            "date": post.date
+            "date": post.date,
+            "image": post.imageURL // Added the image reference here
         ]
         
         db.collection("USDAFarmersMarkets").document(listingUUID).collection("posts").document(post.id).setData(postData) { error in
             if let error = error {
                 print("Error adding post: \(error)")
             } else {
-                print("Post added with ID: \(post.id)")
+                print("Post added with ID: \(post.id) and ImageURL: \(post.imageURL ?? "No ImageURL")")
             }
         }
     }
@@ -206,4 +208,45 @@ struct FirebaseService {
     }
     // End of API calls for Posts
     // End of API calls for custom firestore database.
+    
+    // Begining of API calls to storage
+    // Upload image to storage
+    // Tested and successful.
+    func uploadImageToFirebase(image: UIImage?, for listingUUID: String) {
+        // If the image is nil, we'll create a post without an image
+        guard let image = image else {
+            let post = Post(id: UUID().uuidString, description: "This is a test post.", date: Date(), imageURL: nil)
+            createPostForBusinessListing(listingUUID: listingUUID, post: post) // Updated this line
+            return
+        }
+
+        // If we have an image, then we proceed to upload it to Firebase Storage
+        guard let data = image.jpegData(compressionQuality: 1.0) else {
+            print("Failed to convert image to data")
+            return
+        }
+
+        let storageRef = Storage.storage().reference().child("uploadedImages/\(UUID().uuidString).jpg")
+        storageRef.putData(data, metadata: nil) { (metadata, error) in
+            guard metadata != nil else {
+                print("Error uploading image: \(String(describing: error))")
+                return
+            }
+
+            storageRef.downloadURL { (url, error) in
+                guard let downloadURL = url else {
+                    print("Error getting download URL: \(String(describing: error))")
+                    return
+                }
+                print("Image uploaded successfully. Download URL: \(downloadURL)")
+
+                // Now, create the post with the image URL
+                let post = Post(id: UUID().uuidString, description: "This is a test post.", date: Date(), imageURL: downloadURL.absoluteString)
+                createPostForBusinessListing(listingUUID: listingUUID, post: post) // Updated this line
+            }
+        }
+    }
+    
+    // End of API calls for storage.
+    // End of all API calls.
 }

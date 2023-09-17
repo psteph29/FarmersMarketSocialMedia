@@ -7,9 +7,16 @@
 
 import Foundation
 
-struct Post {
+struct Post: Identifiable {
     var id: String
     var description: String
     var date: Date
-    // var image: String   this will need to be figured out from firebase storage- reference type?
+    var imageURL: String?
+    
+    var imageURLObject: URL? {
+        guard let urlString = imageURL else {
+            return nil
+        }
+        return URL(string: urlString)
+    }
 }
