@@ -209,7 +209,7 @@ struct FirebaseService {
         // If the image is nil, we'll create a post without an image
         guard let image = image else {
             let post = Post(id: UUID().uuidString, description: "This is a test post.", date: Date(), imageURL: nil)
-            createPostForBusinessListing(listingUUID: listingUUID, post: post) // Updated this line
+            createPostForBusinessListing(listingUUID: listingUUID, post: post)
             return
         }
 
@@ -233,9 +233,9 @@ struct FirebaseService {
                 }
                 print("Image uploaded successfully. Download URL: \(downloadURL)")
 
-                // Now, create the post with the image URL
+                // create the post with the image URL
                 let post = Post(id: UUID().uuidString, description: "This is a test post.", date: Date(), imageURL: downloadURL.absoluteString)
-                createPostForBusinessListing(listingUUID: listingUUID, post: post) // Updated this line
+                createPostForBusinessListing(listingUUID: listingUUID, post: post)
             }
         }
     }
