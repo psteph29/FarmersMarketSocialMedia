@@ -58,30 +58,24 @@ struct FirebaseService {
     }
     // Create or POST
     // Tested and works.
-    func createBusinessListing(businessListing: BusinessListing) {
+    func createBusinessListing(businessListing: BusinessListing, completion: @escaping (Bool, Error?) -> Void) {
         let db = Firestore.firestore()
-        var ref: DocumentReference? = nil
-        
         let data: [String: Any] = [
+            "listing_uuid": businessListing.listing_uuid,
+            "uid": businessListing.uid,
             "listing_name": businessListing.listing_name,
             "listing_address": businessListing.listing_address,
-            "listing_zipcode": businessListing.listing_zipcode,
-            "listing_username": businessListing.listing_username ?? "Test username",
-            "listing_description": businessListing.listing_description ?? "Test description",
+            "listing_zipcode": businessListing.listing_zipcode as Any,
+            "listing_username": businessListing.listing_username ?? "",
+            "listing_description": businessListing.listing_description ?? "",
             "app_generated": businessListing.app_generated ?? true
         ]
-        
-        ref = db.collection("USDAFarmersMarkets").addDocument(data: data) { error in
+
+        db.collection("USDAFarmersMarkets").document(businessListing.uid!).setData(data) { error in
             if let error = error {
-                print("Error adding document: \(error)")
-                // Error
+                completion(false, error)
             } else {
-                guard let docID = ref?.documentID else { return }
-                   print("Document added with ID: \(docID)")
-                   
-                   // Update the document to set its listing_uuid field to the generated document ID
-                   db.collection("USDAFarmersMarkets").document(docID).updateData(["listing_uuid": docID])
-                // Handle success
+                completion(true, nil)
             }
         }
     }
@@ -147,7 +141,6 @@ struct FirebaseService {
                     return nil
                 }
             }
-            
             completion(posts)
         }
     }
@@ -247,6 +240,32 @@ struct FirebaseService {
         }
     }
     
+    // NEED TO CREATE DELETE OR UPDATE CALLS FOR IMAGE/ IMAGES
+    
     // End of API calls for storage.
+    
+    // Beginning of API calls for authorization
+    // Sign in
+    func signIn(email: String, password: String, completion: @escaping (Bool, Error?) -> Void) {
+        Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
+            if let error = error {
+                completion(false, error)
+                return
+            }
+            completion(true, nil)
+        }
+    }
+    
+    // Sign up
+    func signUp(email: String, password: String, completion: @escaping (Bool, Error?) -> Void) {
+        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+            if let error = error {
+                completion(false, error)
+                return
+            }
+            completion(true, nil)
+        }
+    }
+    // End of auth API calls.
     // End of all API calls.
 }
