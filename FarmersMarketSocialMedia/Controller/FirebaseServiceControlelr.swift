@@ -12,6 +12,7 @@ import FirebaseStorage
 struct FirebaseService {
     
     // Beginning of businessListing API Calls
+    
     // Fetch or GET
     // Tested and Successful.
     static func fetchBusinessListing(zipcodesArray: [Int], completion: @escaping ([BusinessListing]?) -> Void) {
@@ -56,13 +57,14 @@ struct FirebaseService {
                 completion(businessListings)
         }
     }
+    
     // Create or POST
     // Tested and works.
     func createBusinessListing(businessListing: BusinessListing, completion: @escaping (Bool, Error?) -> Void) {
         let db = Firestore.firestore()
         let data: [String: Any] = [
             "listing_uuid": businessListing.listing_uuid,
-            "uid": businessListing.uid,
+            "uid": businessListing.uid as Any,
             "listing_name": businessListing.listing_name,
             "listing_address": businessListing.listing_address,
             "listing_zipcode": businessListing.listing_zipcode as Any,
@@ -88,7 +90,7 @@ struct FirebaseService {
         var data: [String: Any] = [
             "listing_name": businessListing.listing_name,
             "listing_address": businessListing.listing_address,
-            "listing_zipcode": businessListing.listing_zipcode,
+            "listing_zipcode": businessListing.listing_zipcode as Any,
             "listing_username": businessListing.listing_username ?? "Test username",
             "listing_description": businessListing.listing_description ?? "Test description",
         ]
@@ -118,6 +120,7 @@ struct FirebaseService {
     // End of API calls for businessListings
 
     // Beginning of API calls for Posts by businessListings
+    
     // Fetch or GET
     // Tested and successful.
     func fetchPostsByBusinessListing(listingUUID: String, completion: @escaping ([Post]?) -> Void) {
@@ -154,7 +157,7 @@ struct FirebaseService {
             "id": post.id,
             "description": post.description,
             "date": post.date,
-            "image": post.imageURL // Added the image reference here
+            "image": post.imageURL as Any // Added the image reference here
         ]
         
         db.collection("USDAFarmersMarkets").document(listingUUID).collection("posts").document(post.id).setData(postData) { error in
@@ -203,7 +206,8 @@ struct FirebaseService {
     // End of API calls for custom firestore database.
     
     // Begining of API calls to storage
-    // Upload image to storage
+    
+    // Upload or POST image to storage
     // Tested and successful.
     func uploadImageToFirebase(image: UIImage?, for listingUUID: String) {
         // If the image is nil, we'll create a post without an image
@@ -240,11 +244,45 @@ struct FirebaseService {
         }
     }
     
-    // NEED TO CREATE DELETE OR UPDATE CALLS FOR IMAGE/ IMAGES
-    
+    // Update or PUT image request
+    func updateImageInFirebase(oldImageURL: String?, newImage: UIImage?, for listingUUID: String) {
+        // First, delete the old image if it exists
+        if let oldImageURL = oldImageURL {
+            let oldStorageRef = Storage.storage().reference(forURL: oldImageURL)
+            oldStorageRef.delete { error in
+                if let error = error {
+                    print("Error deleting old image: \(error)")
+                } else {
+                    print("Old image successfully deleted.")
+                }
+                
+                // After deleting the old image, upload the new one
+                uploadImageToFirebase(image: newImage, for: listingUUID)
+            }
+        } else {
+            // If there was no old image, just upload the new one
+            uploadImageToFirebase(image: newImage, for: listingUUID)
+        }
+    }
+
+    // Delete or DELETE image
+    func deleteImageFromFirebase(imageURL: String, completion: @escaping (Bool) -> Void) {
+        let storageRef = Storage.storage().reference(forURL: imageURL)
+        
+        storageRef.delete { error in
+            if let error = error {
+                print("Error deleting image: \(error)")
+                completion(false)
+            } else {
+                print("Image successfully deleted.")
+                completion(true)
+            }
+        }
+    }
     // End of API calls for storage.
     
     // Beginning of API calls for authorization
+    
     // Sign in
     // Altered for returning the uid of the signed in user for businesslisting lookup.
     func signIn(email: String, password: String, completion: @escaping (Bool, String?, Error?) -> Void) {
@@ -280,7 +318,9 @@ struct FirebaseService {
         }
     }
     
-    // The uid could be used from either sign in or up and stored temporaroily in the user defaults as a way to look up the business information while on other screens.
+    // READ BELOW!!!
+    // IMPORTANT!!! The uid could be used from either sign in or up and stored temporaroily in the user defaults as a way to look up the business information while on other screens. IMPORTANT!!!
+    // READ ABOVE!!!
 
     // End of auth API calls.
     // End of all API calls.
