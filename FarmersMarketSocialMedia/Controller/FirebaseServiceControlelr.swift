@@ -246,26 +246,42 @@ struct FirebaseService {
     
     // Beginning of API calls for authorization
     // Sign in
-    func signIn(email: String, password: String, completion: @escaping (Bool, Error?) -> Void) {
+    // Altered for returning the uid of the signed in user for businesslisting lookup.
+    func signIn(email: String, password: String, completion: @escaping (Bool, String?, Error?) -> Void) {
         Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
             if let error = error {
-                completion(false, error)
+                completion(false, nil, error)
                 return
             }
-            completion(true, nil)
+            if let uid = authResult?.user.uid {
+                completion(true, uid, nil)
+            } else {
+                // This is an unlikely scenario but added for completeness.
+                completion(false, nil, NSError(domain: "FirebaseAuth", code: -1, userInfo: [NSLocalizedDescriptionKey: "Unable to retrieve UID"]))
+            }
+        }
+    }
+
+    
+    // Sign up
+    // Altered for returning the uid of the newly signed in user for businesslisting lookup.
+    func signUp(email: String, password: String, completion: @escaping (Bool, String?, Error?) -> Void) {
+        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+            if let error = error {
+                completion(false, nil, error)
+                return
+            }
+            if let uid = authResult?.user.uid {
+                completion(true, uid, nil)
+            } else {
+                // This is an unlikely scenario but added for completeness.
+                completion(false, nil, NSError(domain: "FirebaseAuth", code: -1, userInfo: [NSLocalizedDescriptionKey: "Unable to retrieve UID"]))
+            }
         }
     }
     
-    // Sign up
-    func signUp(email: String, password: String, completion: @escaping (Bool, Error?) -> Void) {
-        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-            if let error = error {
-                completion(false, error)
-                return
-            }
-            completion(true, nil)
-        }
-    }
+    // The uid could be used from either sign in or up and stored temporaroily in the user defaults as a way to look up the business information while on other screens.
+
     // End of auth API calls.
     // End of all API calls.
 }
