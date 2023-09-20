@@ -18,9 +18,13 @@ class EditBusinessProfileViewController: UIViewController {
     @IBOutlet weak var DescriptionLabel: UILabel!
     @IBOutlet weak var editDescriptionTextField: UITextView!
     
+    @IBOutlet weak var backgroundImage: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        backgroundImage.alpha = 0.3
+        backgroundImage.contentMode = .scaleAspectFill
         // Do any additional setup after loading the view.
     }
     
