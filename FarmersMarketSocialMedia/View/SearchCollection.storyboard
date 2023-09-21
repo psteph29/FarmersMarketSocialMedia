@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hkd-uk-ebm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1xm-ne-rjg">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
@@ -26,7 +26,7 @@
                                 </connections>
                             </searchBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Px9-f0-M7E">
-                                <rect key="frame" x="0.0" y="115" width="393" height="654"/>
+                                <rect key="frame" x="0.0" y="115" width="393" height="703"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Qrx-My-jOB">
                                     <size key="itemSize" width="128" height="128"/>
@@ -79,6 +79,7 @@
                                             <outlet property="addressLabel" destination="Wbt-Wx-Etz" id="2Xb-53-8OJ"/>
                                             <outlet property="businessNameLabel" destination="QJw-eO-qhJ" id="CbZ-fm-ryk"/>
                                             <outlet property="imageView" destination="doy-Ti-Wxf" id="A5M-9V-BBi"/>
+                                            <segue destination="8ic-pd-BnY" kind="presentation" id="yTG-0b-6Iy"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -140,101 +141,16 @@
             </objects>
             <point key="canvasLocation" x="-359.5419847328244" y="-1235.2112676056338"/>
         </scene>
-        <!--Favorites-->
-        <scene sceneID="HJg-o5-7Vz">
+        <!--UserBusinessProfile-->
+        <scene sceneID="BJz-cO-Roc">
             <objects>
-                <collectionViewController id="7bl-8E-dhW" customClass="FavoritesCollectionViewController" customModule="FarmersMarketSocialMedia" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="26Z-3O-6e6">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="h2v-Ag-NmC">
-                            <size key="itemSize" width="128" height="128"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="favoritesCell" id="aWr-9I-oAQ" customClass="FavoritesCollectionViewCell" customModule="FarmersMarketSocialMedia" customModuleProvider="target">
-                                <rect key="frame" x="86.666666666666671" y="0.0" width="220" height="163"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="D2U-Ut-p0M">
-                                    <rect key="frame" x="0.0" y="0.0" width="220" height="163"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="f1p-65-uwh">
-                                            <rect key="frame" x="0.0" y="0.0" width="220" height="160"/>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" text="Business Name" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AvO-iS-gkd">
-                                            <rect key="frame" x="8" y="7.9999999999999982" width="204" height="20.333333333333329"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="249" text="Address" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1QP-TK-6LQ">
-                                            <rect key="frame" x="8" y="36.333333333333343" width="204" height="60.666666666666657"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <color key="backgroundColor" red="0.53213924160000003" green="0.29942746780000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <constraints>
-                                        <constraint firstItem="f1p-65-uwh" firstAttribute="top" secondItem="D2U-Ut-p0M" secondAttribute="top" id="7yO-yu-Az9"/>
-                                        <constraint firstAttribute="trailing" secondItem="1QP-TK-6LQ" secondAttribute="trailing" constant="8" id="A1F-hN-XRb"/>
-                                        <constraint firstItem="AvO-iS-gkd" firstAttribute="leading" secondItem="D2U-Ut-p0M" secondAttribute="leading" constant="8" id="B6Z-Zr-oBP"/>
-                                        <constraint firstItem="1QP-TK-6LQ" firstAttribute="leading" secondItem="D2U-Ut-p0M" secondAttribute="leading" constant="8" id="UPu-Cv-o62"/>
-                                        <constraint firstAttribute="bottom" secondItem="1QP-TK-6LQ" secondAttribute="bottom" constant="66" id="fMc-Sc-BhZ"/>
-                                        <constraint firstItem="1QP-TK-6LQ" firstAttribute="centerX" secondItem="f1p-65-uwh" secondAttribute="centerX" id="ggE-GC-0Q9"/>
-                                        <constraint firstItem="AvO-iS-gkd" firstAttribute="centerX" secondItem="f1p-65-uwh" secondAttribute="centerX" id="iHU-jE-elI"/>
-                                        <constraint firstItem="f1p-65-uwh" firstAttribute="leading" secondItem="D2U-Ut-p0M" secondAttribute="leading" id="lGI-h0-dPR"/>
-                                        <constraint firstAttribute="trailing" secondItem="AvO-iS-gkd" secondAttribute="trailing" constant="8" id="q7S-Ma-4OP"/>
-                                        <constraint firstAttribute="bottom" secondItem="f1p-65-uwh" secondAttribute="bottom" constant="3" id="spm-Bt-419"/>
-                                        <constraint firstItem="1QP-TK-6LQ" firstAttribute="top" secondItem="AvO-iS-gkd" secondAttribute="bottom" constant="8" id="sqA-jw-20e"/>
-                                        <constraint firstItem="AvO-iS-gkd" firstAttribute="top" secondItem="D2U-Ut-p0M" secondAttribute="top" constant="8" id="sqa-Z3-2ox"/>
-                                    </constraints>
-                                </collectionViewCellContentView>
-                                <size key="customSize" width="220" height="163"/>
-                                <connections>
-                                    <outlet property="addressLabel" destination="1QP-TK-6LQ" id="BVn-8E-5ha"/>
-                                    <outlet property="backgroundImageView" destination="f1p-65-uwh" id="Rvc-PK-uLO"/>
-                                    <outlet property="businessNameLabel" destination="AvO-iS-gkd" id="nCN-Qf-s0s"/>
-                                </connections>
-                            </collectionViewCell>
-                        </cells>
-                        <connections>
-                            <outlet property="dataSource" destination="7bl-8E-dhW" id="oeE-hy-R2o"/>
-                            <outlet property="delegate" destination="7bl-8E-dhW" id="Vk4-sy-0bk"/>
-                        </connections>
-                    </collectionView>
-                    <tabBarItem key="tabBarItem" title="Favorites" image="heart.circle" catalog="system" selectedImage="heart.circle.fill" id="2Cv-N8-Q2q"/>
-                </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DqS-5j-YWU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="UserBusinessProfile" id="8ic-pd-BnY" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2W7-Mm-PSg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="266.41221374045801" y="-525.35211267605632"/>
-        </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="w38-6i-8uS">
-            <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="hkd-uk-ebm" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="llH-6W-8Az">
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="1xm-ne-rjg" kind="relationship" relationship="viewControllers" id="A1T-Ot-ObZ"/>
-                        <segue destination="7bl-8E-dhW" kind="relationship" relationship="viewControllers" id="UKm-Q8-0UE"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zFm-IJ-rBg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1286.2595419847328" y="-880.28169014084517"/>
+            <point key="canvasLocation" x="318" y="-1474"/>
         </scene>
     </scenes>
     <resources>
-        <image name="heart.circle" catalog="system" width="128" height="123"/>
-        <image name="heart.circle.fill" catalog="system" width="128" height="123"/>
         <image name="magnifyingglass.circle" catalog="system" width="128" height="123"/>
         <image name="magnifyingglass.circle.fill" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">

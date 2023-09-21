@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2n3-zJ-mpx">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
@@ -72,13 +72,21 @@
                         <outlet property="backgroundImage" destination="0KH-jQ-Hmp" id="Q5N-mK-dJ1"/>
                         <outlet property="businessAddressLabel" destination="jh1-Vc-y7w" id="2Y6-gX-YDL"/>
                         <outlet property="businessNameLabel" destination="Zh0-RY-2KM" id="Dzf-0J-aQ0"/>
+                        <outlet property="postsTableView" destination="LmO-ob-BO6" id="sdk-AP-KDL"/>
                         <outlet property="profileImage" destination="i3S-KO-wbz" id="dUU-xg-gco"/>
-                        <outlet property="tableView" destination="LmO-ob-BO6" id="wBR-d9-QFj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uGA-pA-GPS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3.8167938931297707" y="-1174.6478873239437"/>
+        </scene>
+        <!--EditBusinessProfile-->
+        <scene sceneID="Evi-w5-VO0">
+            <objects>
+                <viewControllerPlaceholder storyboardName="EditBusinessProfile" id="35u-Uq-XkM" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xiT-RX-mI2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="641" y="-1318"/>
         </scene>
     </scenes>
     <resources>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EKp-4N-vHT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4Rp-P2-EnZ">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Business Profile View Controller-->
+        <!--Profile-->
         <scene sceneID="22r-Wl-C0g">
             <objects>
                 <viewController id="EKp-4N-vHT" customClass="BusinessProfileViewController" customModule="FarmersMarketSocialMedia" customModuleProvider="target" sceneMemberID="viewController">
@@ -76,6 +76,7 @@
                         <viewLayoutGuide key="safeArea" id="roI-3B-sxp"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Profile" image="person.circle" catalog="system" selectedImage="person.circle.fill" id="Im8-ai-HH9"/>
                     <connections>
                         <outlet property="backgroundImage" destination="ojm-E3-wzg" id="MKT-j8-REL"/>
                         <outlet property="businessNameLabel" destination="g4D-sC-5rH" id="iqc-2q-IQA"/>
@@ -85,11 +86,53 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z41-w2-owc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1776.3358778625955" y="-1175.3521126760563"/>
+        </scene>
+        <!--Search Collection-->
+        <scene sceneID="8wG-Zc-YPw">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="4Rp-P2-EnZ" customClass="SearchCollection" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="WEb-ng-Lfh">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="EKp-4N-vHT" kind="relationship" relationship="viewControllers" id="eTO-AM-b82"/>
+                        <segue destination="U7P-94-5en" kind="relationship" relationship="viewControllers" id="kNe-Aw-Up1"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xwk-xe-aYC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
             <point key="canvasLocation" x="849.61832061068696" y="-1175.3521126760563"/>
+        </scene>
+        <!--SearchCollection-->
+        <scene sceneID="lJ1-RO-t1H">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SearchCollection" id="U7P-94-5en" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Find A Farm" image="magnifyingglass.circle" catalog="system" selectedImage="magnifyingglass.circle.fill" id="IW5-PQ-k7Z"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nLY-7N-zDL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1491" y="-751"/>
+        </scene>
+        <!--CreatePosts-->
+        <scene sceneID="TgD-DH-tAO">
+            <objects>
+                <viewControllerPlaceholder storyboardName="CreatePosts" id="Ss2-PN-FYF" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="hlh-SC-9lD"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iBd-av-uRX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2358" y="-1420"/>
         </scene>
     </scenes>
     <resources>
         <image name="leaves" width="989" height="1280"/>
+        <image name="magnifyingglass.circle" catalog="system" width="128" height="123"/>
+        <image name="magnifyingglass.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="person.circle" catalog="system" width="128" height="123"/>
+        <image name="person.circle.fill" catalog="system" width="128" height="123"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
