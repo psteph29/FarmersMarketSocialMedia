@@ -116,6 +116,16 @@
             </objects>
             <point key="canvasLocation" x="1491" y="-751"/>
         </scene>
+        <!--CreatePosts-->
+        <scene sceneID="TgD-DH-tAO">
+            <objects>
+                <viewControllerPlaceholder storyboardName="CreatePosts" id="Ss2-PN-FYF" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="hlh-SC-9lD"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iBd-av-uRX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2358" y="-1420"/>
+        </scene>
     </scenes>
     <resources>
         <image name="leaves" width="989" height="1280"/>

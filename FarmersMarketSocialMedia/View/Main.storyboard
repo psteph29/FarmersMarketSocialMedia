@@ -28,14 +28,6 @@
             </objects>
             <point key="canvasLocation" x="-974.80916030534343" y="-930.28169014084517"/>
         </scene>
-        <!--CreatePosts-->
-        <scene sceneID="8Tj-Sf-CfS">
-            <objects>
-                <viewControllerPlaceholder storyboardName="CreatePosts" id="acK-Iy-zAk" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="PSB-hq-kRE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-254.19847328244273" y="-848.59154929577471"/>
-        </scene>
         <!--SignUp-->
         <scene sceneID="9Kf-Q0-TD2">
             <objects>
@@ -45,22 +37,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E3J-b8-HgY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1062.5954198473282" y="-677.46478873239437"/>
-        </scene>
-        <!--BusinessProfile-->
-        <scene sceneID="M8E-3e-r3Q">
-            <objects>
-                <viewControllerPlaceholder storyboardName="BusinessProfile" id="31G-4T-BSG" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HKV-Sl-v7U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="48.854961832061065" y="-844.36619718309862"/>
-        </scene>
-        <!--EditBusinessProfile-->
-        <scene sceneID="der-4o-sgm">
-            <objects>
-                <viewControllerPlaceholder storyboardName="EditBusinessProfile" id="5Hj-ps-y1k" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Rvg-T8-UsC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="45.801526717557252" y="-773.23943661971839"/>
         </scene>
         <!--FindA Farm View Controller-->
         <scene sceneID="jYP-fb-9cK">
@@ -168,6 +144,7 @@
         <!--Navigation Controller-->
         <scene sceneID="ptW-WH-QRK">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BC3-Yr-dB7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="90L-OJ-QgX" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="48f-O2-aHf">
@@ -179,7 +156,6 @@
                         <segue destination="nCy-f2-Gre" kind="relationship" relationship="rootViewController" id="eN3-H9-NWV"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="BC3-Yr-dB7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2692.3664122137402" y="-930.28169014084517"/>
         </scene>

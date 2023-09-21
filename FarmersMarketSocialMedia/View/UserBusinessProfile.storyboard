@@ -80,6 +80,14 @@
             </objects>
             <point key="canvasLocation" x="3.8167938931297707" y="-1174.6478873239437"/>
         </scene>
+        <!--EditBusinessProfile-->
+        <scene sceneID="Evi-w5-VO0">
+            <objects>
+                <viewControllerPlaceholder storyboardName="EditBusinessProfile" id="35u-Uq-XkM" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xiT-RX-mI2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="641" y="-1318"/>
+        </scene>
     </scenes>
     <resources>
         <image name="leaves" width="989" height="1280"/>

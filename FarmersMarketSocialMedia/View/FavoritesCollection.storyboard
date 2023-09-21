@@ -67,6 +67,7 @@
                                     <outlet property="addressLabel" destination="tHn-SY-WwR" id="eQD-lt-tq6"/>
                                     <outlet property="backgroundImageView" destination="cKJ-pv-KBE" id="0IK-Zh-39I"/>
                                     <outlet property="businessNameLabel" destination="AFP-eA-NYB" id="qG4-Ld-opc"/>
+                                    <segue destination="CZ0-am-NTe" kind="presentation" id="vCb-WH-cuU"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -80,6 +81,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SN0-Vv-8Ey" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-360" y="-481"/>
+        </scene>
+        <!--UserBusinessProfile-->
+        <scene sceneID="VEv-rJ-6IZ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="UserBusinessProfile" id="CZ0-am-NTe" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0xd-ug-Jaq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="347" y="-652"/>
         </scene>
     </scenes>
     <resources>

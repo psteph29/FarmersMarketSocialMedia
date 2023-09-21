@@ -79,7 +79,7 @@
                                             <outlet property="addressLabel" destination="Wbt-Wx-Etz" id="2Xb-53-8OJ"/>
                                             <outlet property="businessNameLabel" destination="QJw-eO-qhJ" id="CbZ-fm-ryk"/>
                                             <outlet property="imageView" destination="doy-Ti-Wxf" id="A5M-9V-BBi"/>
-                                            <segue destination="DIL-p6-Cso" kind="show" id="Nzl-vv-uRT"/>
+                                            <segue destination="8ic-pd-BnY" kind="presentation" id="yTG-0b-6Iy"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -142,14 +142,12 @@
             <point key="canvasLocation" x="-359.5419847328244" y="-1235.2112676056338"/>
         </scene>
         <!--UserBusinessProfile-->
-        <scene sceneID="pek-nw-Q82">
+        <scene sceneID="BJz-cO-Roc">
             <objects>
-                <viewControllerPlaceholder storyboardName="UserBusinessProfile" id="DIL-p6-Cso" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="rNH-w1-5na"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="G5d-TC-iHK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="UserBusinessProfile" id="8ic-pd-BnY" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2W7-Mm-PSg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="382" y="-1454"/>
+            <point key="canvasLocation" x="318" y="-1474"/>
         </scene>
     </scenes>
     <resources>
