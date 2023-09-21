@@ -21,3 +21,4 @@ GoogleService-Info.plist
 /FarmersMarketSocialMedia.xcodeproj/project.xcworkspace/xcuserdata/paigestephenson.xcuserdatad/UserInterfaceState.xcuserstate
 /FarmersMarketSocialMedia/GoogleService-Info.plist
 FarmersMarketSocialMedia/.DS_Store
+*.DS_Store
