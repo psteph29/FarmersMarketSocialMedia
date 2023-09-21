@@ -16,9 +16,13 @@ class CreatePostsViewController: UIViewController {
     @IBOutlet weak var postDescriptionTextField: UITextView!
     @IBOutlet weak var leavesBackground: UIImageView!
     
+    @IBOutlet weak var backgroundImage: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        backgroundImage.alpha = 0.3
+        backgroundImage.contentMode = .scaleAspectFill
         // Do any additional setup after loading the view.
     }
     

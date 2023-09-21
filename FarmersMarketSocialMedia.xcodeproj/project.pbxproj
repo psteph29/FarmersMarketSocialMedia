@@ -10,11 +10,13 @@
 		0FA6FDFB2AB48CE600130021 /* ZipCodeStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA6FDFA2AB48CE600130021 /* ZipCodeStruct.swift */; };
 		0FA6FDFD2AB48D1800130021 /* DistanceCalcFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA6FDFC2AB48D1800130021 /* DistanceCalcFunc.swift */; };
 		0FA6FE032AB48E5A00130021 /* BusinessListingStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA6FE022AB48E5A00130021 /* BusinessListingStruct.swift */; };
-		0FA6FE052AB4947B00130021 /* CustomDB-APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA6FE042AB4947B00130021 /* CustomDB-APIController.swift */; };
+		0FA6FE052AB4947B00130021 /* FirebaseServiceControlelr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA6FE042AB4947B00130021 /* FirebaseServiceControlelr.swift */; };
 		0FA6FE082AB494E600130021 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 0FA6FE072AB494E600130021 /* FirebaseAuth */; };
 		0FA6FE0A2AB494E600130021 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 0FA6FE092AB494E600130021 /* FirebaseFirestore */; };
 		0FA6FE0C2AB494E600130021 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0FA6FE0B2AB494E600130021 /* FirebaseFirestoreSwift */; };
 		0FA6FE0E2AB494E600130021 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 0FA6FE0D2AB494E600130021 /* FirebaseStorage */; };
+		0FA6FE122AB4E30900130021 /* PostStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA6FE112AB4E30900130021 /* PostStruct.swift */; };
+		0FC4EF412ABB347600A44030 /* MileToKilometer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC4EF402ABB347600A44030 /* MileToKilometer.swift */; };
 		AB233CE92AB35E22006A3DB7 /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB233CE82AB35E22006A3DB7 /* SignIn.storyboard */; };
 		AB233CEB2AB35E28006A3DB7 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB233CEA2AB35E28006A3DB7 /* SignUp.storyboard */; };
 		AB233CED2AB35E4C006A3DB7 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB233CEC2AB35E4C006A3DB7 /* SignInViewController.swift */; };
@@ -49,7 +51,9 @@
 		0FA6FDFC2AB48D1800130021 /* DistanceCalcFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceCalcFunc.swift; sourceTree = "<group>"; };
 		0FA6FE012AB48D8900130021 /* UpdatedZIPCODES.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = UpdatedZIPCODES.json; sourceTree = "<group>"; };
 		0FA6FE022AB48E5A00130021 /* BusinessListingStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessListingStruct.swift; sourceTree = "<group>"; };
-		0FA6FE042AB4947B00130021 /* CustomDB-APIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomDB-APIController.swift"; sourceTree = "<group>"; };
+		0FA6FE042AB4947B00130021 /* FirebaseServiceControlelr.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseServiceControlelr.swift; sourceTree = "<group>"; };
+		0FA6FE112AB4E30900130021 /* PostStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostStruct.swift; sourceTree = "<group>"; };
+		0FC4EF402ABB347600A44030 /* MileToKilometer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MileToKilometer.swift; sourceTree = "<group>"; };
 		AB233CE82AB35E22006A3DB7 /* SignIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignIn.storyboard; sourceTree = "<group>"; };
 		AB233CEA2AB35E28006A3DB7 /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
 		AB233CEC2AB35E4C006A3DB7 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -99,10 +103,13 @@
 		0FA6FDFE2AB48D2A00130021 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				AB35EBB92AA9012B006E3392 /* FarmDataStructure.swift */,
 				0FA6FE012AB48D8900130021 /* UpdatedZIPCODES.json */,
+				AB35EBB92AA9012B006E3392 /* FarmDataStructure.swift */,
 				0FA6FDFA2AB48CE600130021 /* ZipCodeStruct.swift */,
 				0FA6FE022AB48E5A00130021 /* BusinessListingStruct.swift */,
+				0FA6FE112AB4E30900130021 /* PostStruct.swift */,
+				0FA6FDFC2AB48D1800130021 /* DistanceCalcFunc.swift */,
+				0FC4EF402ABB347600A44030 /* MileToKilometer.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -114,8 +121,8 @@
 				AB35EBBD2AAA0E29006E3392 /* Main.storyboard */,
 				AB233CE82AB35E22006A3DB7 /* SignIn.storyboard */,
 				AB233CEA2AB35E28006A3DB7 /* SignUp.storyboard */,
-				AB35EBD12AB21D7A006E3392 /* EditBusinessProfile.storyboard */,
 				AB35EBCF2AB21D1F006E3392 /* BusinessProfile.storyboard */,
+				AB35EBD12AB21D7A006E3392 /* EditBusinessProfile.storyboard */,
 				AB35EBCD2AB21CA9006E3392 /* UserBusinessProfile.storyboard */,
 				AB35EBCB2AB21BE5006E3392 /* CreatePosts.storyboard */,
 				AB35EBC92AB21844006E3392 /* SearchCollection.storyboard */,
@@ -127,20 +134,19 @@
 			isa = PBXGroup;
 			children = (
 				AB35EBBB2AA9021D006E3392 /* APIController.swift */,
-				0FA6FDFC2AB48D1800130021 /* DistanceCalcFunc.swift */,
+				0FA6FE042AB4947B00130021 /* FirebaseServiceControlelr.swift */,
 				AB233CEC2AB35E4C006A3DB7 /* SignInViewController.swift */,
 				AB233CEE2AB35E54006A3DB7 /* SignUpViewController.swift */,
 				F30CC0232AAB7F120067DC44 /* BusinessProfileViewController.swift */,
 				F30CC0252AAB7F3A0067DC44 /* EditBusinessProfileViewController.swift */,
 				F30CC01F2AAB7AB80067DC44 /* CreatePostsViewController.swift */,
-				AB35EBA92AA8DB8B006E3392 /* ViewController.swift */,
-				AB35EBA52AA8DB8B006E3392 /* AppDelegate.swift */,
 				AB35EBD32AB3478D006E3392 /* FindAFarmViewController.swift */,
 				F30CC0212AAB7BA40067DC44 /* UserBusinessProfileViewController.swift */,
-				AB35EBA72AA8DB8B006E3392 /* SceneDelegate.swift */,
 				AB35EBC52AAB7666006E3392 /* SearchCollectionViewController.swift */,
 				ABA47AE22AB4B0B6008F58EE /* FavoritesCollectionViewController.swift */,
-				0FA6FE042AB4947B00130021 /* CustomDB-APIController.swift */,
+				AB35EBA92AA8DB8B006E3392 /* ViewController.swift */,
+				AB35EBA52AA8DB8B006E3392 /* AppDelegate.swift */,
+				AB35EBA72AA8DB8B006E3392 /* SceneDelegate.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -283,8 +289,10 @@
 				0FA6FDFB2AB48CE600130021 /* ZipCodeStruct.swift in Sources */,
 				0FA6FDFD2AB48D1800130021 /* DistanceCalcFunc.swift in Sources */,
 				AB233CED2AB35E4C006A3DB7 /* SignInViewController.swift in Sources */,
+				0FA6FE122AB4E30900130021 /* PostStruct.swift in Sources */,
 				AB35EBBC2AA9021D006E3392 /* APIController.swift in Sources */,
 				ABA47AE32AB4B0B6008F58EE /* FavoritesCollectionViewController.swift in Sources */,
+				0FC4EF412ABB347600A44030 /* MileToKilometer.swift in Sources */,
 				0FA6FE032AB48E5A00130021 /* BusinessListingStruct.swift in Sources */,
 				AB233CEF2AB35E54006A3DB7 /* SignUpViewController.swift in Sources */,
 				ABA47AE12AB4ACE2008F58EE /* FavoritesCollectionViewCell.swift in Sources */,
@@ -293,7 +301,7 @@
 				F30CC0202AAB7AB80067DC44 /* CreatePostsViewController.swift in Sources */,
 				AB35EBBA2AA9012B006E3392 /* FarmDataStructure.swift in Sources */,
 				F30CC0242AAB7F120067DC44 /* BusinessProfileViewController.swift in Sources */,
-				0FA6FE052AB4947B00130021 /* CustomDB-APIController.swift in Sources */,
+				0FA6FE052AB4947B00130021 /* FirebaseServiceControlelr.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
