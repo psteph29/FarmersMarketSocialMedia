@@ -330,7 +330,7 @@ struct FirebaseService {
     
     // Sign in
     // Altered for returning the uid of the signed in user for businesslisting lookup.
-    func signIn(email: String, password: String, completion: @escaping (Bool, String?, Error?) -> Void) {
+    static func signIn(email: String, password: String, completion: @escaping (Bool, String?, Error?) -> Void) {
         Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
             if let error = error {
                 completion(false, nil, error)
