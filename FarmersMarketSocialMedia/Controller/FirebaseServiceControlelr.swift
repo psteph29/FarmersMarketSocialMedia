@@ -13,7 +13,7 @@ struct FirebaseService {
     
     // Beginning of businessListing API Calls
     
-    // Fetch or GET
+    // Fetch or GET all listings according to zipcode
     // Tested and Successful.
     static func fetchBusinessListing(zipcodesArray: [Int], completion: @escaping ([BusinessListing]?) -> Void) {
         let db = Firestore.firestore()
@@ -55,6 +55,57 @@ struct FirebaseService {
                 } ?? []
 
                 completion(businessListings)
+        }
+    }
+    
+    // fetch or GET by uid for business profiles by business user
+    // Tested and successful
+    func fetchBusinessListingByUID(uid: String, completion: @escaping (BusinessListing?) -> Void) {
+        let db = Firestore.firestore()
+        
+        // Target the specific document by its uid
+        db.collection("USDAFarmersMarkets").document(uid).getDocument { (documentSnapshot, error) in
+            if let error = error {
+                print("Error fetching business listing: \(error)")
+                completion(nil)
+                return
+            }
+            
+            guard let document = documentSnapshot, document.exists else {
+                print("Document with uid \(uid) does not exist")
+                completion(nil)
+                return
+            }
+            
+            // Extract business listing details from the document
+            guard
+                let listing_uuid = document.get("listing_uuid") as? String,
+                let listing_name = document.get("listing_name") as? String,
+                let listing_address = document.get("listing_address") as? String,
+                let listing_zipcode = document.get("listing_zipcode") as? Int
+            else {
+                print("Failed to parse document \(document.documentID) due to missing required fields")
+                completion(nil)
+                return
+            }
+            
+            let listing_USDA_id = document.get("listing_USDA_id") as? Int
+            let listing_username = document.get("listing_username") as? String
+            let listing_description = document.get("listing_description") as? String
+            let app_generated = document.get("app_generated") as? Bool
+            
+            let businessListing = BusinessListing(
+                listing_USDA_id: listing_USDA_id,
+                listing_uuid: listing_uuid,
+                listing_name: listing_name,
+                listing_address: listing_address,
+                listing_zipcode: listing_zipcode,
+                listing_username: listing_username,
+                listing_description: listing_description,
+                app_generated: app_generated
+            )
+            
+            completion(businessListing)
         }
     }
     
