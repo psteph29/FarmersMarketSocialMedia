@@ -17,6 +17,8 @@ class BusinessProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.hidesBackButton = true
 
         backgroundImage.alpha = 0.3
         backgroundImage.contentMode = .scaleAspectFill
