@@ -29,7 +29,6 @@ class SearchCollectionViewController: UIViewController {
         collectionView.delegate = self
         
         collectionView.setCollectionViewLayout(generateLayout(), animated: false)
-        
     }
     
     func generateLayout() -> UICollectionViewLayout {
