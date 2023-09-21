@@ -131,6 +131,9 @@
                                             <fontDescription key="titleFontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="22"/>
                                             <color key="baseForegroundColor" red="0.45882352939999999" green="0.36078431370000003" blue="0.1058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <segue destination="mPx-8U-d38" kind="show" id="G1Q-yK-6t5"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -175,6 +178,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cro-rn-yoJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1495.4198473282443" y="-757.04225352112678"/>
+        </scene>
+        <!--BusinessProfile-->
+        <scene sceneID="oQE-gW-Pe4">
+            <objects>
+                <viewControllerPlaceholder storyboardName="BusinessProfile" id="mPx-8U-d38" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="2FB-Nq-chN"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZRN-P4-BGA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2098" y="-534"/>
         </scene>
     </scenes>
     <resources>

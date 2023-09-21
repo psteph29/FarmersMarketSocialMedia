@@ -1,27 +1,18 @@
 //
-//  BusinessProfileViewViewController.swift
+//  businessprofiletabViewController.swift
 //  FarmersMarketSocialMedia
 //
-//  Created by MJ Orton on 9/8/23.
+//  Created by kole ervine on 9/21/23.
 //
 
 import UIKit
 
-class BusinessProfileViewController: UIViewController {
-    
-    @IBOutlet weak var newPost: UIButton!
-    @IBOutlet weak var businessNameLabel: UILabel!
-    @IBOutlet weak var profileImage: UIImageView!
-    
-    @IBOutlet weak var backgroundImage: UIImageView!
-    
+class SignedInMiddleMaTab: UITabBarController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.navigationItem.hidesBackButton = true
 
-        backgroundImage.alpha = 0.3
-        backgroundImage.contentMode = .scaleAspectFill
         // Do any additional setup after loading the view.
     }
     

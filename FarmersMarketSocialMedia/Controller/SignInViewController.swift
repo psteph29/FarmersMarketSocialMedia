@@ -18,6 +18,7 @@ class SignInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 
         backgroundImage.image = UIImage(named: "leaves")
         backgroundImage.alpha = 0.3

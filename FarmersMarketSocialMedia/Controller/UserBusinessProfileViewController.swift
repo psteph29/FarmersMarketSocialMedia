@@ -17,11 +17,16 @@ class UserBusinessProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
 
         backgroundImage.alpha = 0.3
         backgroundImage.contentMode = .scaleAspectFill
         // Do any additional setup after loading the view.
     }
+    
+    @IBOutlet weak var postsTableView: UITableView!
+    
+    
     
 
     /*
@@ -33,5 +38,7 @@ class UserBusinessProfileViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+//    Add edit button and connect to editBusinessProfile View Controller
 
 }
