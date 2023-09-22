@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dgl-pr-2d4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dgl-pr-2d4">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -132,7 +133,7 @@
                                             <color key="baseForegroundColor" red="0.45882352939999999" green="0.36078431370000003" blue="0.1058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <segue destination="mPx-8U-d38" kind="show" id="G1Q-yK-6t5"/>
+                                            <action selector="createProfileTapped:" destination="dgl-pr-2d4" eventType="touchUpInside" id="Aq9-gq-OgX"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -168,11 +169,12 @@
                         <outlet property="backgroundImage" destination="8Px-5B-VVZ" id="eJw-Cs-92Z"/>
                         <outlet property="businessName" destination="moc-bf-tCy" id="HdV-t8-d3o"/>
                         <outlet property="confirmPassword" destination="SXT-S5-H3A" id="l7f-uW-vtY"/>
-                        <outlet property="createProfileButton" destination="BfY-Qt-xrt" id="vlh-Lj-e4U"/>
+                        <outlet property="createProfileButton" destination="BfY-Qt-xrt" id="T8Z-wK-hQD"/>
                         <outlet property="descriptionTextField" destination="uOQ-io-3pf" id="MZm-HW-lKb"/>
                         <outlet property="imageUploadView" destination="J8m-1i-3nn" id="bAq-Ky-jpo"/>
                         <outlet property="password" destination="szS-pB-FtZ" id="eLT-Sk-eps"/>
                         <outlet property="userName" destination="iM4-iw-suH" id="Ug0-IP-QEy"/>
+                        <segue destination="mPx-8U-d38" kind="show" identifier="CreateProfileSuccessful" id="ZyB-dv-6pE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cro-rn-yoJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
