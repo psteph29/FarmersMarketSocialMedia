@@ -5,6 +5,8 @@
 //  Created by Paige Stephenson on 9/8/23.
 //
 
+// some issues are arising from the mile selector, on some zipcodes only certain distances seem to work
+
 import UIKit
 
 class SearchCollectionViewController: UIViewController {
@@ -18,12 +20,14 @@ class SearchCollectionViewController: UIViewController {
     let APIFarmController = APIController()
     var farms: [Farm] = []
     
+    var businessListings: [BusinessListing] = []
+    
     var selectedRadius: Int? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        selectedRadius = 10
+        // selectedRadius = 10
         zipCodeSearchBar.delegate = self
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -48,28 +52,78 @@ class SearchCollectionViewController: UIViewController {
         return layout
     }
     
+    // The below uses the USDA Api
+//    func loadFarms() {
+//        Task {
+//            guard let actualRadius = selectedRadius else {
+//                print("Selected radius is nil")
+//                return
+//            }
+//            
+//            do {
+//                let fetchedFarms = try await APIFarmController.fetchFarms(zip: zipCodeSearchBar.text, radius: actualRadius)
+//                print("Fetched farms: \(fetchedFarms)")
+//                updateUI(with: fetchedFarms)
+//            } catch {
+//                print("Error fetching farms: \(error)")
+//            }
+//        }
+//    }
     
-    func loadFarms() {
-        Task {
-            guard let actualRadius = selectedRadius else {
-                print("Selected radius is nil")
+    func loadZipcodesData() -> Data? {
+        guard let url = Bundle.main.url(forResource: "UpdatedZIPCODES", withExtension: "json") else {
+            print("Error: Couldn't find UpdatedZIPCODES.json in the bundle.")
+            return nil
+        }
+        
+        do {
+            let data = try Data(contentsOf: url)
+            return data
+        } catch {
+            print("Error: Couldn't load UpdatedZIPCODES.json from the bundle. \(error)")
+            return nil
+        }
+    }
+
+    func loadBusinessListings() {
+        guard let actualRadius = selectedRadius else {
+            print("Selected radius is nil")
+            return
+        }
+        
+        let distanceInKilometers = milesToKilometers(miles: Double(actualRadius))
+        
+        // Get the jsonData using the loadZipcodesData function.
+        guard let jsonData = loadZipcodesData() else {
+            print("Error: Couldn't load ZIP code data.")
+            return
+        }
+        
+        let nearbyZipCodes = findZipCodesWithinDistance(userZipcode: zipCodeSearchBar.text ?? "", travelDistance: distanceInKilometers, jsonData: jsonData)
+        
+        // Convert nearby ZIP codes from String to Int
+        let nearbyZipCodesInt = nearbyZipCodes.compactMap { Int($0) }
+        
+        FirebaseService.fetchBusinessListing(zipcodesArray: nearbyZipCodesInt) { listings in
+            guard let listings = listings else {
+                print("Error fetching business listings")
                 return
             }
             
-            do {
-                let fetchedFarms = try await APIFarmController.fetchFarms(zip: zipCodeSearchBar.text, radius: actualRadius)
-                print("Fetched farms: \(fetchedFarms)")
-                updateUI(with: fetchedFarms)
-            } catch {
-                print("Error fetching farms: \(error)")
-            }
+            self.businessListings = listings
+            self.collectionView.reloadData()
         }
     }
     
+//    func updateUI(with farms: [Farm]) {
+//        print("Updating UI with farms: \(farms)")
+//        self.farms = farms
+//        collectionView.reloadData()
+//    }
     
-    func updateUI(with farms: [Farm]) {
-        print("Updating UI with farms: \(farms)")
-        self.farms = farms
+    func updateUI(with businessListings: [BusinessListing]) {
+        print("Updating UI with farms: \(businessListings)")
+        self.businessListings = businessListings
         collectionView.reloadData()
     }
     
@@ -86,41 +140,42 @@ class SearchCollectionViewController: UIViewController {
             selectedRadius = 25
         case "50 miles":
             selectedRadius = 50
+        // 50 miles might be causing an issue
         default:
             selectedRadius = 10
         }
     }
-    
-
 }
-
-
-
 
 extension SearchCollectionViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        loadFarms()
+        //loadFarms()
+        loadBusinessListings()
     }
-    
 }
 
 // UICollectionViewDataSource and UICollectionViewDelegate Extension
 extension SearchCollectionViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("Number of Items: \(farms.count)")
-        return farms.count
+//        print("Number of Items: \(farms.count)")
+//        return farms.count
+        print("Number of Items: \(businessListings.count)")
+        return businessListings.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "searchResultCell", for: indexPath) as! BusinessSearchResultsCollectionViewCell
         
-        let farm = farms[indexPath.item]
-        cell.businessNameLabel.text = farm.listingName
-        cell.addressLabel.text = farm.locationAddress
+//        let farm = farms[indexPath.item]
+//        cell.businessNameLabel.text = farm.listingName
+//        cell.addressLabel.text = farm.locationAddress
+        
+        let businessListing = businessListings[indexPath.item]
+        cell.businessNameLabel.text = businessListing.listing_name
+        cell.addressLabel.text = businessListing.listing_address
         
         return cell
     }
     
     
 }
-
