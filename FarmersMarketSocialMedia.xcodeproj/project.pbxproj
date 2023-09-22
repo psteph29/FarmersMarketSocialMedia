@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0F0161CB2ABCA1D300D704A1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0F0161CA2ABCA1D300D704A1 /* GoogleService-Info.plist */; };
 		0F0161D12ABCA3E100D704A1 /* SearchAndFavoritesMiddleManTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0161D02ABCA3E100D704A1 /* SearchAndFavoritesMiddleManTab.swift */; };
 		0F0161D32ABCA5B900D704A1 /* SignedInMiddleMaTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0161D22ABCA5B900D704A1 /* SignedInMiddleMaTab.swift */; };
 		0F12A41E2ABD1E70005412C1 /* UpdatedZIPCODES.json in Resources */ = {isa = PBXBuildFile; fileRef = 0FA6FE012AB48D8900130021 /* UpdatedZIPCODES.json */; };
@@ -23,6 +22,7 @@
 		0FA6FE0E2AB494E600130021 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 0FA6FE0D2AB494E600130021 /* FirebaseStorage */; };
 		0FA6FE122AB4E30900130021 /* PostStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA6FE112AB4E30900130021 /* PostStruct.swift */; };
 		0FC4EF412ABB347600A44030 /* MileToKilometer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC4EF402ABB347600A44030 /* MileToKilometer.swift */; };
+		87982B732ABDDB0100BC0455 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 87982B722ABDDB0100BC0455 /* GoogleService-Info.plist */; };
 		AB233CE92AB35E22006A3DB7 /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB233CE82AB35E22006A3DB7 /* SignIn.storyboard */; };
 		AB233CEB2AB35E28006A3DB7 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB233CEA2AB35E28006A3DB7 /* SignUp.storyboard */; };
 		AB233CED2AB35E4C006A3DB7 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB233CEC2AB35E4C006A3DB7 /* SignInViewController.swift */; };
@@ -54,7 +54,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0F0161CA2ABCA1D300D704A1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0F0161D02ABCA3E100D704A1 /* SearchAndFavoritesMiddleManTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAndFavoritesMiddleManTab.swift; sourceTree = "<group>"; };
 		0F0161D22ABCA5B900D704A1 /* SignedInMiddleMaTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedInMiddleMaTab.swift; sourceTree = "<group>"; };
 		0F12A41F2ABDD384005412C1 /* HexColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexColorExtension.swift; sourceTree = "<group>"; };
@@ -66,6 +65,7 @@
 		0FA6FE042AB4947B00130021 /* FirebaseServiceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseServiceController.swift; sourceTree = "<group>"; };
 		0FA6FE112AB4E30900130021 /* PostStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostStruct.swift; sourceTree = "<group>"; };
 		0FC4EF402ABB347600A44030 /* MileToKilometer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MileToKilometer.swift; sourceTree = "<group>"; };
+		87982B722ABDDB0100BC0455 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AB233CE82AB35E22006A3DB7 /* SignIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignIn.storyboard; sourceTree = "<group>"; };
 		AB233CEA2AB35E28006A3DB7 /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
 		AB233CEC2AB35E4C006A3DB7 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -189,7 +189,7 @@
 		AB35EBA42AA8DB8B006E3392 /* FarmersMarketSocialMedia */ = {
 			isa = PBXGroup;
 			children = (
-				0F0161CA2ABCA1D300D704A1 /* GoogleService-Info.plist */,
+				87982B722ABDDB0100BC0455 /* GoogleService-Info.plist */,
 				ABA47ADF2AB4AC9D008F58EE /* Cells */,
 				0FA6FE002AB48D4200130021 /* Controller */,
 				0FA6FDFF2AB48D3300130021 /* View */,
@@ -278,6 +278,7 @@
 			files = (
 				AB35EBD22AB21D7A006E3392 /* EditBusinessProfile.storyboard in Resources */,
 				AB35EBCA2AB21844006E3392 /* SearchCollection.storyboard in Resources */,
+				87982B732ABDDB0100BC0455 /* GoogleService-Info.plist in Resources */,
 				AB35EBCE2AB21CA9006E3392 /* UserBusinessProfile.storyboard in Resources */,
 				AB8ACFAC2ABC9EF40097959E /* middlemantab.storyboard in Resources */,
 				AB35EBB22AA8DB8E006E3392 /* LaunchScreen.storyboard in Resources */,
@@ -289,7 +290,6 @@
 				AB35EBBE2AAA0E29006E3392 /* Main.storyboard in Resources */,
 				AB35EBD02AB21D1F006E3392 /* BusinessProfile.storyboard in Resources */,
 				AB35EBCC2AB21BE5006E3392 /* CreatePosts.storyboard in Resources */,
-				0F0161CB2ABCA1D300D704A1 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
