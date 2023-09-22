@@ -31,6 +31,7 @@ struct FirebaseService {
                         let listing_uuid = document.get("listing_uuid") as? String,
                         let listing_name = document.get("listing_name") as? String,
                         let listing_address = document.get("listing_address") as? String,
+                        let listing_profileImageURL = document.get("listing_profileImageURL") as? String,
                         let listing_zipcode = document.get("listing_zipcode") as? Int
                     else {
                         print("Failed to parse document \(document.documentID) due to missing required fields")
@@ -43,6 +44,7 @@ struct FirebaseService {
                     let app_generated = document.get("app_generated") as? Bool
 
                     return BusinessListing(
+                        listing_profileImageURL: listing_profileImageURL,
                         listing_USDA_id: listing_USDA_id,
                         listing_uuid: listing_uuid,
                         listing_name: listing_name,

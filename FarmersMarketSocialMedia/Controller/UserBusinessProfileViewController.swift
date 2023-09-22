@@ -16,7 +16,7 @@ class UserBusinessProfileViewController: UIViewController {
     @IBOutlet weak var email: UILabel!
     
     @IBOutlet weak var descriptionTextView: UITextView!
-    @IBOutlet weak var backgroundImage: UIImageView!
+
     
     @IBOutlet weak var postsTableView: UITableView!
     
@@ -28,19 +28,33 @@ class UserBusinessProfileViewController: UIViewController {
         businessNameLabel.text = businessListing.listing_name
         businessAddressLabel.text = businessListing.listing_address
 
-        if let description = businessListing.listing_description, !description.isEmpty {
-            descriptionTextView.text = description
-        } else {
-            descriptionTextView.text = "The farm has not listed a description"
-        }
+        descriptionTextView.text = businessListing.listing_description ?? "The farm has not listed a description"
 
         descriptionTextView.text = businessListing.listing_description
 //        contactInformation.text = businessListing
 //        email.text = businessListing
         
-    
-        backgroundImage.alpha = 0.3
-        backgroundImage.contentMode = .scaleAspectFill
+        
+//        profileImage.load(url: URL(businessListing.listing_profileImageURL))
+        
+        guard let url = URL(string: businessListing.listing_profileImageURL!) else {
+            print("Invalid URL")
+            return
+        }
+        
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data = data, error == nil else {
+                print("Error downloading image: \(error?.localizedDescription ?? "No error description")")
+                return
+            }
+            DispatchQueue.main.async {
+                // Set the downloaded image to your UIImageView
+                self.profileImage.image = UIImage(data: data)
+            }
+        }
+        task.resume()
+        profileImage.alpha = 0.3
+        profileImage.contentMode = .scaleAspectFill
 
     }
     
@@ -66,3 +80,17 @@ class UserBusinessProfileViewController: UIViewController {
 //    Add edit button and connect to editBusinessProfile View Controller
 
 }
+
+//extension UIImageView {
+//    func load(url: URL) {
+//        DispatchQueue.global().async { [weak self] in
+//            if let data = try? Data(contentsOf: url) {
+//                if let image = UIImage(data: data) {
+//                    DispatchQueue.main.async {
+//                        self?.image = image
+//                    }
+//                }
+//            }
+//        }
+//    }
+//}

@@ -23,7 +23,7 @@ class FindAFarmViewController: UIViewController {
         super.viewDidLoad()
 
         backgroundImage.image = UIImage(named: "signInImage")
-        backgroundImage.alpha = 0.3
+        backgroundImage.alpha = 0.8
         backgroundImage.contentMode = .scaleAspectFill
     }
     
