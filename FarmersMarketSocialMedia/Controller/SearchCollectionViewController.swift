@@ -101,15 +101,19 @@ class SearchCollectionViewController: UIViewController {
         
         let nearbyZipCodes = findZipCodesWithinDistance(userZipcode: zipCodeSearchBar.text ?? "", travelDistance: distanceInKilometers, jsonData: jsonData)
         
+        print("Nearby zip codes: \(nearbyZipCodes)")
+        
         // Convert nearby ZIP codes from String to Int
         let nearbyZipCodesInt = nearbyZipCodes.compactMap { Int($0) }
         
         FirebaseService.fetchBusinessListing(zipcodesArray: nearbyZipCodesInt) { listings in
             guard let listings = listings else {
+                
                 print("Error fetching business listings")
                 return
             }
-            
+            print("Fetched business listings count: \(listings.count)")
+
             self.businessListings = listings
             self.collectionView.reloadData()
         }
@@ -140,7 +144,6 @@ class SearchCollectionViewController: UIViewController {
             selectedRadius = 25
         case "50 miles":
             selectedRadius = 50
-        // 50 miles might be causing an issue
         default:
             selectedRadius = 10
         }
