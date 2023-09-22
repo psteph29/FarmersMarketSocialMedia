@@ -79,7 +79,7 @@
                                             <outlet property="addressLabel" destination="Wbt-Wx-Etz" id="2Xb-53-8OJ"/>
                                             <outlet property="businessNameLabel" destination="QJw-eO-qhJ" id="CbZ-fm-ryk"/>
                                             <outlet property="imageView" destination="doy-Ti-Wxf" id="A5M-9V-BBi"/>
-                                            <segue destination="8ic-pd-BnY" kind="presentation" id="yTG-0b-6Iy"/>
+                                            <segue destination="8ic-pd-BnY" kind="presentation" destinationCreationSelector="viewBusiness:" id="yTG-0b-6Iy"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

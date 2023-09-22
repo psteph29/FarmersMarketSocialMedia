@@ -12,23 +12,47 @@ class UserBusinessProfileViewController: UIViewController {
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var businessNameLabel: UILabel!
     @IBOutlet weak var businessAddressLabel: UILabel!
+    @IBOutlet weak var contactInformation: UILabel!
+    @IBOutlet weak var email: UILabel!
     
+    @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var backgroundImage: UIImageView!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    
-
-        backgroundImage.alpha = 0.3
-        backgroundImage.contentMode = .scaleAspectFill
-        // Do any additional setup after loading the view.
-    }
     
     @IBOutlet weak var postsTableView: UITableView!
     
+    var farm: Farm
     
-    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        businessNameLabel.text = farm.listingName
+        businessAddressLabel.text = farm.locationAddress
 
+        if let description = farm.briefDescription, !description.isEmpty {
+            descriptionTextView.text = description
+        } else {
+            descriptionTextView.text = "The farm has not listed a description"
+        }
+
+        descriptionTextView.text = farm.briefDescription
+        contactInformation.text = farm.contactPhone
+        email.text = farm.mediaWebsite
+        
+    
+        backgroundImage.alpha = 0.3
+        backgroundImage.contentMode = .scaleAspectFill
+
+    }
+    
+    init?(coder: NSCoder, farm: Farm) {
+        self.farm = farm
+        super.init(coder: coder)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+  
     /*
     // MARK: - Navigation
 

@@ -91,6 +91,17 @@ class SearchCollectionViewController: UIViewController {
         }
     }
     
+    
+    @IBSegueAction func viewBusiness(_ coder: NSCoder) -> UIViewController? {
+        guard let selectedIndexPath = collectionView.indexPathsForSelectedItems?.first,
+                 selectedIndexPath.item < farms.count else {
+               return nil
+           }
+           
+           let selectedFarm = farms[selectedIndexPath.item]
+           return UserBusinessProfileViewController(coder: coder, farm: selectedFarm)
+    }
+    
 
 }
 
