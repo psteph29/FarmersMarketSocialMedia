@@ -20,23 +20,23 @@ class UserBusinessProfileViewController: UIViewController {
     
     @IBOutlet weak var postsTableView: UITableView!
     
-    var farm: Farm
+    var businessListing: BusinessListing
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        businessNameLabel.text = farm.listingName
-        businessAddressLabel.text = farm.locationAddress
+        businessNameLabel.text = businessListing.listing_name
+        businessAddressLabel.text = businessListing.listing_address
 
-        if let description = farm.briefDescription, !description.isEmpty {
+        if let description = businessListing.listing_description, !description.isEmpty {
             descriptionTextView.text = description
         } else {
             descriptionTextView.text = "The farm has not listed a description"
         }
 
-        descriptionTextView.text = farm.briefDescription
-        contactInformation.text = farm.contactPhone
-        email.text = farm.mediaWebsite
+        descriptionTextView.text = businessListing.listing_description
+//        contactInformation.text = businessListing
+//        email.text = businessListing
         
     
         backgroundImage.alpha = 0.3
@@ -44,8 +44,8 @@ class UserBusinessProfileViewController: UIViewController {
 
     }
     
-    init?(coder: NSCoder, farm: Farm) {
-        self.farm = farm
+    init?(coder: NSCoder, businessListing: BusinessListing) {
+        self.businessListing = businessListing
         super.init(coder: coder)
     }
     
