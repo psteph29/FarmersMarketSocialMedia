@@ -18,12 +18,14 @@ class SearchCollectionViewController: UIViewController {
     let APIFarmController = APIController()
     var farms: [Farm] = []
     
+    var businessListings: [BusinessListing] = []
+    
     var selectedRadius: Int? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        selectedRadius = 10
+        // selectedRadius = 10
         zipCodeSearchBar.delegate = self
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -48,28 +50,98 @@ class SearchCollectionViewController: UIViewController {
         return layout
     }
     
+    // This was for USDA API
+//    func loadFarms() {
+//        Task {
+//            guard let actualRadius = selectedRadius else {
+//                print("Selected radius is nil")
+//                return
+//            }
+//            
+//            do {
+//                let fetchedFarms = try await APIFarmController.fetchFarms(zip: zipCodeSearchBar.text, radius: actualRadius)
+//                print("Fetched farms: \(fetchedFarms)")
+//                updateUI(with: fetchedFarms)
+//            } catch {
+//                print("Error fetching farms: \(error)")
+//            }
+//        }
+//    }
     
-    func loadFarms() {
-        Task {
-            guard let actualRadius = selectedRadius else {
-                print("Selected radius is nil")
-                return
-            }
-            
-            do {
-                let fetchedFarms = try await APIFarmController.fetchFarms(zip: zipCodeSearchBar.text, radius: actualRadius)
-                print("Fetched farms: \(fetchedFarms)")
-                updateUI(with: fetchedFarms)
-            } catch {
-                print("Error fetching farms: \(error)")
-            }
+    func loadZipcodesData() -> Data? {
+        guard let url = Bundle.main.url(forResource: "UpdatedZIPCODES", withExtension: "json") else {
+            print("Error: Couldn't find UpdatedZIPCODES.json in the bundle.")
+            return nil
+        }
+        
+        do {
+            let data = try Data(contentsOf: url)
+            return data
+        } catch {
+            print("Error: Couldn't load UpdatedZIPCODES.json from the bundle. \(error)")
+            return nil
         }
     }
     
+    func loadBusinessListings() {
+        // makes the list shrink if the user selects a shorter distance with less markets within the new radius
+        self.businessListings = []
+        
+        guard let actualRadius = selectedRadius else {
+            print("Selected radius is nil")
+            return
+        }
+
+        let distanceInKilometers = milesToKilometers(miles: Double(actualRadius))
+
+        // Get the jsonData using the loadZipcodesData function.
+        guard let jsonData = loadZipcodesData() else {
+            print("Error: Couldn't load ZIP code data.")
+            return
+        }
+
+        let nearbyZipCodes = findZipCodesWithinDistance(userZipcode: zipCodeSearchBar.text ?? "", travelDistance: distanceInKilometers, jsonData: jsonData)
+
+        // Convert nearby ZIP codes from String to Int
+        let nearbyZipCodesInt = nearbyZipCodes.compactMap { Int($0) }
+        
+        // Split the nearbyZipCodesInt into chunks of 30 or fewer for the firestore api to handle
+        let chunks = nearbyZipCodesInt.chunked(into: 30)
+        
+        // Create a dispatch group to handle multiple Firebase queries
+        let group = DispatchGroup()
+        
+        for chunk in chunks {
+            group.enter()  // Enter the group before each query
+            
+            FirebaseService.fetchBusinessListing(zipcodesArray: chunk) { listings in
+                guard let listings = listings else {
+                    print("Error fetching business listings")
+                    group.leave()  // Leave the group if an error occurs
+                    return
+                }
+
+                self.businessListings.append(contentsOf: listings)
+                group.leave()  // Leave the group when the query completes
+            }
+        }
+        
+        // When all queries have completed
+        group.notify(queue: .main) {
+            self.collectionView.reloadData()
+        }
+    }
+
     
-    func updateUI(with farms: [Farm]) {
-        print("Updating UI with farms: \(farms)")
-        self.farms = farms
+//    func updateUI(with farms: [Farm]) { This was for USDA API
+//        print("Updating UI with farms: \(farms)") This was for USDA API
+//        self.farms = farms This was for USDA API
+//        collectionView.reloadData() This was for USDA API
+//    }
+    
+    func updateUI(with businessListings: [BusinessListing]) {
+        print("Updating UI with farms: \(businessListings)")
+        self.businessListings = businessListings
         collectionView.reloadData()
     }
     
@@ -90,37 +162,37 @@ class SearchCollectionViewController: UIViewController {
             selectedRadius = 10
         }
     }
-    
-
 }
-
-
-
 
 extension SearchCollectionViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        loadFarms()
+        //loadFarms()  This was for USDA API
+        loadBusinessListings()
     }
-    
 }
 
 // UICollectionViewDataSource and UICollectionViewDelegate Extension
 extension SearchCollectionViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("Number of Items: \(farms.count)")
-        return farms.count
+//        print("Number of Items: \(farms.count)") This was for USDA API
+//        return farms.count This was for USDA API
+        print("Number of Items: \(businessListings.count)")
+        return businessListings.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "searchResultCell", for: indexPath) as! BusinessSearchResultsCollectionViewCell
         
-        let farm = farms[indexPath.item]
-        cell.businessNameLabel.text = farm.listingName
-        cell.addressLabel.text = farm.locationAddress
+//        let farm = farms[indexPath.item] This was for USDA API
+//        cell.businessNameLabel.text = farm.listingName This was for USDA API
+//        cell.addressLabel.text = farm.locationAddress This was for USDA API
+        
+        let businessListing = businessListings[indexPath.item]
+        cell.businessNameLabel.text = businessListing.listing_name
+        cell.addressLabel.text = businessListing.listing_address
         
         return cell
     }
     
     
 }
-
