@@ -12,6 +12,7 @@
 		0F0161D32ABCA5B900D704A1 /* SignedInMiddleMaTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0161D22ABCA5B900D704A1 /* SignedInMiddleMaTab.swift */; };
 		0F12A41E2ABD1E70005412C1 /* UpdatedZIPCODES.json in Resources */ = {isa = PBXBuildFile; fileRef = 0FA6FE012AB48D8900130021 /* UpdatedZIPCODES.json */; };
 		0F12A4202ABDD384005412C1 /* HexColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F12A41F2ABDD384005412C1 /* HexColorExtension.swift */; };
+		0F12A4222ABDD724005412C1 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F12A4212ABDD724005412C1 /* ArrayExtension.swift */; };
 		0FA6FDFB2AB48CE600130021 /* ZipCodeStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA6FDFA2AB48CE600130021 /* ZipCodeStruct.swift */; };
 		0FA6FDFD2AB48D1800130021 /* DistanceCalcFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA6FDFC2AB48D1800130021 /* DistanceCalcFunc.swift */; };
 		0FA6FE032AB48E5A00130021 /* BusinessListingStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA6FE022AB48E5A00130021 /* BusinessListingStruct.swift */; };
@@ -57,6 +58,7 @@
 		0F0161D02ABCA3E100D704A1 /* SearchAndFavoritesMiddleManTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAndFavoritesMiddleManTab.swift; sourceTree = "<group>"; };
 		0F0161D22ABCA5B900D704A1 /* SignedInMiddleMaTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedInMiddleMaTab.swift; sourceTree = "<group>"; };
 		0F12A41F2ABDD384005412C1 /* HexColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexColorExtension.swift; sourceTree = "<group>"; };
+		0F12A4212ABDD724005412C1 /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
 		0FA6FDFA2AB48CE600130021 /* ZipCodeStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZipCodeStruct.swift; sourceTree = "<group>"; };
 		0FA6FDFC2AB48D1800130021 /* DistanceCalcFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceCalcFunc.swift; sourceTree = "<group>"; };
 		0FA6FE012AB48D8900130021 /* UpdatedZIPCODES.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = UpdatedZIPCODES.json; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				0FA6FDFC2AB48D1800130021 /* DistanceCalcFunc.swift */,
 				0FC4EF402ABB347600A44030 /* MileToKilometer.swift */,
 				0F12A41F2ABDD384005412C1 /* HexColorExtension.swift */,
+				0F12A4212ABDD724005412C1 /* ArrayExtension.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 				AB35EBA62AA8DB8B006E3392 /* AppDelegate.swift in Sources */,
 				0FA6FDFB2AB48CE600130021 /* ZipCodeStruct.swift in Sources */,
 				0FA6FDFD2AB48D1800130021 /* DistanceCalcFunc.swift in Sources */,
+				0F12A4222ABDD724005412C1 /* ArrayExtension.swift in Sources */,
 				AB233CED2AB35E4C006A3DB7 /* SignInViewController.swift in Sources */,
 				0FA6FE122AB4E30900130021 /* PostStruct.swift in Sources */,
 				AB35EBBC2AA9021D006E3392 /* APIController.swift in Sources */,

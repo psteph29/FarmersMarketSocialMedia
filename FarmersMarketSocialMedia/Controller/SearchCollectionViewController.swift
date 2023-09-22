@@ -5,8 +5,6 @@
 //  Created by Paige Stephenson on 9/8/23.
 //
 
-// some issues are arising from the mile selector, on some zipcodes only certain distances seem to work
-
 import UIKit
 
 class SearchCollectionViewController: UIViewController {
@@ -52,7 +50,7 @@ class SearchCollectionViewController: UIViewController {
         return layout
     }
     
-    // The below uses the USDA Api
+    // This was for USDA API
 //    func loadFarms() {
 //        Task {
 //            guard let actualRadius = selectedRadius else {
@@ -84,45 +82,61 @@ class SearchCollectionViewController: UIViewController {
             return nil
         }
     }
-
+    
     func loadBusinessListings() {
+        // makes the list shrink if the user selects a shorter distance with less markets within the new radius
+        self.businessListings = []
+        
         guard let actualRadius = selectedRadius else {
             print("Selected radius is nil")
             return
         }
-        
+
         let distanceInKilometers = milesToKilometers(miles: Double(actualRadius))
-        
+
         // Get the jsonData using the loadZipcodesData function.
         guard let jsonData = loadZipcodesData() else {
             print("Error: Couldn't load ZIP code data.")
             return
         }
-        
+
         let nearbyZipCodes = findZipCodesWithinDistance(userZipcode: zipCodeSearchBar.text ?? "", travelDistance: distanceInKilometers, jsonData: jsonData)
-        
-        print("Nearby zip codes: \(nearbyZipCodes)")
-        
+
         // Convert nearby ZIP codes from String to Int
         let nearbyZipCodesInt = nearbyZipCodes.compactMap { Int($0) }
         
-        FirebaseService.fetchBusinessListing(zipcodesArray: nearbyZipCodesInt) { listings in
-            guard let listings = listings else {
-                
-                print("Error fetching business listings")
-                return
-            }
-            print("Fetched business listings count: \(listings.count)")
+        // Split the nearbyZipCodesInt into chunks of 30 or fewer for the firestore api to handle
+        let chunks = nearbyZipCodesInt.chunked(into: 30)
+        
+        // Create a dispatch group to handle multiple Firebase queries
+        let group = DispatchGroup()
+        
+        for chunk in chunks {
+            group.enter()  // Enter the group before each query
+            
+            FirebaseService.fetchBusinessListing(zipcodesArray: chunk) { listings in
+                guard let listings = listings else {
+                    print("Error fetching business listings")
+                    group.leave()  // Leave the group if an error occurs
+                    return
+                }
 
-            self.businessListings = listings
+                self.businessListings.append(contentsOf: listings)
+                group.leave()  // Leave the group when the query completes
+            }
+        }
+        
+        // When all queries have completed
+        group.notify(queue: .main) {
             self.collectionView.reloadData()
         }
     }
+
     
-//    func updateUI(with farms: [Farm]) {
-//        print("Updating UI with farms: \(farms)")
-//        self.farms = farms
-//        collectionView.reloadData()
+//    func updateUI(with farms: [Farm]) { This was for USDA API
+//        print("Updating UI with farms: \(farms)") This was for USDA API
+//        self.farms = farms This was for USDA API
+//        collectionView.reloadData() This was for USDA API
 //    }
     
     func updateUI(with businessListings: [BusinessListing]) {
@@ -152,7 +166,7 @@ class SearchCollectionViewController: UIViewController {
 
 extension SearchCollectionViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        //loadFarms()
+        //loadFarms()  This was for USDA API
         loadBusinessListings()
     }
 }
@@ -160,8 +174,8 @@ extension SearchCollectionViewController: UISearchBarDelegate {
 // UICollectionViewDataSource and UICollectionViewDelegate Extension
 extension SearchCollectionViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        print("Number of Items: \(farms.count)")
-//        return farms.count
+//        print("Number of Items: \(farms.count)") This was for USDA API
+//        return farms.count This was for USDA API
         print("Number of Items: \(businessListings.count)")
         return businessListings.count
     }
@@ -169,9 +183,9 @@ extension SearchCollectionViewController: UICollectionViewDataSource, UICollecti
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "searchResultCell", for: indexPath) as! BusinessSearchResultsCollectionViewCell
         
-//        let farm = farms[indexPath.item]
-//        cell.businessNameLabel.text = farm.listingName
-//        cell.addressLabel.text = farm.locationAddress
+//        let farm = farms[indexPath.item] This was for USDA API
+//        cell.businessNameLabel.text = farm.listingName This was for USDA API
+//        cell.addressLabel.text = farm.locationAddress This was for USDA API
         
         let businessListing = businessListings[indexPath.item]
         cell.businessNameLabel.text = businessListing.listing_name
