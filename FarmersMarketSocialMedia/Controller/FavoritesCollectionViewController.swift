@@ -12,14 +12,14 @@ private let reuseIdentifier = "favoritesCell"
 
 class FavoritesCollectionViewController: UICollectionViewController {
 
-    let coreDataManager = CoreDataManager.shared  // Assuming CoreDataManager is your core data manager class
+    let coreDataManager = CoreDataManager.shared
     var favoriteBusinessListings: [FavoriteBusinessListing] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Register cell classes
-        self.collectionView!.register(FavoritesCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)  // Assuming FavoritesCollectionViewCell is your custom cell class
+        self.collectionView!.register(FavoritesCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         collectionView.setCollectionViewLayout(generateLayout(), animated: false)
 
@@ -55,16 +55,30 @@ class FavoritesCollectionViewController: UICollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! FavoritesCollectionViewCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? FavoritesCollectionViewCell else {
+            fatalError("Unable to dequeue a FavoritesCollectionViewCell.")
+        }
 
         let favoriteBusinessListing = favoriteBusinessListings[indexPath.item]
-        cell.businessNameLabel.text = favoriteBusinessListing.listing_name
-        cell.addressLabel.text = favoriteBusinessListing.listing_address
         
-        // If FavoritesCollectionViewCell has an imageView for displaying profile image
-        // Assuming you have a method to load image from URL
+        if let listingName = favoriteBusinessListing.listing_name {
+            cell.businessNameLabel.text = listingName
+        } else {
+            cell.businessNameLabel.text = "Name not available"
+        }
+        
+        // Safely unwrap other optional values
+          if let address = favoriteBusinessListing.listing_address {
+              cell.addressLabel.text = address
+          } else {
+              cell.addressLabel.text = "Address not available"
+          }
+        
         if let profileImageUrl = favoriteBusinessListing.listing_profileImageURL {
             cell.backgroundImageView.loadImage(from: profileImageUrl)
+        } else {
+            // Handle the case where profileImageUrl is nil or an invalid URL
+            cell.backgroundImageView.image = nil // or set a placeholder image
         }
 
         return cell

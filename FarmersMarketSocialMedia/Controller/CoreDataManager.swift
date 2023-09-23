@@ -12,7 +12,7 @@ import UIKit
 class CoreDataManager {
     
     lazy var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "DataModel") // Use the name you gave to your model file
+        let container = NSPersistentContainer(name: "AppDataModel")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
@@ -22,15 +22,6 @@ class CoreDataManager {
     }()
 
     static let shared = CoreDataManager()
-    
-    private init() {
-        persistentContainer = NSPersistentContainer(name: "YourDataModelName")
-        persistentContainer.loadPersistentStores { (description, error) in
-            if let error = error {
-                fatalError("Failed to initialize Core Data \(error)")
-            }
-        }
-    }
     
     func saveContext() {
         let context = persistentContainer.viewContext

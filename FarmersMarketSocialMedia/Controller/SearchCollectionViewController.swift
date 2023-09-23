@@ -173,8 +173,6 @@ class SearchCollectionViewController: UIViewController {
            let selectedBusiness = businessListings[selectedIndexPath.item]
            return UserBusinessProfileViewController(coder: coder, businessListing: selectedBusiness)
     }
-    
-
 }
 
 extension SearchCollectionViewController: UISearchBarDelegate {
