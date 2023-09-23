@@ -25,6 +25,7 @@
 		0FA6FE0E2AB494E600130021 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 0FA6FE0D2AB494E600130021 /* FirebaseStorage */; };
 		0FA6FE122AB4E30900130021 /* PostStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA6FE112AB4E30900130021 /* PostStruct.swift */; };
 		0FC4EF412ABB347600A44030 /* MileToKilometer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC4EF402ABB347600A44030 /* MileToKilometer.swift */; };
+		9D0E271D2ABE86A100D8B15F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9D0E271C2ABE86A100D8B15F /* GoogleService-Info.plist */; };
 		AB233CE92AB35E22006A3DB7 /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB233CE82AB35E22006A3DB7 /* SignIn.storyboard */; };
 		AB233CEB2AB35E28006A3DB7 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB233CEA2AB35E28006A3DB7 /* SignUp.storyboard */; };
 		AB233CED2AB35E4C006A3DB7 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB233CEC2AB35E4C006A3DB7 /* SignInViewController.swift */; };
@@ -47,7 +48,6 @@
 		AB35EBD42AB3478D006E3392 /* FindAFarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB35EBD32AB3478D006E3392 /* FindAFarmViewController.swift */; };
 		AB8ACFAA2ABC9E570097959E /* FavoritesCollection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB8ACFA92ABC9E570097959E /* FavoritesCollection.storyboard */; };
 		AB8ACFAC2ABC9EF40097959E /* middlemantab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB8ACFAB2ABC9EF30097959E /* middlemantab.storyboard */; };
-		AB8ACFAE2ABCA7AD0097959E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AB8ACFAD2ABCA7AD0097959E /* GoogleService-Info.plist */; };
 		ABA47AE12AB4ACE2008F58EE /* FavoritesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA47AE02AB4ACE2008F58EE /* FavoritesCollectionViewCell.swift */; };
 		ABA47AE32AB4B0B6008F58EE /* FavoritesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA47AE22AB4B0B6008F58EE /* FavoritesCollectionViewController.swift */; };
 		F30CC0202AAB7AB80067DC44 /* CreatePostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30CC01F2AAB7AB80067DC44 /* CreatePostsViewController.swift */; };
@@ -71,6 +71,7 @@
 		0FA6FE042AB4947B00130021 /* FirebaseServiceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseServiceController.swift; sourceTree = "<group>"; };
 		0FA6FE112AB4E30900130021 /* PostStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostStruct.swift; sourceTree = "<group>"; };
 		0FC4EF402ABB347600A44030 /* MileToKilometer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MileToKilometer.swift; sourceTree = "<group>"; };
+		9D0E271C2ABE86A100D8B15F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AB233CE82AB35E22006A3DB7 /* SignIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignIn.storyboard; sourceTree = "<group>"; };
 		AB233CEA2AB35E28006A3DB7 /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
 		AB233CEC2AB35E4C006A3DB7 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -95,7 +96,6 @@
 		AB35EBD32AB3478D006E3392 /* FindAFarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindAFarmViewController.swift; sourceTree = "<group>"; };
 		AB8ACFA92ABC9E570097959E /* FavoritesCollection.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FavoritesCollection.storyboard; sourceTree = "<group>"; };
 		AB8ACFAB2ABC9EF30097959E /* middlemantab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = middlemantab.storyboard; sourceTree = "<group>"; };
-		AB8ACFAD2ABCA7AD0097959E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		ABA47AE02AB4ACE2008F58EE /* FavoritesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCollectionViewCell.swift; sourceTree = "<group>"; };
 		ABA47AE22AB4B0B6008F58EE /* FavoritesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCollectionViewController.swift; sourceTree = "<group>"; };
 		F30CC01F2AAB7AB80067DC44 /* CreatePostsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostsViewController.swift; sourceTree = "<group>"; };
@@ -197,7 +197,6 @@
 		AB35EBA42AA8DB8B006E3392 /* FarmersMarketSocialMedia */ = {
 			isa = PBXGroup;
 			children = (
-				AB8ACFAD2ABCA7AD0097959E /* GoogleService-Info.plist */,
 				ABA47ADF2AB4AC9D008F58EE /* Cells */,
 				0FA6FE002AB48D4200130021 /* Controller */,
 				0FA6FDFF2AB48D3300130021 /* View */,
@@ -205,6 +204,7 @@
 				AB35EBAE2AA8DB8E006E3392 /* Assets.xcassets */,
 				AB35EBB32AA8DB8E006E3392 /* Info.plist */,
 				0F12A4342ABE4648005412C1 /* AppDataModel.xcdatamodeld */,
+				9D0E271C2ABE86A100D8B15F /* GoogleService-Info.plist */,
 			);
 			path = FarmersMarketSocialMedia;
 			sourceTree = "<group>";
@@ -285,7 +285,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB8ACFAE2ABCA7AD0097959E /* GoogleService-Info.plist in Resources */,
 				AB35EBD22AB21D7A006E3392 /* EditBusinessProfile.storyboard in Resources */,
 				AB35EBCA2AB21844006E3392 /* SearchCollection.storyboard in Resources */,
 				AB35EBCE2AB21CA9006E3392 /* UserBusinessProfile.storyboard in Resources */,
@@ -299,6 +298,7 @@
 				AB35EBBE2AAA0E29006E3392 /* Main.storyboard in Resources */,
 				AB35EBD02AB21D1F006E3392 /* BusinessProfile.storyboard in Resources */,
 				AB35EBCC2AB21BE5006E3392 /* CreatePosts.storyboard in Resources */,
+				9D0E271D2ABE86A100D8B15F /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
