@@ -4,32 +4,34 @@
 //
 //  Created by Paige Stephenson on 9/15/23.
 //
-
+    
 import UIKit
+import CoreData
 
 private let reuseIdentifier = "favoritesCell"
 
 class FavoritesCollectionViewController: UICollectionViewController {
-    
-    let APIFarmController = APIController()
-    var farms: [Farm] = []
-    
+
+    let coreDataManager = CoreDataManager.shared  // Assuming CoreDataManager is your core data manager class
+    var favoriteBusinessListings: [FavoriteBusinessListing] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
+
         // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-        
-        
+        self.collectionView!.register(FavoritesCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)  // Assuming FavoritesCollectionViewCell is your custom cell class
+
         collectionView.setCollectionViewLayout(generateLayout(), animated: false)
-        
-        // Do any additional setup after loading the view.
+
+        // Load favorites from Core Data
+        loadFavorites()
     }
-    
-    
+
+    func loadFavorites() {
+        favoriteBusinessListings = coreDataManager.fetchFavorites()
+        collectionView.reloadData()
+    }
+
     func generateLayout() -> UICollectionViewLayout {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(150))
         //        item size is set to full width of the group
@@ -46,42 +48,26 @@ class FavoritesCollectionViewController: UICollectionViewController {
         let layout = UICollectionViewCompositionalLayout(section: section)
         return layout
     }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using [segue destinationViewController].
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
+
     // MARK: UICollectionViewDataSource
-    
-    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        return farms.count
+        return favoriteBusinessListings.count
     }
-    
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell  {
+
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! FavoritesCollectionViewCell
+
+        let favoriteBusinessListing = favoriteBusinessListings[indexPath.item]
+        cell.businessNameLabel.text = favoriteBusinessListing.listing_name
+        cell.addressLabel.text = favoriteBusinessListing.listing_address
         
-        let farm = farms[indexPath.item]
-        cell.businessNameLabel.text = farm.listingName
-        cell.addressLabel.text = farm.locationAddress
-        
-        
+        // If FavoritesCollectionViewCell has an imageView for displaying profile image
+        // Assuming you have a method to load image from URL
+        if let profileImageUrl = favoriteBusinessListing.listing_profileImageURL {
+            cell.backgroundImageView.loadImage(from: profileImageUrl)
+        }
+
         return cell
     }
-    
-    //   func fetchFavorites() {
-//}
-//    func removeFavorite()
-    
-//    func favoriteMovie(from ...)
-    
-//    func unFavoriteMovie()
-    
+
 }

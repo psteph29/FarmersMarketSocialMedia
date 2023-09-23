@@ -12,11 +12,9 @@ class UserBusinessProfileViewController: UIViewController {
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var businessNameLabel: UILabel!
     @IBOutlet weak var businessAddressLabel: UILabel!
-    @IBOutlet weak var contactInformation: UILabel!
-    @IBOutlet weak var email: UILabel!
-    
     @IBOutlet weak var descriptionTextView: UITextView!
 
+    @IBOutlet var favoriteButton: UIButton!
     
     @IBOutlet weak var postsTableView: UITableView!
     
@@ -66,31 +64,10 @@ class UserBusinessProfileViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-  
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
-//    Add edit button and connect to editBusinessProfile View Controller
-
+    @IBAction func favoriteButtonTapped(_ sender: UIButton) {
+          CoreDataManager.shared.saveFavorite(businessListing: businessListing)
+      }
+  
 }
 
-//extension UIImageView {
-//    func load(url: URL) {
-//        DispatchQueue.global().async { [weak self] in
-//            if let data = try? Data(contentsOf: url) {
-//                if let image = UIImage(data: data) {
-//                    DispatchQueue.main.async {
-//                        self?.image = image
-//                    }
-//                }
-//            }
-//        }
-//    }
-//}
