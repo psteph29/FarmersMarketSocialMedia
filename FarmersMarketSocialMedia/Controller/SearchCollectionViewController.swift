@@ -101,6 +101,7 @@ class SearchCollectionViewController: UIViewController {
         }
 
         let nearbyZipCodes = findZipCodesWithinDistance(userZipcode: zipCodeSearchBar.text ?? "", travelDistance: distanceInKilometers, jsonData: jsonData)
+        print(nearbyZipCodes)
 
         // Convert nearby ZIP codes from String to Int
         let nearbyZipCodesInt = nearbyZipCodes.compactMap { Int($0) }

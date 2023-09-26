@@ -4,11 +4,13 @@
 //
 //  Created by Paige Stephenson on 9/15/23.
 //
+
+// Coder needs to be implemented here so a user can see more details about their favorite business listings
     
 import UIKit
 import CoreData
 
-private let reuseIdentifier = "cell" // was "favoritesCell"
+private let reuseIdentifier =  "favoritesCell"
 
 class FavoritesCollectionViewController: UICollectionViewController {
 
@@ -16,29 +18,7 @@ class FavoritesCollectionViewController: UICollectionViewController {
     var favoriteBusinessListings: [FavoriteBusinessListing] = []
     
     override func viewDidLoad() {
-
       super.viewDidLoad()
-
-      // Create layout
-      let layout = UICollectionViewFlowLayout()
-
-      // Initialize collection view
-      let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-      
-      // Register cell class (could also register nib instead)
-      //collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
-        collectionView.register(kolecustomcell.self, forCellWithReuseIdentifier: "cell")
-        
-      // Add and configure collection view
-      view.addSubview(collectionView)
-      collectionView.frame = view.bounds
-
-      // Set data source and delegate
-      collectionView.dataSource = self
-      collectionView.delegate = self
-
-      // Set the collectionView property
-      self.collectionView = collectionView
 
       loadFavorites()
       
@@ -78,7 +58,7 @@ class FavoritesCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! kolecustomcell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! FavoritesCollectionViewCell
 
         let favoriteBusinessListing = favoriteBusinessListings[indexPath.item]
             
