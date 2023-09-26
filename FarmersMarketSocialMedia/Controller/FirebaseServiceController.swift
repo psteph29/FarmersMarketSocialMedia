@@ -31,6 +31,7 @@ struct FirebaseService {
                         let listing_uuid = document.get("listing_uuid") as? String,
                         let listing_name = document.get("listing_name") as? String,
                         let listing_address = document.get("listing_address") as? String,
+                        let listing_profileImageURL = document.get("listing_profileImageURL") as? String,
                         let listing_zipcode = document.get("listing_zipcode") as? Int
                     else {
                         print("Failed to parse document \(document.documentID) due to missing required fields")
@@ -43,6 +44,7 @@ struct FirebaseService {
                     let app_generated = document.get("app_generated") as? Bool
 
                     return BusinessListing(
+                        listing_profileImageURL: listing_profileImageURL,
                         listing_USDA_id: listing_USDA_id,
                         listing_uuid: listing_uuid,
                         listing_name: listing_name,
@@ -58,11 +60,57 @@ struct FirebaseService {
         }
     }
     
+    // fetch or GET by uid for business profiles by business user
+    // Tested and successful
+    func fetchBusinessListingByUID(uid: String, completion: @escaping (BusinessListing?) -> Void) {
+        let db = Firestore.firestore()
+        // Target the specific document by its uid
+        db.collection("USDAFarmersMarkets").document(uid).getDocument { (documentSnapshot, error) in
+          if let error = error {
+            print("Error fetching business listing: \(error)")
+            completion(nil)
+            return
+          }
+          guard let document = documentSnapshot, document.exists else {
+            print("Document with uid \(uid) does not exist")
+            completion(nil)
+            return
+          }
+          // Extract business listing details from the document
+          guard
+            let listing_uuid = document.get("listing_uuid") as? String,
+            let listing_name = document.get("listing_name") as? String,
+            let listing_address = document.get("listing_address") as? String,
+            let listing_zipcode = document.get("listing_zipcode") as? Int
+          else {
+            print("Failed to parse document \(document.documentID) due to missing required fields")
+            completion(nil)
+            return
+          }
+          let listing_USDA_id = document.get("listing_USDA_id") as? Int
+          let listing_username = document.get("listing_username") as? String
+          let listing_description = document.get("listing_description") as? String
+          let app_generated = document.get("app_generated") as? Bool
+          let businessListing = BusinessListing(
+            listing_USDA_id: listing_USDA_id,
+            listing_uuid: listing_uuid,
+            listing_name: listing_name,
+            listing_address: listing_address,
+            listing_zipcode: listing_zipcode,
+            listing_username: listing_username,
+            listing_description: listing_description,
+            app_generated: app_generated
+          )
+          completion(businessListing)
+        }
+      }
+    
     // Create or POST
     // Tested and works.
-    func createBusinessListing(businessListing: BusinessListing, completion: @escaping (Bool, Error?) -> Void) {
+    static func createBusinessListing(businessListing: BusinessListing, completion: @escaping (Bool, Error?) -> Void) {
         let db = Firestore.firestore()
         let data: [String: Any] = [
+            "listing_profileImageURL": businessListing.listing_profileImageURL,
             "listing_uuid": businessListing.listing_uuid,
             "uid": businessListing.uid as Any,
             "listing_name": businessListing.listing_name,
@@ -209,61 +257,71 @@ struct FirebaseService {
     
     // Upload or POST image to storage
     // Tested and successful.
-    func uploadImageToFirebase(image: UIImage?, for listingUUID: String) {
-        // If the image is nil, we'll create a post without an image
+    static func uploadImageToFirebase(image: UIImage?, completion: @escaping (Result<String, Error>) -> Void) {
         guard let image = image else {
-            let post = Post(id: UUID().uuidString, description: "This is a test post.", date: Date(), imageURL: nil)
-            createPostForBusinessListing(listingUUID: listingUUID, post: post)
+            completion(.failure(NSError(domain: "No Image Found", code: -1, userInfo: nil)))
             return
         }
 
-        // If we have an image, then we proceed to upload it to Firebase Storage
         guard let data = image.jpegData(compressionQuality: 1.0) else {
-            print("Failed to convert image to data")
+            completion(.failure(NSError(domain: "Failed to convert image to data", code: -2, userInfo: nil)))
             return
         }
 
         let storageRef = Storage.storage().reference().child("uploadedImages/\(UUID().uuidString).jpg")
         storageRef.putData(data, metadata: nil) { (metadata, error) in
             guard metadata != nil else {
-                print("Error uploading image: \(String(describing: error))")
+                completion(.failure(error ?? NSError(domain: "Error uploading image", code: -3, userInfo: nil)))
                 return
             }
 
             storageRef.downloadURL { (url, error) in
                 guard let downloadURL = url else {
-                    print("Error getting download URL: \(String(describing: error))")
+                    completion(.failure(error ?? NSError(domain: "Error getting download URL", code: -4, userInfo: nil)))
                     return
                 }
                 print("Image uploaded successfully. Download URL: \(downloadURL)")
-
-                // create the post with the image URL
-                let post = Post(id: UUID().uuidString, description: "This is a test post.", date: Date(), imageURL: downloadURL.absoluteString)
-                createPostForBusinessListing(listingUUID: listingUUID, post: post)
+                completion(.success(downloadURL.absoluteString))
             }
         }
     }
-    
+
     // Update or PUT image request
-    func updateImageInFirebase(oldImageURL: String?, newImage: UIImage?, for listingUUID: String) {
+    func updateImageInFirebase(oldImageURL: String?, newImage: UIImage?, for listingUUID: String, completion: @escaping (Result<String?, Error>) -> Void) {
         // First, delete the old image if it exists
         if let oldImageURL = oldImageURL {
             let oldStorageRef = Storage.storage().reference(forURL: oldImageURL)
             oldStorageRef.delete { error in
                 if let error = error {
                     print("Error deleting old image: \(error)")
-                } else {
-                    print("Old image successfully deleted.")
+                    completion(.failure(error))
+                    return
                 }
+                print("Old image successfully deleted.")
                 
                 // After deleting the old image, upload the new one
-                uploadImageToFirebase(image: newImage, for: listingUUID)
+                FirebaseService.uploadImageToFirebase(image: newImage) { imageResult in
+                    switch imageResult {
+                    case .success(let imageURL):
+                        completion(.success(imageURL))
+                    case .failure(let error):
+                        completion(.failure(error))
+                    }
+                }
             }
         } else {
             // If there was no old image, just upload the new one
-            uploadImageToFirebase(image: newImage, for: listingUUID)
+            FirebaseService.uploadImageToFirebase(image: newImage) { imageResult in
+                switch imageResult {
+                case .success(let imageURL):
+                    completion(.success(imageURL))
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+            }
         }
     }
+
 
     // Delete or DELETE image
     func deleteImageFromFirebase(imageURL: String, completion: @escaping (Bool) -> Void) {
@@ -285,7 +343,7 @@ struct FirebaseService {
     
     // Sign in
     // Altered for returning the uid of the signed in user for businesslisting lookup.
-    func signIn(email: String, password: String, completion: @escaping (Bool, String?, Error?) -> Void) {
+    static func signIn(email: String, password: String, completion: @escaping (Bool, String?, Error?) -> Void) {
         Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
             if let error = error {
                 completion(false, nil, error)
@@ -303,7 +361,7 @@ struct FirebaseService {
     
     // Sign up
     // Altered for returning the uid of the newly signed in user for businesslisting lookup.
-    func signUp(email: String, password: String, completion: @escaping (Bool, String?, Error?) -> Void) {
+    static func signUp(email: String, password: String, completion: @escaping (Bool, String?, Error?) -> Void) {
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
             if let error = error {
                 completion(false, nil, error)

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nCy-f2-Gre">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="90L-OJ-QgX">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
@@ -8,15 +8,15 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--SearchCollection-->
+        <!--middlemantab-->
         <scene sceneID="Xw9-In-PtM">
             <objects>
-                <viewControllerPlaceholder storyboardName="SearchCollection" id="o2s-y1-XSq" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="middlemantab" id="o2s-y1-XSq" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="Lii-Dl-Pyr"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nuA-S2-UPQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1943.5114503816792" y="-1221.1267605633802"/>
+            <point key="canvasLocation" x="-1016.7938931297709" y="-1221.1267605633802"/>
         </scene>
         <!--SignIn-->
         <scene sceneID="sCy-L5-3is">
@@ -26,15 +26,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SXu-m0-Tae" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1901.5267175572519" y="-930.28169014084517"/>
-        </scene>
-        <!--CreatePosts-->
-        <scene sceneID="8Tj-Sf-CfS">
-            <objects>
-                <viewControllerPlaceholder storyboardName="CreatePosts" id="acK-Iy-zAk" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="PSB-hq-kRE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1179.3893129770993" y="-848.59154929577471"/>
+            <point key="canvasLocation" x="-974.80916030534343" y="-930.28169014084517"/>
         </scene>
         <!--SignUp-->
         <scene sceneID="9Kf-Q0-TD2">
@@ -44,31 +36,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E3J-b8-HgY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1989.3129770992366" y="-677.46478873239437"/>
-        </scene>
-        <!--BusinessProfile-->
-        <scene sceneID="M8E-3e-r3Q">
-            <objects>
-                <viewControllerPlaceholder storyboardName="BusinessProfile" id="31G-4T-BSG" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HKV-Sl-v7U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-877.86259541984725" y="-844.36619718309862"/>
-        </scene>
-        <!--EditBusinessProfile-->
-        <scene sceneID="der-4o-sgm">
-            <objects>
-                <viewControllerPlaceholder storyboardName="EditBusinessProfile" id="5Hj-ps-y1k" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Rvg-T8-UsC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-880.91603053435108" y="-773.23943661971839"/>
-        </scene>
-        <!--UserBusinessProfile-->
-        <scene sceneID="YlQ-On-joT">
-            <objects>
-                <viewControllerPlaceholder storyboardName="UserBusinessProfile" id="Zz7-Wl-QLN" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="EV3-Il-SZJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1196.1832061068701" y="-780.28169014084506"/>
+            <point key="canvasLocation" x="-1062.5954198473282" y="-677.46478873239437"/>
         </scene>
         <!--FindA Farm View Controller-->
         <scene sceneID="jYP-fb-9cK">
@@ -78,87 +46,107 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9EE-Yf-pA9">
-                                <rect key="frame" x="0.0" y="59" width="393" height="793"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9EE-Yf-pA9">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="124" translatesAutoresizingMaskIntoConstraints="NO" id="OXy-xe-bfc">
-                                <rect key="frame" x="20" y="264" width="353" height="324"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="yPc-pZ-9wu">
+                                <rect key="frame" x="116" y="730.33333333333337" width="172" height="77.666666666666629"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vMM-IC-G7T">
-                                        <rect key="frame" x="18" y="0.0" width="317" height="100"/>
-                                        <color key="tintColor" systemColor="labelColor"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="gray" title="FIND A FARM" cornerStyle="capsule">
-                                            <fontDescription key="titleFontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="30"/>
-                                            <color key="baseBackgroundColor" systemColor="systemOrangeColor"/>
-                                        </buttonConfiguration>
-                                        <connections>
-                                            <segue destination="o2s-y1-XSq" kind="show" id="xgy-bg-i9P"/>
-                                        </connections>
-                                    </button>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="VOG-3T-zOi">
-                                        <rect key="frame" x="48.333333333333343" y="224" width="256.66666666666663" height="100"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Business" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SOT-P4-rNd">
+                                        <rect key="frame" x="0.0" y="0.0" width="172" height="35.666666666666664"/>
+                                        <color key="backgroundColor" red="1" green="0.98489852320000004" blue="0.88028306960000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="JuQ-Z9-chn">
+                                        <rect key="frame" x="0.0" y="43.666666666666629" width="172" height="34"/>
                                         <subviews>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Business" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SOT-P4-rNd">
-                                                <rect key="frame" x="56.333333333333357" y="0.0" width="143.66666666666663" height="33.666666666666664"/>
-                                                <color key="backgroundColor" systemColor="systemYellowColor"/>
-                                                <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="25"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="70" translatesAutoresizingMaskIntoConstraints="NO" id="7Da-xX-a68">
-                                                <rect key="frame" x="0.0" y="57.666666666666629" width="256.66666666666669" height="42.333333333333343"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hD5-zq-G8H">
-                                                        <rect key="frame" x="0.0" y="0.0" width="93.333333333333329" height="42.333333333333336"/>
-                                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="21"/>
-                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal" title="Sign In"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title="Sign In">
-                                                            <backgroundConfiguration key="background">
-                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            </backgroundConfiguration>
-                                                            <fontDescription key="titleFontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="21"/>
-                                                        </buttonConfiguration>
-                                                        <connections>
-                                                            <segue destination="dc8-8F-9mU" kind="show" id="ZPW-Mm-bWZ"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="riH-Fj-Zii">
-                                                        <rect key="frame" x="163.33333333333331" y="0.0" width="93.333333333333314" height="42.333333333333336"/>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="tinted" title="Sign Up">
-                                                            <fontDescription key="titleFontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="20"/>
-                                                        </buttonConfiguration>
-                                                        <connections>
-                                                            <segue destination="htB-v5-oZF" kind="show" id="16F-PH-e47"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hD5-zq-G8H">
+                                                <rect key="frame" x="0.0" y="0.0" width="73" height="34"/>
+                                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="21"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Sign In"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Sign In">
+                                                    <backgroundConfiguration key="background">
+                                                        <color key="backgroundColor" red="1" green="0.98489852320000004" blue="0.88028306960000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </backgroundConfiguration>
+                                                    <fontDescription key="titleFontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="14"/>
+                                                    <color key="baseForegroundColor" systemColor="labelColor"/>
+                                                </buttonConfiguration>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="15"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <segue destination="dc8-8F-9mU" kind="show" id="ZPW-Mm-bWZ"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" preferredBehavioralStyle="pad" translatesAutoresizingMaskIntoConstraints="NO" id="riH-Fj-Zii">
+                                                <rect key="frame" x="99" y="0.0" width="73" height="34"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Sign Up">
+                                                    <backgroundConfiguration key="background">
+                                                        <color key="backgroundColor" red="1" green="0.98489852320000004" blue="0.88028306960000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </backgroundConfiguration>
+                                                    <fontDescription key="titleFontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="14"/>
+                                                    <color key="baseForegroundColor" systemColor="labelColor"/>
+                                                </buttonConfiguration>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="15"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <segue destination="htB-v5-oZF" kind="show" id="16F-PH-e47"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemYellowColor"/>
-                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="100" id="2AY-UP-hud"/>
-                                        </constraints>
                                     </stackView>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="vMM-IC-G7T" firstAttribute="leading" secondItem="OXy-xe-bfc" secondAttribute="leading" constant="18" id="NOU-I9-UwR"/>
-                                    <constraint firstAttribute="trailing" secondItem="vMM-IC-G7T" secondAttribute="trailing" constant="18" id="oMM-Rb-p4Y"/>
-                                </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vMM-IC-G7T">
+                                <rect key="frame" x="71" y="382" width="250" height="85"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="85" id="yKc-wm-JOO"/>
+                                </constraints>
+                                <color key="tintColor" systemColor="labelColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="FIND A FARM" cornerStyle="capsule">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" red="1" green="0.98489852320000004" blue="0.88028306960000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </backgroundConfiguration>
+                                    <fontDescription key="titleFontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="30"/>
+                                    <color key="baseBackgroundColor" red="1" green="0.98489852320000004" blue="0.88028306960000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="o2s-y1-XSq" kind="show" id="xgy-bg-i9P"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="9xQ-rO-miE"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="OXy-xe-bfc" firstAttribute="top" secondItem="9xQ-rO-miE" secondAttribute="top" constant="205" id="BTb-bM-7MP"/>
-                            <constraint firstItem="OXy-xe-bfc" firstAttribute="leading" secondItem="9xQ-rO-miE" secondAttribute="leading" constant="20" id="Hd4-om-i7u"/>
-                            <constraint firstItem="9xQ-rO-miE" firstAttribute="trailing" secondItem="OXy-xe-bfc" secondAttribute="trailing" constant="20" id="nzP-8X-jx4"/>
-                            <constraint firstItem="OXy-xe-bfc" firstAttribute="centerY" secondItem="lTD-IQ-Yoj" secondAttribute="centerY" id="tZS-Ub-a0h"/>
-                            <constraint firstItem="OXy-xe-bfc" firstAttribute="centerX" secondItem="lTD-IQ-Yoj" secondAttribute="centerX" id="vzD-Kd-x6b"/>
+                            <constraint firstItem="yPc-pZ-9wu" firstAttribute="leading" secondItem="9xQ-rO-miE" secondAttribute="leading" constant="116" id="2Gw-as-bdP"/>
+                            <constraint firstItem="9EE-Yf-pA9" firstAttribute="leading" secondItem="9xQ-rO-miE" secondAttribute="leading" id="2Pi-2S-g6N"/>
+                            <constraint firstItem="vMM-IC-G7T" firstAttribute="leading" secondItem="9xQ-rO-miE" secondAttribute="leading" constant="71" id="86s-wF-eIC"/>
+                            <constraint firstItem="9xQ-rO-miE" firstAttribute="bottom" secondItem="yPc-pZ-9wu" secondAttribute="bottom" constant="10" id="NGn-ir-fzk"/>
+                            <constraint firstItem="9EE-Yf-pA9" firstAttribute="top" secondItem="lTD-IQ-Yoj" secondAttribute="top" id="R9G-Jm-mFv"/>
+                            <constraint firstItem="9EE-Yf-pA9" firstAttribute="leading" secondItem="9xQ-rO-miE" secondAttribute="leading" id="UOR-MI-iC3"/>
+                            <constraint firstItem="9EE-Yf-pA9" firstAttribute="trailing" secondItem="9xQ-rO-miE" secondAttribute="trailing" id="WbU-gT-oPy"/>
+                            <constraint firstItem="9xQ-rO-miE" firstAttribute="trailing" secondItem="yPc-pZ-9wu" secondAttribute="trailing" constant="105" id="ZiL-Dy-Y0g"/>
+                            <constraint firstAttribute="bottom" secondItem="9EE-Yf-pA9" secondAttribute="bottom" id="g2Z-U5-kDM"/>
+                            <constraint firstItem="9xQ-rO-miE" firstAttribute="trailing" secondItem="vMM-IC-G7T" secondAttribute="trailing" constant="72" id="me5-4a-Blj"/>
+                            <constraint firstItem="vMM-IC-G7T" firstAttribute="top" secondItem="9xQ-rO-miE" secondAttribute="top" constant="279" id="uvf-KQ-SzJ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Sgg-G4-2lD"/>
@@ -171,41 +159,30 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="edI-jL-v45" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2692.3664122137402" y="-930.28169014084517"/>
-        </scene>
-        <!--Storyboard Reference-->
-        <scene sceneID="yzS-Qd-22y">
-            <objects>
-                <viewControllerPlaceholder id="rSf-8H-S6m" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5fz-3N-QR6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1196" y="-946"/>
+            <point key="canvasLocation" x="-1765.6488549618321" y="-930.28169014084517"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="T6r-bT-88B">
+        <scene sceneID="ptW-WH-QRK">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3xf-Z5-8sW" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="90L-OJ-QgX" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="W78-8M-fKP">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="48f-O2-aHf">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="nCy-f2-Gre" kind="relationship" relationship="rootViewController" id="eN3-H9-NWV"/>
+                    </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Liw-Uv-TfI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BC3-Yr-dB7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3619.0839694656488" y="-930.28169014084517"/>
+            <point key="canvasLocation" x="-2692.3664122137402" y="-930.28169014084517"/>
         </scene>
     </scenes>
     <resources>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemYellowColor">
-            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

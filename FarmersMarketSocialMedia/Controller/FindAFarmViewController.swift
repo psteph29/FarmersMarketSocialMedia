@@ -15,11 +15,15 @@ class FindAFarmViewController: UIViewController {
     @IBOutlet weak var signInButton: UIButton!
     @IBOutlet weak var signUpButton: UIButton!
     
+    let gold = UIColor(hex: "#ffe700ff")
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         backgroundImage.image = UIImage(named: "signInImage")
-        backgroundImage.alpha = 0.3
+        backgroundImage.alpha = 0.8
         backgroundImage.contentMode = .scaleAspectFill
     }
     

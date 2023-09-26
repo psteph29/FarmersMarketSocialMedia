@@ -12,9 +12,18 @@ class UserBusinessProfileViewController: UIViewController {
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var businessNameLabel: UILabel!
     @IBOutlet weak var businessAddressLabel: UILabel!
+
     @IBOutlet weak var businessProfileDescription: UITextView!
+
+    @IBOutlet weak var contactInformation: UILabel!
+    @IBOutlet weak var email: UILabel!
     
-    @IBOutlet weak var backgroundImage: UIImageView!
+    @IBOutlet weak var descriptionTextView: UITextView!
+
+    
+    @IBOutlet weak var postsTableView: UITableView!
+    
+    var businessListing: BusinessListing
     
     @IBOutlet weak var tableView: UITableView!
 
@@ -36,12 +45,39 @@ class UserBusinessProfileViewController: UIViewController {
             businessAddressLabel.text = user.businessAddress
             businessProfileDescription.text = user.profileDescription
         }
+        businessNameLabel.text = businessListing.listing_name
+        businessAddressLabel.text = businessListing.listing_address
 
-        backgroundImage.alpha = 0.3
-        backgroundImage.contentMode = .scaleAspectFill
-        // Do any additional setup after loading the view.
+        descriptionTextView.text = businessListing.listing_description ?? "The farm has not listed a description"
+
+        descriptionTextView.text = businessListing.listing_description
+//        contactInformation.text = businessListing
+//        email.text = businessListing
+        
+        
+//        profileImage.load(url: URL(businessListing.listing_profileImageURL))
+        
+        guard let url = URL(string: businessListing.listing_profileImageURL!) else {
+            print("Invalid URL")
+            return
+        }
+        
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data = data, error == nil else {
+                print("Error downloading image: \(error?.localizedDescription ?? "No error description")")
+                return
+            }
+            DispatchQueue.main.async {
+                // Set the downloaded image to your UIImageView
+                self.profileImage.image = UIImage(data: data)
+            }
+        }
+        task.resume()
+        profileImage.alpha = 0.3
+        profileImage.contentMode = .scaleAspectFill
+
     }
-    
+
     func fetchPostsByBusinessListing() {
         FirebaseService.shared.fetchPostsByBusinessListing { [weak self] result in
             switch result {
@@ -79,6 +115,17 @@ class UserBusinessProfileViewController: UIViewController {
 
 
 
+
+    init?(coder: NSCoder, businessListing: BusinessListing) {
+        self.businessListing = businessListing
+        super.init(coder: coder)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+  
+
     /*
     // MARK: - Navigation
 
@@ -88,8 +135,11 @@ class UserBusinessProfileViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+//    Add edit button and connect to editBusinessProfile View Controller
 
 }
+
 
 extension UserBusinessProfileViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -134,3 +184,18 @@ class BusinessUserProfile {
         self.profileDescription = profileDescription
     }
 }
+
+//extension UIImageView {
+//    func load(url: URL) {
+//        DispatchQueue.global().async { [weak self] in
+//            if let data = try? Data(contentsOf: url) {
+//                if let image = UIImage(data: data) {
+//                    DispatchQueue.main.async {
+//                        self?.image = image
+//                    }
+//                }
+//            }
+//        }
+//    }
+//}
+

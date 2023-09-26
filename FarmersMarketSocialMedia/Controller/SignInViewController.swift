@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class SignInViewController: UIViewController {
     
@@ -24,15 +25,31 @@ class SignInViewController: UIViewController {
         backgroundImage.contentMode = .scaleAspectFill
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func showAlert(message: String) {
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
-    */
+    
+    
+    @IBAction func didTapSignIn(_ sender: UIButton) {
+        guard let email = userName.text, !email.isEmpty,
+              let password = password.text, !password.isEmpty else {
+            // Alert the user that fields are empty
+            showAlert(message: "Please enter both email and password.")
+            return
+        }
+
+        FirebaseService.signIn(email: email, password: password) { success, uid, error in
+            if success {
+                // Handle successful sign in
+                self.performSegue(withIdentifier: "SignInSuccess", sender: self)
+
+            } else {
+                // Handle sign in error
+                self.showAlert(message: error?.localizedDescription ?? "Unknown error occurred.")
+            }
+        }
+    }
 
 }

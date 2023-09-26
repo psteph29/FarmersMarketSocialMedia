@@ -10,6 +10,7 @@ import Foundation
 struct BusinessListing: Identifiable, Encodable {
     var id: String { listing_uuid }
     
+    var listing_profileImageURL: String?
     var uid: String?
     var listing_USDA_id: Int?
     var listing_uuid: String
