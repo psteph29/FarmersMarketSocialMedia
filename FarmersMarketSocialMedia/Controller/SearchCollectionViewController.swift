@@ -20,7 +20,7 @@ class SearchCollectionViewController: UIViewController {
     
     var businessListings: [BusinessListing] = []
     
-    var selectedRadius: Int? = nil
+    var selectedRadius: Int? = 10
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -8,23 +8,44 @@
 import UIKit
 import CoreData
 
-private let reuseIdentifier = "favoritesCell"
+private let reuseIdentifier = "cell" // was "favoritesCell"
 
 class FavoritesCollectionViewController: UICollectionViewController {
 
     let coreDataManager = CoreDataManager.shared
     var favoriteBusinessListings: [FavoriteBusinessListing] = []
-
+    
     override func viewDidLoad() {
-        super.viewDidLoad()
 
-        // Register cell classes
-        self.collectionView!.register(FavoritesCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+      super.viewDidLoad()
 
-        collectionView.setCollectionViewLayout(generateLayout(), animated: false)
+      // Create layout
+      let layout = UICollectionViewFlowLayout()
 
-        // Load favorites from Core Data
-        loadFavorites()
+      // Initialize collection view
+      let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+      
+      // Register cell class (could also register nib instead)
+      //collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        collectionView.register(kolecustomcell.self, forCellWithReuseIdentifier: "cell")
+        
+      // Add and configure collection view
+      view.addSubview(collectionView)
+      collectionView.frame = view.bounds
+
+      // Set data source and delegate
+      collectionView.dataSource = self
+      collectionView.delegate = self
+
+      // Set the collectionView property
+      self.collectionView = collectionView
+
+      loadFavorites()
+      
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
     }
 
     func loadFavorites() {
@@ -39,6 +60,7 @@ class FavoritesCollectionViewController: UICollectionViewController {
         
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: itemSize, subitem: item, count: 1)
+
         
         let section = NSCollectionLayoutSection(group: group)
         
@@ -55,19 +77,17 @@ class FavoritesCollectionViewController: UICollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? FavoritesCollectionViewCell else {
-            fatalError("Unable to dequeue a FavoritesCollectionViewCell.")
-        }
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! kolecustomcell
 
         let favoriteBusinessListing = favoriteBusinessListings[indexPath.item]
-        
+            
         if let listingName = favoriteBusinessListing.listing_name {
             cell.businessNameLabel.text = listingName
         } else {
             cell.businessNameLabel.text = "Name not available"
         }
         
-        // Safely unwrap other optional values
           if let address = favoriteBusinessListing.listing_address {
               cell.addressLabel.text = address
           } else {
