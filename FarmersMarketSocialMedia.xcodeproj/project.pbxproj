@@ -15,7 +15,6 @@
 		0F12A4332ABE461D005412C1 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F12A4322ABE461D005412C1 /* CoreDataManager.swift */; };
 		0F12A4362ABE4648005412C1 /* AppDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0F12A4342ABE4648005412C1 /* AppDataModel.xcdatamodeld */; };
 		0F12A4382ABE4E40005412C1 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F12A4372ABE4E40005412C1 /* UIImageExtension.swift */; };
-		0F12A44E2ABFEDFB005412C1 /* kolecustomcell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F12A44D2ABFEDFB005412C1 /* kolecustomcell.swift */; };
 		0FA6FDFB2AB48CE600130021 /* ZipCodeStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA6FDFA2AB48CE600130021 /* ZipCodeStruct.swift */; };
 		0FA6FDFD2AB48D1800130021 /* DistanceCalcFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA6FDFC2AB48D1800130021 /* DistanceCalcFunc.swift */; };
 		0FA6FE032AB48E5A00130021 /* BusinessListingStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA6FE022AB48E5A00130021 /* BusinessListingStruct.swift */; };
@@ -65,7 +64,6 @@
 		0F12A4322ABE461D005412C1 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		0F12A4352ABE4648005412C1 /* AppDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AppDataModel.xcdatamodel; sourceTree = "<group>"; };
 		0F12A4372ABE4E40005412C1 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
-		0F12A44D2ABFEDFB005412C1 /* kolecustomcell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kolecustomcell.swift; sourceTree = "<group>"; };
 		0FA6FDFA2AB48CE600130021 /* ZipCodeStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZipCodeStruct.swift; sourceTree = "<group>"; };
 		0FA6FDFC2AB48D1800130021 /* DistanceCalcFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceCalcFunc.swift; sourceTree = "<group>"; };
 		0FA6FE012AB48D8900130021 /* UpdatedZIPCODES.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = UpdatedZIPCODES.json; sourceTree = "<group>"; };
@@ -216,7 +214,6 @@
 			children = (
 				AB35EBC72AAB7BF1006E3392 /* BusinessSearchResultsCollectionViewCell.swift */,
 				ABA47AE02AB4ACE2008F58EE /* FavoritesCollectionViewCell.swift */,
-				0F12A44D2ABFEDFB005412C1 /* kolecustomcell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -333,7 +330,6 @@
 				0FA6FE032AB48E5A00130021 /* BusinessListingStruct.swift in Sources */,
 				AB233CEF2AB35E54006A3DB7 /* SignUpViewController.swift in Sources */,
 				ABA47AE12AB4ACE2008F58EE /* FavoritesCollectionViewCell.swift in Sources */,
-				0F12A44E2ABFEDFB005412C1 /* kolecustomcell.swift in Sources */,
 				0F0161D32ABCA5B900D704A1 /* SignedInMiddleManTab.swift in Sources */,
 				AB35EBC82AAB7BF1006E3392 /* BusinessSearchResultsCollectionViewCell.swift in Sources */,
 				AB35EBA82AA8DB8B006E3392 /* SceneDelegate.swift in Sources */,

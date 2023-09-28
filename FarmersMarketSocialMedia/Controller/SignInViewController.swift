@@ -9,7 +9,6 @@ import UIKit
 import FirebaseAuth
 
 class SignInViewController: UIViewController {
-    
 
     @IBOutlet weak var backgroundImage: UIImageView!
     
@@ -43,13 +42,12 @@ class SignInViewController: UIViewController {
         FirebaseService.signIn(email: email, password: password) { success, uid, error in
             if success {
                 // Handle successful sign in
+                UserDefaults.standard.set(uid, forKey: "UserId")
                 self.performSegue(withIdentifier: "SignInSuccess", sender: self)
-
             } else {
                 // Handle sign in error
                 self.showAlert(message: error?.localizedDescription ?? "Unknown error occurred.")
             }
         }
     }
-
 }
