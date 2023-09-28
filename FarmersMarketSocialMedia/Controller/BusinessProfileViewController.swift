@@ -13,6 +13,8 @@ class BusinessProfileViewController: UIViewController {
     @IBOutlet weak var newPost: UIButton!
     @IBOutlet weak var businessNameLabel: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet var businessAddress: UILabel!
+    @IBOutlet var businessDescription: UITextView!
     
     @IBOutlet weak var backgroundImage: UIImageView!
     
@@ -43,23 +45,25 @@ class BusinessProfileViewController: UIViewController {
     }
 
     func updateUI(with businessListing: BusinessListing) {
-         businessNameLabel.text = businessListing.listing_name
-        
+        businessNameLabel.text = businessListing.listing_name
+        businessAddress.text = businessListing.listing_address
+        businessDescription.text = businessListing.listing_description
          
          // Load profile image
-         if let profileImageURLString = businessListing.listing_profileImageURL,
-            let url = URL(string: profileImageURLString) {
-             
-             let task = URLSession.shared.dataTask(with: url) { data, response, error in
-                 guard let data = data, error == nil else {
-                     print("Error downloading image: \(error?.localizedDescription ?? "No error description")")
-                     return
-                 }
-                 DispatchQueue.main.async {
-                     // Set the downloaded image to the UIImageView
-                     self.profileImage.image = UIImage(data: data)
-                 }
-             }
-         }
+        if let profileImageURLString = businessListing.listing_profileImageURL,
+           let url = URL(string: profileImageURLString) {
+            
+            let task = URLSession.shared.dataTask(with: url) { data, response, error in
+                guard let data = data, error == nil else {
+                    print("Error downloading image: \(error?.localizedDescription ?? "No error description")")
+                    return
+                }
+                DispatchQueue.main.async {
+                    // Set the downloaded image to the UIImageView
+                    self.profileImage.image = UIImage(data: data)
+                }
+            }
+            task.resume()  // Don't forget to resume the task
+        }
      }
 }
