@@ -44,13 +44,13 @@
 		AB35EBD42AB3478D006E3392 /* FindAFarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB35EBD32AB3478D006E3392 /* FindAFarmViewController.swift */; };
 		AB8ACFAA2ABC9E570097959E /* FavoritesCollection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB8ACFA92ABC9E570097959E /* FavoritesCollection.storyboard */; };
 		AB8ACFAC2ABC9EF40097959E /* middlemantab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB8ACFAB2ABC9EF30097959E /* middlemantab.storyboard */; };
-		AB8ACFAE2ABCA7AD0097959E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AB8ACFAD2ABCA7AD0097959E /* GoogleService-Info.plist */; };
 		ABA47AE12AB4ACE2008F58EE /* FavoritesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA47AE02AB4ACE2008F58EE /* FavoritesCollectionViewCell.swift */; };
 		ABA47AE32AB4B0B6008F58EE /* FavoritesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA47AE22AB4B0B6008F58EE /* FavoritesCollectionViewController.swift */; };
 		F30CC0202AAB7AB80067DC44 /* CreatePostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30CC01F2AAB7AB80067DC44 /* CreatePostsViewController.swift */; };
 		F30CC0222AAB7BA40067DC44 /* UserBusinessProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30CC0212AAB7BA40067DC44 /* UserBusinessProfileViewController.swift */; };
 		F30CC0242AAB7F120067DC44 /* BusinessProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30CC0232AAB7F120067DC44 /* BusinessProfileViewController.swift */; };
 		F30CC0262AAB7F3A0067DC44 /* EditBusinessProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30CC0252AAB7F3A0067DC44 /* EditBusinessProfileViewController.swift */; };
+		F33E17B52AC3274300EAAEC6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F33E17B42AC3274300EAAEC6 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,13 +89,13 @@
 		AB35EBD32AB3478D006E3392 /* FindAFarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindAFarmViewController.swift; sourceTree = "<group>"; };
 		AB8ACFA92ABC9E570097959E /* FavoritesCollection.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FavoritesCollection.storyboard; sourceTree = "<group>"; };
 		AB8ACFAB2ABC9EF30097959E /* middlemantab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = middlemantab.storyboard; sourceTree = "<group>"; };
-		AB8ACFAD2ABCA7AD0097959E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		ABA47AE02AB4ACE2008F58EE /* FavoritesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCollectionViewCell.swift; sourceTree = "<group>"; };
 		ABA47AE22AB4B0B6008F58EE /* FavoritesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCollectionViewController.swift; sourceTree = "<group>"; };
 		F30CC01F2AAB7AB80067DC44 /* CreatePostsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostsViewController.swift; sourceTree = "<group>"; };
 		F30CC0212AAB7BA40067DC44 /* UserBusinessProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserBusinessProfileViewController.swift; sourceTree = "<group>"; };
 		F30CC0232AAB7F120067DC44 /* BusinessProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessProfileViewController.swift; sourceTree = "<group>"; };
 		F30CC0252AAB7F3A0067DC44 /* EditBusinessProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBusinessProfileViewController.swift; sourceTree = "<group>"; };
+		F33E17B42AC3274300EAAEC6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,7 +189,7 @@
 		AB35EBA42AA8DB8B006E3392 /* FarmersMarketSocialMedia */ = {
 			isa = PBXGroup;
 			children = (
-				AB8ACFAD2ABCA7AD0097959E /* GoogleService-Info.plist */,
+				F33E17B42AC3274300EAAEC6 /* GoogleService-Info.plist */,
 				ABA47ADF2AB4AC9D008F58EE /* Cells */,
 				0FA6FE002AB48D4200130021 /* Controller */,
 				0FA6FDFF2AB48D3300130021 /* View */,
@@ -276,7 +276,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB8ACFAE2ABCA7AD0097959E /* GoogleService-Info.plist in Resources */,
 				AB35EBD22AB21D7A006E3392 /* EditBusinessProfile.storyboard in Resources */,
 				AB35EBCA2AB21844006E3392 /* SearchCollection.storyboard in Resources */,
 				AB35EBCE2AB21CA9006E3392 /* UserBusinessProfile.storyboard in Resources */,
@@ -290,6 +289,7 @@
 				AB35EBBE2AAA0E29006E3392 /* Main.storyboard in Resources */,
 				AB35EBD02AB21D1F006E3392 /* BusinessProfile.storyboard in Resources */,
 				AB35EBCC2AB21BE5006E3392 /* CreatePosts.storyboard in Resources */,
+				F33E17B52AC3274300EAAEC6 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

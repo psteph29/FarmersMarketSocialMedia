@@ -28,11 +28,11 @@ class BusinessProfileViewController: UIViewController {
     }
     
     @IBAction func newPostButtonTapped(_ sender: UIButton) {
-        performSegue(withIdentifier: "YourCreatePostsSegueIdentifier", sender: self)
+        performSegue(withIdentifier: "CreatePostsSegueIdentifier", sender: self)
     }
 
     @IBAction func editProfileButtonTapped(_ sender: UIButton) {
-        performSegue(withIdentifier: "YourEditProfileSegueIdentifier", sender: self)
+        performSegue(withIdentifier: "EditProfileSegueIdentifier", sender: self)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

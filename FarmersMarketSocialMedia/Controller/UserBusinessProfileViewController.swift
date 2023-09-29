@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
+import FirebaseFirestore
 
-class UserBusinessProfileViewController: UIViewController {
+class UserBusinessProfileViewController: UIViewController, UITableViewDelegate {
     
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var businessNameLabel: UILabel!
@@ -24,17 +27,14 @@ class UserBusinessProfileViewController: UIViewController {
     @IBOutlet weak var postsTableView: UITableView!
     
     var businessListing: BusinessListing
-    
-    @IBOutlet weak var tableView: UITableView!
-
     var posts: [Post] = []
     var user: BusinessUserProfile?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.dataSource = self
-        tableView.delegate = self
+        postsTableView.dataSource = self
+        postsTableView.delegate = self
         
         fetchPostsByBusinessListing()
         // Call your function to fetch posts
@@ -79,19 +79,19 @@ class UserBusinessProfileViewController: UIViewController {
     }
 
     func fetchPostsByBusinessListing() {
-        FirebaseService.shared.fetchPostsByBusinessListing { [weak self] result in
-            switch result {
-            case .success(let fetchedPosts):
-                // Update your data source (e.g., self.posts) with fetched posts
-                self?.posts = fetchedPosts
-                
-                // Reload the table view to display the new data
-                DispatchQueue.main.async {
-                    self?.tableView.reloadData()
-                }
-            case .failure(let error):
-                // Handle the error, e.g., show an alert
-                print("Failed to fetch posts: \(error)")
+//        FirebaseService.shared.fetchPostsByBusinessListing { [weak self] (result: Result<[Post], Error>) in
+        FirebaseService().fetchPostsByBusinessListing(listingUUID: "") { [weak self] result in
+            guard let result = result else {
+                print("Failed to fetch posts!")
+                return
+            }
+
+            // Update your data source (e.g., self.posts) with fetched posts
+            self?.posts = result
+            
+            // Reload the table view to display the new data
+            DispatchQueue.main.async {
+                self?.postsTableView.reloadData()
             }
         }
     }
@@ -147,28 +147,29 @@ extension UserBusinessProfileViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CellIdentifier", for: indexPath) as! YourTableViewCellType
+        let cell = postsTableView.dequeueReusableCell(withIdentifier: "CellIdentifier", for: indexPath) as! UITableViewCell
 
         // Configure the cell with the post data
         let post = posts[indexPath.row]
-        cell.textLabel?.text = post.title
-        cell.detailTextLabel?.text = post.description
+//        cell.textLabel?.text = post.title
+        cell.textLabel?.text = post.description
         // Configure other cell properties as needed
 
         return cell
     }
-}
-
-extension UserBusinessProfileViewController: UITableViewDelegate {
-    // Implement UITableViewDelegate methods as needed
-}
+//    extension UserBusinessProfileViewController: UITableViewDelegate {
+//        // Implement UITableViewDelegate methods as needed
+//    }
 
 
-func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    // Handle row selection here
-    let selectedPost = posts[indexPath.row]
-    // Perform the desired action when a row is selected
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // Handle row selection here
+        let selectedPost = posts[indexPath.row]
+        // Perform the desired action when a row is selected
+    }
 }
+
+
 
 
 class BusinessUserProfile {
