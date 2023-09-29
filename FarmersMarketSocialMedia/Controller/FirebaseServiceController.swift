@@ -30,14 +30,16 @@ struct FirebaseService {
                     guard
                         let listing_uuid = document.get("listing_uuid") as? String,
                         let listing_name = document.get("listing_name") as? String,
-                        let listing_address = document.get("listing_address") as? String,
-                        let listing_profileImageURL = document.get("listing_profileImageURL") as? String,
-                        let listing_zipcode = document.get("listing_zipcode") as? Int
+                        let listing_address = document.get("listing_address") as? String
                     else {
                         print("Failed to parse document \(document.documentID) due to missing required fields")
                         return nil
                     }
                     
+                    let id = document.get("id") as? String
+                    let uid = document.get("uid") as? String
+                    let listing_zipcode = document.get("listing_zipcode") as? Int
+                    let listing_profileImageURL = document.get("listing_profileImageURL") as? String
                     let listing_USDA_id = document.get("listing_USDA_id") as? Int
                     let listing_username = document.get("listing_username") as? String
                     let listing_description = document.get("listing_description") as? String
@@ -45,6 +47,7 @@ struct FirebaseService {
 
                     return BusinessListing(
                         listing_profileImageURL: listing_profileImageURL,
+                        uid: uid,
                         listing_USDA_id: listing_USDA_id,
                         listing_uuid: listing_uuid,
                         listing_name: listing_name,
@@ -62,7 +65,7 @@ struct FirebaseService {
     
     // fetch or GET by uid for business profiles by business user
     // Tested and successful
-    func fetchBusinessListingByUID(uid: String, completion: @escaping (BusinessListing?) -> Void) {
+    static func fetchBusinessListingByUID(uid: String, completion: @escaping (BusinessListing?) -> Void) {
         let db = Firestore.firestore()
         // Target the specific document by its uid
         db.collection("USDAFarmersMarkets").document(uid).getDocument { (documentSnapshot, error) in
@@ -77,21 +80,27 @@ struct FirebaseService {
             return
           }
           // Extract business listing details from the document
-          guard
-            let listing_uuid = document.get("listing_uuid") as? String,
-            let listing_name = document.get("listing_name") as? String,
-            let listing_address = document.get("listing_address") as? String,
-            let listing_zipcode = document.get("listing_zipcode") as? Int
-          else {
+            guard
+                let listing_uuid = document.get("listing_uuid") as? String,
+                let listing_name = document.get("listing_name") as? String,
+                let listing_address = document.get("listing_address") as? String
+            else {
             print("Failed to parse document \(document.documentID) due to missing required fields")
             completion(nil)
             return
           }
-          let listing_USDA_id = document.get("listing_USDA_id") as? Int
-          let listing_username = document.get("listing_username") as? String
-          let listing_description = document.get("listing_description") as? String
-          let app_generated = document.get("app_generated") as? Bool
-          let businessListing = BusinessListing(
+            let id = document.get("id") as? String
+            let uid = document.get("uid") as? String
+            let listing_zipcode = document.get("listing_zipcode") as? Int
+            let listing_profileImageURL = document.get("listing_profileImageURL") as? String
+            let listing_USDA_id = document.get("listing_USDA_id") as? Int
+            let listing_username = document.get("listing_username") as? String
+            let listing_description = document.get("listing_description") as? String
+            let app_generated = document.get("app_generated") as? Bool
+            
+        let businessListing = BusinessListing(
+            listing_profileImageURL: listing_profileImageURL,
+            uid: uid,
             listing_USDA_id: listing_USDA_id,
             listing_uuid: listing_uuid,
             listing_name: listing_name,

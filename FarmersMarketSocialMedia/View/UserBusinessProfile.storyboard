@@ -86,11 +86,10 @@
                     <connections>
                         <outlet property="businessAddressLabel" destination="zOF-Dp-q8I" id="cwc-GH-akH"/>
                         <outlet property="businessNameLabel" destination="Zh0-RY-2KM" id="Dzf-0J-aQ0"/>
-                        <outlet property="businessProfileDescription" destination="ZWF-8T-1MZ" id="2rR-qq-bza"/>
                         <outlet property="descriptionTextView" destination="ZWF-8T-1MZ" id="UgO-ia-ozb"/>
+                        <outlet property="favoriteButton" destination="qdw-EP-qNE" id="La9-HQ-Trq"/>
                         <outlet property="postsTableView" destination="LmO-ob-BO6" id="sdk-AP-KDL"/>
                         <outlet property="profileImage" destination="dbD-XZ-70T" id="mDF-W3-BsF"/>
-                        <outlet property="tableView" destination="LmO-ob-BO6" id="wBR-d9-QFj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uGA-pA-GPS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

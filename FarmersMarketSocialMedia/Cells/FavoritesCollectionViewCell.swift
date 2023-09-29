@@ -12,5 +12,4 @@ class FavoritesCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var businessNameLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var backgroundImageView: UIImageView!
-    
 }

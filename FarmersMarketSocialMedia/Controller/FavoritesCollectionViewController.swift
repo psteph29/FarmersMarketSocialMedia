@@ -5,31 +5,34 @@
 //  Created by Paige Stephenson on 9/15/23.
 //
 
+// Coder needs to be implemented here so a user can see more details about their favorite business listings
+    
 import UIKit
+import CoreData
 
-private let reuseIdentifier = "favoritesCell"
+private let reuseIdentifier =  "favoritesCell"
 
 class FavoritesCollectionViewController: UICollectionViewController {
-    
-    let APIFarmController = APIController()
-    var farms: [Farm] = []
+
+    let coreDataManager = CoreDataManager.shared
+    var favoriteBusinessListings: [FavoriteBusinessListing] = []
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-        
-        
-        collectionView.setCollectionViewLayout(generateLayout(), animated: false)
-        
-        // Do any additional setup after loading the view.
+      super.viewDidLoad()
+
+      loadFavorites()
+      
     }
     
-    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
+
+    func loadFavorites() {
+        favoriteBusinessListings = coreDataManager.fetchFavorites()
+        collectionView.reloadData()
+    }
+
     func generateLayout() -> UICollectionViewLayout {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(150))
         //        item size is set to full width of the group
@@ -37,6 +40,7 @@ class FavoritesCollectionViewController: UICollectionViewController {
         
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: itemSize, subitem: item, count: 1)
+
         
         let section = NSCollectionLayoutSection(group: group)
         
@@ -46,42 +50,38 @@ class FavoritesCollectionViewController: UICollectionViewController {
         let layout = UICollectionViewCompositionalLayout(section: section)
         return layout
     }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using [segue destinationViewController].
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
+
     // MARK: UICollectionViewDataSource
-    
-    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        return farms.count
+        return favoriteBusinessListings.count
     }
-    
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell  {
+
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! FavoritesCollectionViewCell
+
+        let favoriteBusinessListing = favoriteBusinessListings[indexPath.item]
+            
+        if let listingName = favoriteBusinessListing.listing_name {
+            cell.businessNameLabel.text = listingName
+        } else {
+            cell.businessNameLabel.text = "Name not available"
+        }
         
-        let farm = farms[indexPath.item]
-        cell.businessNameLabel.text = farm.listingName
-        cell.addressLabel.text = farm.locationAddress
+          if let address = favoriteBusinessListing.listing_address {
+              cell.addressLabel.text = address
+          } else {
+              cell.addressLabel.text = "Address not available"
+          }
         
-        
+        if let profileImageUrl = favoriteBusinessListing.listing_profileImageURL {
+            cell.backgroundImageView.loadImage(from: profileImageUrl)
+        } else {
+            // Handle the case where profileImageUrl is nil or an invalid URL
+            cell.backgroundImageView.image = nil // or set a placeholder image
+        }
+
         return cell
     }
-    
-    //   func fetchFavorites() {
-//}
-//    func removeFavorite()
-    
-//    func favoriteMovie(from ...)
-    
-//    func unFavoriteMovie()
-    
+
 }

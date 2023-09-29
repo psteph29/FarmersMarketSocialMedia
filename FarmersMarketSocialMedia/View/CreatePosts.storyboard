@@ -113,7 +113,6 @@
                         <outlet property="backgroundImage" destination="XY9-ZK-d3K" id="Ic9-q6-vtI"/>
                         <outlet property="businessNameLabel" destination="89M-tO-oOb" id="d8K-RO-PHD"/>
                         <outlet property="cancelButton" destination="TJp-35-x9g" id="Iho-1c-kKF"/>
-                        <outlet property="createPostBackgroundView" destination="THw-t1-PwP" id="FJU-ya-duX"/>
                         <outlet property="createPostLabel" destination="Jjb-jc-Fhb" id="UlF-G8-Z4L"/>
                         <outlet property="imageUploadView" destination="Cc9-Ga-eHa" id="mtM-7R-sBe"/>
                         <outlet property="leavesBackground" destination="XY9-ZK-d3K" id="Ix8-rj-041"/>

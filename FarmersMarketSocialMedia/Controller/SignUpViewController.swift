@@ -11,13 +11,6 @@ import UIKit
 import FirebaseAuth
 import FirebaseFirestore
 
-protocol BusinessNameDelegate: AnyObject {
-    func didSelectBusinessName(_ name: String)
-}
-
-weak var businessNameDelegate: BusinessNameDelegate?
-
-
 class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var backgroundImage: UIImageView!
@@ -41,6 +34,7 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
         backgroundImage.alpha = 0.3
         backgroundImage.contentMode = .scaleAspectFill
     }
+    
 
     @IBAction func uploadImage(_ sender: UIButton) {
         let imagePicker = UIImagePickerController()
@@ -79,10 +73,6 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
         dismiss(animated: true, completion: nil)
     }
     
-
-//    In the SignUpViewController, you should put businessNameDelegate?.didSelectBusinessName(chosenName) at the point where the user has selected or entered their business name. This typically occurs in response to some user action like tapping a "Confirm" button or selecting a business name from a list. So, you would put it in the appropriate place within the SignUpViewController code where you have access to chosenName (the selected business name).
-//    businessNameDelegate?.didSelectBusinessName(businessName)
-
     func extractZipCode(from address: String) -> Int? {
         let pattern = "\\b(\\d{5}(?:-\\d{4})?)\\b"
         let regex = try? NSRegularExpression(pattern: pattern)

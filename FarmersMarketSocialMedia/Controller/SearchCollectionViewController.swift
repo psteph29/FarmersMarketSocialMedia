@@ -20,7 +20,7 @@ class SearchCollectionViewController: UIViewController {
     
     var businessListings: [BusinessListing] = []
     
-    var selectedRadius: Int? = nil
+    var selectedRadius: Int? = 10
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -101,6 +101,7 @@ class SearchCollectionViewController: UIViewController {
         }
 
         let nearbyZipCodes = findZipCodesWithinDistance(userZipcode: zipCodeSearchBar.text ?? "", travelDistance: distanceInKilometers, jsonData: jsonData)
+        print(nearbyZipCodes)
 
         // Convert nearby ZIP codes from String to Int
         let nearbyZipCodesInt = nearbyZipCodes.compactMap { Int($0) }
@@ -173,8 +174,6 @@ class SearchCollectionViewController: UIViewController {
            let selectedBusiness = businessListings[selectedIndexPath.item]
            return UserBusinessProfileViewController(coder: coder, businessListing: selectedBusiness)
     }
-    
-
 }
 
 extension SearchCollectionViewController: UISearchBarDelegate {

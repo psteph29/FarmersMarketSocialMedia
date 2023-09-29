@@ -11,7 +11,7 @@ build/*
 !default.perspectivev3
 *.xcworkspace
 !default.xcworkspace
-xcuserdata/
+xcuserdata
 profile
 *.moved-aside
 build
@@ -20,4 +20,3 @@ build
 GoogleService-Info.plist
 /FarmersMarketSocialMedia.xcodeproj/project.xcworkspace/xcuserdata/paigestephenson.xcuserdatad/UserInterfaceState.xcuserstate
 /FarmersMarketSocialMedia/GoogleService-Info.plist
-*.xcuserstate
