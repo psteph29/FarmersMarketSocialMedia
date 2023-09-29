@@ -109,13 +109,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <connections>
-                        <outlet property="BusinessNameBackgroundView" destination="4B5-rn-BXp" id="1oi-bI-Jdm"/>
                         <outlet property="DescriptionLabel" destination="7YR-pB-aBF" id="vKc-Q2-4HK"/>
                         <outlet property="backgroundImage" destination="7QQ-bD-hT2" id="eNT-Gs-fo2"/>
                         <outlet property="businessNameLabel" destination="v5N-8R-W8D" id="58L-Fb-7hF"/>
                         <outlet property="businessNameTextField" destination="0G2-Rz-bCt" id="Eso-8t-dGO"/>
                         <outlet property="editDescriptionTextField" destination="xXW-b0-21j" id="2rY-XJ-BBN"/>
-                        <outlet property="editProfileBackgroundView" destination="SvW-Mz-JWR" id="dX2-EF-cjK"/>
                         <outlet property="editProfileLable" destination="SvW-Mz-JWR" id="6AG-RU-dxM"/>
                         <outlet property="profileImage" destination="559-u8-fjH" id="Fwc-9O-7uU"/>
                         <outlet property="profilePictureLabel" destination="Xd7-KF-rkQ" id="J4P-lN-2P7"/>

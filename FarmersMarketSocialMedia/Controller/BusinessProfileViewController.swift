@@ -20,8 +20,12 @@ class BusinessProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.navigationItem.hidesBackButton = true
+
+//        let logButton : UIBarButtonItem = UIBarButtonItem(title: "RigthButtonTitle", style: UIBarButtonItem.Style.plain, target: self, action: #selector(onClickMethod))
+//
+//        self.navigationItem.rightBarButtonItem = logButton
+//
+//        self.navigationItem.hidesBackButton = true
 
         backgroundImage.alpha = 0.3
         backgroundImage.contentMode = .scaleAspectFill
@@ -43,6 +47,10 @@ class BusinessProfileViewController: UIViewController {
             }
         }
     }
+    
+//    @objc func onClickMethod() {
+//        print("Left bar button item")
+//    }
 
     func updateUI(with businessListing: BusinessListing) {
         businessNameLabel.text = businessListing.listing_name
@@ -66,4 +74,14 @@ class BusinessProfileViewController: UIViewController {
             task.resume()  // Don't forget to resume the task
         }
      }
+    
+    @IBAction func addNewPost(_ sender: UIButton) {
+        print("Button pressed")
+    }
+    
+    @IBSegueAction func moveToNewPostPage(_ coder: NSCoder) -> UIViewController? {
+        return CreatePostsViewController(coder: coder)
+    }
+
+    
 }

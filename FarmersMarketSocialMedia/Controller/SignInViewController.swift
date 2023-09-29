@@ -18,6 +18,9 @@ class SignInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        userName.text = "test@gmail.com"
+        password.text = "password"
 
         backgroundImage.image = UIImage(named: "leaves")
         backgroundImage.alpha = 0.3
@@ -44,6 +47,7 @@ class SignInViewController: UIViewController {
                 // Handle successful sign in
                 UserDefaults.standard.set(uid, forKey: "UserId")
                 self.performSegue(withIdentifier: "SignInSuccess", sender: self)
+                self.navigationController?.setNavigationBarHidden(true, animated: true)
             } else {
                 // Handle sign in error
                 self.showAlert(message: error?.localizedDescription ?? "Unknown error occurred.")
