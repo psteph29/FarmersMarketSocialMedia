@@ -53,7 +53,8 @@ class BusinessProfileViewController: UIViewController, UITableViewDataSource, UI
             DispatchQueue.main.async {
                 self?.updateUI(with: businessListing)
             }
-            self?.fetchPosts(for: businessListing.listing_uuid)
+            print(businessListing.listing_uuid)
+            self?.fetchPosts()
         }
    
     }
@@ -63,11 +64,11 @@ class BusinessProfileViewController: UIViewController, UITableViewDataSource, UI
         performSegue(withIdentifier: "toCreatePost", sender: self)
     }
 
-    
-    func fetchPosts(for listingUUID: String) {
-        FirebaseService.fetchPostsByBusinessListing(listingUUID:
-                                                        // Below is a forced uuid in order to load posts, as the post creation screen was unavailable to me
-                                                        "0005bb92-a6c9-4781-85cd-2edc2cdecfec") { [weak self] fetchedPosts in
+    // The following was changed to look up documents by UID rather than UUID, as user generated listings have their document ID set as the UID vs usda content has its document ID as the UUID.
+    // The document ID discrepency may need to be changed later for clarity and ease of use
+    func fetchPosts() {
+        print(userId ?? "No userID")
+        FirebaseService.fetchPostsByUserUID(uid: userId!) { [weak self] fetchedPosts in
             guard let fetchedPosts = fetchedPosts else {
                 print("Failed to fetch posts.")
                 return
@@ -112,8 +113,7 @@ class BusinessProfileViewController: UIViewController, UITableViewDataSource, UI
         
         cell.dateLabel?.text = post.date.description
         cell.descriptionLabel?.text = post.description
-        // load image somehow
-        
+        cell.postImage.loadImage(from: post.imageURL ?? "https://mediaproxy.salon.com/width/1200/https://media.salon.com/2021/08/farmers-market-produce-0812211.jpg")
         
         return cell
     }
