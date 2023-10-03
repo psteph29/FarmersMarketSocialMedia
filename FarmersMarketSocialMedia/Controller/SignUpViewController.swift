@@ -114,6 +114,7 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
 
                         FirebaseService.createBusinessListing(businessListing: businessListing) { (listingSuccess, listingError) in
                             if listingSuccess {
+                                UserDefaults.standard.set(uid, forKey: "UserId")
                                 self.performSegue(withIdentifier: "CreateProfileSuccessful", sender: self)
                                 print("Business listing created successfully!")
                             } else {
