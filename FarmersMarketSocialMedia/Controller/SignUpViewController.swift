@@ -86,8 +86,8 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     @IBAction func createProfileTapped(_ sender: UIButton) {
-        guard let email = userName.text, let pwd = password.text, !email.isEmpty, !pwd.isEmpty else {
-            // Handle the case where fields are empty, possibly show an alert to the user.
+        guard let email = userName.text, let pwd = password.text, !email.isEmpty, !pwd.isEmpty, password.text == confirmPassword.text else {
+            // Handle the case where fields are empty or passwords dont match, show an alert to the user.
             return
         }
 
