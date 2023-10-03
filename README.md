@@ -1,6 +1,6 @@
 # LocalHarbor: Farmers Markets & Local Suppliers Finder
 
-![App Icon](path-to-app-icon-image)
+![localHarbor](https://github.com/psteph29/FarmersMarketSocialMedia/assets/95316362/833d1c60-79d9-4e77-9d31-75f6d0917be6)
 
 ## Introduction
 
@@ -22,12 +22,3 @@
 ## Feedback & Support
 
 We're always looking to improve. If you have any feedback, questions, or concerns, please reach out to us at [support@LocalHarborApp.com](mailto:koleervine@gmail.com).
-
-## Contribute
-
-For those interested in contributing to the development of LocalHarvest, please see our [CONTRIBUTING.md](path-to-contributing-md) guide.
-
-## License
-
-LocalHarbor is released with no License. See [LICENSE](path-to-license) for details.
-
