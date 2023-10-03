@@ -83,5 +83,18 @@ class FavoritesCollectionViewController: UICollectionViewController {
 
         return cell
     }
+    
+    
+    @IBSegueAction func viewFavoriteListing(_ coder: NSCoder) -> UIViewController? {
+        guard let selectedIndexPath = collectionView.indexPathsForSelectedItems?.first,
+                 selectedIndexPath.item < favoriteBusinessListings.count else {
+               return nil
+           }
+           
+        let selectedFavoriteBusiness = favoriteBusinessListings[selectedIndexPath.item]
+        let business = BusinessListing(from: selectedFavoriteBusiness)
+        return UserBusinessProfileViewController(coder: coder, businessListing: business)
 
+    }
+    
 }

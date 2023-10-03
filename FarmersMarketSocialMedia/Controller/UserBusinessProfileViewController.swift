@@ -26,7 +26,6 @@ class UserBusinessProfileViewController: UIViewController {
         businessNameLabel.text = businessListing.listing_name
         businessAddressLabel.text = businessListing.listing_address
         descriptionTextView.text = businessListing.listing_description ?? "The farm has not listed a description"
-        descriptionTextView.text = businessListing.listing_description
 
         guard let url = URL(string: businessListing.listing_profileImageURL ?? "https://mediaproxy.salon.com/width/1200/https://media.salon.com/2021/08/farmers-market-produce-0812211.jpg") else {
             print("Invalid URL")
@@ -39,7 +38,7 @@ class UserBusinessProfileViewController: UIViewController {
                 return
             }
             DispatchQueue.main.async {
-                // Set the downloaded image to your UIImageView
+                // Set the downloaded image to the UIImageView
                 self.profileImage.image = UIImage(data: data)
             }
         }

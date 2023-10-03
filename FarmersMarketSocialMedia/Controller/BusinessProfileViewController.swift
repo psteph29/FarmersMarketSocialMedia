@@ -62,9 +62,12 @@ class BusinessProfileViewController: UIViewController, UITableViewDataSource, UI
         print("button tapped")
         performSegue(withIdentifier: "toCreatePost", sender: self)
     }
+
     
     func fetchPosts(for listingUUID: String) {
-        FirebaseService.fetchPostsByBusinessListing(listingUUID: "0005bb92-a6c9-4781-85cd-2edc2cdecfec") { [weak self] fetchedPosts in
+        FirebaseService.fetchPostsByBusinessListing(listingUUID:
+                                                        // Below is a forced uuid in order to load posts, as the post creation screen was unavailable to me
+                                                        "0005bb92-a6c9-4781-85cd-2edc2cdecfec") { [weak self] fetchedPosts in
             guard let fetchedPosts = fetchedPosts else {
                 print("Failed to fetch posts.")
                 return

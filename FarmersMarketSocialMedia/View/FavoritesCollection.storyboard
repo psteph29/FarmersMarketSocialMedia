@@ -68,7 +68,7 @@
                                     <outlet property="addressLabel" destination="tHn-SY-WwR" id="hra-Xi-0uY"/>
                                     <outlet property="backgroundImageView" destination="cKJ-pv-KBE" id="r7e-sU-Ag5"/>
                                     <outlet property="businessNameLabel" destination="AFP-eA-NYB" id="3He-K0-otA"/>
-                                    <segue destination="CZ0-am-NTe" kind="presentation" id="vCb-WH-cuU"/>
+                                    <segue destination="CZ0-am-NTe" kind="presentation" destinationCreationSelector="viewFavoriteListing:" id="vCb-WH-cuU"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>

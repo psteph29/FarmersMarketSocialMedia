@@ -20,6 +20,16 @@ struct BusinessListing: Identifiable, Encodable {
     var listing_username: String?
     var listing_description: String?
     var app_generated: Bool?
-    // var listing_firestore_uid: not sure the type yet
-    // var listing_image: also not sure how to type this property yet
+}
+
+extension BusinessListing {
+    init(from favoriteListing: FavoriteBusinessListing) {
+        self.listing_name = favoriteListing.listing_name!
+        self.listing_address = favoriteListing.listing_address!
+        self.listing_description = favoriteListing.listing_description ?? "No description available."
+        self.listing_username = favoriteListing.listing_username ?? "No username."
+        self.listing_uuid = favoriteListing.listing_uuid!
+        self.listing_zipcode = Int(favoriteListing.listing_zipcode)
+        self.listing_profileImageURL = favoriteListing.listing_profileImageURL ?? "No image available."
+    }
 }
