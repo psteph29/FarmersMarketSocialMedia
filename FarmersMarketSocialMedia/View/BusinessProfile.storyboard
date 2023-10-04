@@ -108,11 +108,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="h0f-cm-jJy">
                         <barButtonItem key="leftBarButtonItem" systemItem="edit" id="7kJ-pr-y18">
+                            <color key="tintColor" red="0.15686274510000001" green="0.21176470589999999" blue="0.094117647060000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <segue destination="b2L-TZ-Fjo" kind="presentation" id="kgI-2u-r4R"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="gVa-lR-Rtd">
+                        <barButtonItem key="rightBarButtonItem" title="Item" style="plain" id="gVa-lR-Rtd">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Y9m-ni-PCF-0">
                                 <rect key="frame" x="280" y="4.6666666666666679" width="97" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -225,7 +226,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="tertiaryLabelColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29803921568627451" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.29803921570000003" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
