@@ -117,7 +117,7 @@ class BusinessProfileViewController: UIViewController, UITableViewDataSource, UI
         
         return cell
     }
-     }
+     
     
     @IBAction func addNewPost(_ sender: UIButton) {
         print("Button pressed")
