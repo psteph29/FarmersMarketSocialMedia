@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CreatePostsViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, BusinessNameDelegate {
+class CreatePostsViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
     
     @IBOutlet weak var createPostLabel: UILabel!
     @IBOutlet weak var postButton: UIButton!

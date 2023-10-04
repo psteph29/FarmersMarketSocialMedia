@@ -22,17 +22,15 @@ class EditBusinessProfileViewController: UIViewController, UIImagePickerControll
     @IBOutlet weak var businessAddressTextField: UITextField!
     @IBOutlet weak var backgroundImage: UIImageView!
     
-    var userProfile: BusinessUserProfile?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let userProfile = userProfile {
-            profileImage.image = userProfile.profileImage
-            businessNameTextField.text = userProfile.businessName
-            editDescriptionTextField.text = userProfile.profileDescription
-            businessAddressTextField.text = userProfile.businessAddress
-        }
+//        if let userProfile = userProfile {
+//            profileImage.image = userProfile.profileImage
+//            businessNameTextField.text = userProfile.businessName
+//            editDescriptionTextField.text = userProfile.profileDescription
+//            businessAddressTextField.text = userProfile.businessAddress
+//        }
 
         backgroundImage.alpha = 0.3
         backgroundImage.contentMode = .scaleAspectFill
@@ -78,10 +76,10 @@ class EditBusinessProfileViewController: UIViewController, UIImagePickerControll
     
     @IBAction func saveChanges(_ sender: Any) {
         // Update the user's profile data with the changes
-        userProfile?.profileImage = profileImage.image
-        userProfile?.businessName = businessNameTextField.text ?? ""
-        userProfile?.profileDescription = editDescriptionTextField.text ?? ""
-        userProfile?.businessAddress = businessAddressTextField.text ?? ""
+//        userProfile?.profileImage = profileImage.image
+//        userProfile?.businessName = businessNameTextField.text ?? ""
+//        userProfile?.profileDescription = editDescriptionTextField.text ?? ""
+//        userProfile?.businessAddress = businessAddressTextField.text ?? ""
         
         // Call a function to save the changes (e.g., to Firebase)
         saveUserProfileChanges()
