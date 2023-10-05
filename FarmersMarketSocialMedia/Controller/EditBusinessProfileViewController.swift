@@ -9,9 +9,10 @@ import UIKit
 
 class EditBusinessProfileViewController: UIViewController {
     
+    @IBOutlet weak var saveButton: UIButton!
+    
     @IBOutlet weak var editProfileLable: UIView!
     @IBOutlet weak var profilePictureLabel: UILabel!
-    @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var businessNameLabel: UILabel!
     @IBOutlet weak var businessNameTextField: UITextField!
@@ -25,18 +26,30 @@ class EditBusinessProfileViewController: UIViewController {
 
         backgroundImage.alpha = 0.3
         backgroundImage.contentMode = .scaleAspectFill
-        // Do any additional setup after loading the view.
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+
+
+// THE BELOW IS FOR REFERENCE.
+//func updateBusinessListing(businessListing: BusinessListing) {
+//    let db = Firestore.firestore()
+//    
+//    var data: [String: Any] = [
+//        "listing_name": businessListing.listing_name,
+//        "listing_address": businessListing.listing_address,
+//        "listing_zipcode": businessListing.listing_zipcode as Any,
+//        "listing_username": businessListing.listing_username ?? "Test username",
+//        "listing_description": businessListing.listing_description ?? "Test description",
+//    ]
+//    
+//    db.collection("USDAFarmersMarkets").document(businessListing.listing_uuid).updateData(data) { error in
+//        if let error = error {
+//            print("Error updating business listing: \(error)")
+//        } else {
+//            print("Business listing updated.")
+//        }
+//    }
+//}
+

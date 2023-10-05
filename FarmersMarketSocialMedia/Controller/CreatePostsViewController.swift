@@ -47,17 +47,13 @@ class CreatePostsViewController: UIViewController {
                 case .success(let imageUrl):
                     var postWithImage = post
                     postWithImage.imageURL = imageUrl
-                    if let newID = FirebaseService.createPostForBusinessUser(post: postWithImage) {
-                        // Here you can update the post ID if you want to keep the post object around.
-                    }
+                    FirebaseService.createPostForBusinessUser(post: postWithImage)
                 case .failure(let error):
                     print("Error uploading image: \(error)")
                 }
             }
         } else {
-            if let newID = FirebaseService.createPostForBusinessUser(post: post) {
-                // Update the post ID here if needed.
-            }
+            FirebaseService.createPostForBusinessUser(post: post)
         }
     }
 }

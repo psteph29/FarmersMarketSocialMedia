@@ -48,6 +48,8 @@ class CoreDataManager {
         let context = persistentContainer.viewContext
         let favoriteBusinessListing = FavoriteBusinessListing(context: context)
         
+        // Potentially change coreData to only save id and then perform a fetch when trying to view collection view and pass that fetched info along to the modal or detailed view page for listing.
+        
         // Mapping the attributes from businessListing to favoriteBusinessListing.
         favoriteBusinessListing.id = businessListing.id
         favoriteBusinessListing.listing_profileImageURL = businessListing.listing_profileImageURL
