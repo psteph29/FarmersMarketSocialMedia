@@ -73,18 +73,6 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
         dismiss(animated: true, completion: nil)
     }
     
-    func extractZipCode(from address: String) -> Int? {
-        let pattern = "\\b(\\d{5}(?:-\\d{4})?)\\b"
-        let regex = try? NSRegularExpression(pattern: pattern)
-        if let match = regex?.firstMatch(in: address, range: NSRange(address.startIndex..., in: address)) {
-            let zipRange = Range(match.range(at: 1), in: address)!
-            let zipString = String(address[zipRange])
-            let fiveDigitZip = zipString.split(separator: "-")[0]
-            return Int(fiveDigitZip)
-        }
-        return nil
-    }
-    
     @IBAction func createProfileTapped(_ sender: UIButton) {
         guard let email = userName.text, let pwd = password.text, !email.isEmpty, !pwd.isEmpty, password.text == confirmPassword.text else {
             // Handle the case where fields are empty or passwords dont match, show an alert to the user.
@@ -106,7 +94,7 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
                             listing_uuid: UUID().uuidString,
                             listing_name: self.businessName.text ?? "",
                             listing_address: self.address.text ?? "",
-                            listing_zipcode: self.extractZipCode(from: self.address.text ?? ""),
+                            listing_zipcode: extractZipCode(from: self.address.text ?? ""),
                             listing_username: self.userName.text,
                             listing_description: self.descriptionTextField.text,
                             app_generated: true // Assuming you add this property to BusinessListing

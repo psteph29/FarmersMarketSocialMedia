@@ -104,6 +104,4 @@ class UserBusinessProfileViewController: UIViewController, UITableViewDataSource
         
         return cell
     }
-  
 }
-

@@ -25,6 +25,7 @@
 		0FA6FE0C2AB494E600130021 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0FA6FE0B2AB494E600130021 /* FirebaseFirestoreSwift */; };
 		0FA6FE0E2AB494E600130021 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 0FA6FE0D2AB494E600130021 /* FirebaseStorage */; };
 		0FA6FE122AB4E30900130021 /* PostStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA6FE112AB4E30900130021 /* PostStruct.swift */; };
+		0FC052F82ACF339200DC9288 /* zipcodeExtractionFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC052F72ACF339200DC9288 /* zipcodeExtractionFunc.swift */; };
 		0FC4EF412ABB347600A44030 /* MileToKilometer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC4EF402ABB347600A44030 /* MileToKilometer.swift */; };
 		AB233CE92AB35E22006A3DB7 /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB233CE82AB35E22006A3DB7 /* SignIn.storyboard */; };
 		AB233CEB2AB35E28006A3DB7 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB233CEA2AB35E28006A3DB7 /* SignUp.storyboard */; };
@@ -71,6 +72,7 @@
 		0FA6FE022AB48E5A00130021 /* BusinessListingStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessListingStruct.swift; sourceTree = "<group>"; };
 		0FA6FE042AB4947B00130021 /* FirebaseServiceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseServiceController.swift; sourceTree = "<group>"; };
 		0FA6FE112AB4E30900130021 /* PostStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostStruct.swift; sourceTree = "<group>"; };
+		0FC052F72ACF339200DC9288 /* zipcodeExtractionFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = zipcodeExtractionFunc.swift; sourceTree = "<group>"; };
 		0FC4EF402ABB347600A44030 /* MileToKilometer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MileToKilometer.swift; sourceTree = "<group>"; };
 		AB233CE82AB35E22006A3DB7 /* SignIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignIn.storyboard; sourceTree = "<group>"; };
 		AB233CEA2AB35E28006A3DB7 /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				0F12A41F2ABDD384005412C1 /* HexColorExtension.swift */,
 				0F12A4212ABDD724005412C1 /* ArrayExtension.swift */,
 				0F12A4372ABE4E40005412C1 /* UIImageExtension.swift */,
+				0FC052F72ACF339200DC9288 /* zipcodeExtractionFunc.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 				0F12A4362ABE4648005412C1 /* AppDataModel.xcdatamodeld in Sources */,
 				ABA47AE32AB4B0B6008F58EE /* FavoritesCollectionViewController.swift in Sources */,
 				0F12A4522AC71626005412C1 /* BusinessListingPostCell.swift in Sources */,
+				0FC052F82ACF339200DC9288 /* zipcodeExtractionFunc.swift in Sources */,
 				0FC4EF412ABB347600A44030 /* MileToKilometer.swift in Sources */,
 				0FA6FE032AB48E5A00130021 /* BusinessListingStruct.swift in Sources */,
 				AB233CEF2AB35E54006A3DB7 /* SignUpViewController.swift in Sources */,

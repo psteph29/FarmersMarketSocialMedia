@@ -15,8 +15,6 @@ class FindAFarmViewController: UIViewController {
     @IBOutlet weak var signInButton: UIButton!
     @IBOutlet weak var signUpButton: UIButton!
     
-    let gold = UIColor(hex: "#ffe700ff")
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 

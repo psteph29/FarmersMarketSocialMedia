@@ -13,7 +13,6 @@ import CoreData
 private let reuseIdentifier =  "favoritesCell"
 
 class FavoritesCollectionViewController: UICollectionViewController {
-
     let coreDataManager = CoreDataManager.shared
     var favoriteBusinessListings: [FavoriteBusinessListing] = []
     
@@ -21,7 +20,6 @@ class FavoritesCollectionViewController: UICollectionViewController {
       super.viewDidLoad()
 
       loadFavorites()
-      
     }
     
     override func awakeFromNib() {
@@ -96,5 +94,4 @@ class FavoritesCollectionViewController: UICollectionViewController {
         return UserBusinessProfileViewController(coder: coder, businessListing: business)
 
     }
-    
 }
