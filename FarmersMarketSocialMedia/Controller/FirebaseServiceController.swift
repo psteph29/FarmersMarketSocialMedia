@@ -141,15 +141,16 @@ struct FirebaseService {
     
     // Update or PUT
     // Was changed fom using UUID to UID as user generated content uses UID to id their corresponding firestore document businessListing
-    static func updateBusinessListing(businessListing: BusinessListing) {
+    static func updateBusinessListing(businessListing: BusinessListing, completion: @escaping (Bool) -> Void) {
         guard let uid = businessListing.uid else {
             print("UID is missing in the business listing. Cannot update.")
+            completion(false)
             return
         }
         
         let db = Firestore.firestore()
         
-        var data: [String: Any] = [
+        let data: [String: Any] = [
             "listing_name": businessListing.listing_name,
             "listing_address": businessListing.listing_address,
             "listing_zipcode": businessListing.listing_zipcode as Any,
@@ -160,8 +161,10 @@ struct FirebaseService {
         db.collection("USDAFarmersMarkets").document(uid).updateData(data) { error in
             if let error = error {
                 print("Error updating business listing: \(error)")
+                completion(false)
             } else {
                 print("Business listing updated.")
+                completion(true)
             }
         }
     }

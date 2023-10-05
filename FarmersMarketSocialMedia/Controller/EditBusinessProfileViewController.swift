@@ -9,6 +9,8 @@ import UIKit
 
 class EditBusinessProfileViewController: UIViewController {
     
+    weak var delegate: EditBusinessProfileDelegate?
+
     @IBOutlet weak var saveButton: UIButton!
     
     @IBOutlet weak var editProfileLable: UIView!
@@ -46,25 +48,37 @@ class EditBusinessProfileViewController: UIViewController {
       }
     
     @IBAction func saveButtonTapped(_ sender: UIButton) {
-          guard let listingName = businessNameTextField.text, !listingName.isEmpty,
-                let description = descriptionTextField.text, !description.isEmpty else {
-              // Show alert if fields are empty
-              let alert = UIAlertController(title: "Error", message: "Please make sure no fields are empty.", preferredStyle: .alert)
-              alert.addAction(UIAlertAction(title: "OK", style: .default))
-              self.present(alert, animated: true, completion: nil)
-              return
-          }
+        guard let listingName = businessNameTextField.text, !listingName.isEmpty,
+              let description = descriptionTextField.text, !description.isEmpty else {
+            // Show alert if fields are empty
+            let alert = UIAlertController(title: "Error", message: "Please make sure no fields are empty.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
         
         // Create a modified business listing
         var updatedListing = currentBusinessListing
         updatedListing?.listing_name = listingName
         updatedListing?.listing_description = description
-        //... update other fields
+        //... update other fields when available by MJ
         
         if let updatedListing = updatedListing {
-                FirebaseService.updateBusinessListing(businessListing: updatedListing)
+            FirebaseService.updateBusinessListing(businessListing: updatedListing) { success in
+                if success {
+                    self.delegate?.didUpdateProfile()
+                    // Dismiss the modal on successful update
+                    self.dismiss(animated: true, completion: nil)
+                } else {
+                    // Optionally show an error message here if the update failed
+                }
+            }
         }
     }
+}
+
+protocol EditBusinessProfileDelegate: AnyObject {
+    func didUpdateProfile()
 }
 
 

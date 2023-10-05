@@ -8,7 +8,9 @@
 import UIKit
 import FirebaseFirestore
 
-class BusinessProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class BusinessProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, EditBusinessProfileDelegate {
+    
+    weak var delegate: EditBusinessProfileDelegate?
     
     // Array of posts
     var posts: [Post] = []
@@ -29,6 +31,7 @@ class BusinessProfileViewController: UIViewController, UITableViewDataSource, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         newPost.addTarget(self, action: #selector(createPostTapped), for: .touchUpInside)
 
         
@@ -57,6 +60,12 @@ class BusinessProfileViewController: UIViewController, UITableViewDataSource, UI
             self?.fetchPosts()
         }
    
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let editVC = segue.destination as? EditBusinessProfileViewController {
+            editVC.delegate = self
+        }
     }
  
     @IBAction func createPostTapped(_ sender: UIButton) {
@@ -126,6 +135,22 @@ class BusinessProfileViewController: UIViewController, UITableViewDataSource, UI
     @IBSegueAction func moveToNewPostPage(_ coder: NSCoder) -> UIViewController? {
         return CreatePostsViewController(coder: coder)
     }
-
     
+}
+
+extension BusinessProfileViewController {
+    func didUpdateProfile() {
+        // Re-fetch and update your UI
+        FirebaseService.fetchBusinessListingByUID(uid: userId!) { [weak self] businessListing in
+            guard let businessListing = businessListing else {
+                print("Error: Failed to fetch business listing.")
+                return
+            }
+            
+            DispatchQueue.main.async {
+                self?.updateUI(with: businessListing)
+            }
+            self?.fetchPosts()
+        }
+    }
 }
