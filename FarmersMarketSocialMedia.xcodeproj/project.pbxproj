@@ -15,6 +15,7 @@
 		0F12A4332ABE461D005412C1 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F12A4322ABE461D005412C1 /* CoreDataManager.swift */; };
 		0F12A4362ABE4648005412C1 /* AppDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0F12A4342ABE4648005412C1 /* AppDataModel.xcdatamodeld */; };
 		0F12A4382ABE4E40005412C1 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F12A4372ABE4E40005412C1 /* UIImageExtension.swift */; };
+		0F12A4522AC71626005412C1 /* BusinessListingPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F12A4512AC71626005412C1 /* BusinessListingPostCell.swift */; };
 		0FA6FDFB2AB48CE600130021 /* ZipCodeStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA6FDFA2AB48CE600130021 /* ZipCodeStruct.swift */; };
 		0FA6FDFD2AB48D1800130021 /* DistanceCalcFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA6FDFC2AB48D1800130021 /* DistanceCalcFunc.swift */; };
 		0FA6FE032AB48E5A00130021 /* BusinessListingStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA6FE022AB48E5A00130021 /* BusinessListingStruct.swift */; };
@@ -31,7 +32,6 @@
 		AB233CEF2AB35E54006A3DB7 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB233CEE2AB35E54006A3DB7 /* SignUpViewController.swift */; };
 		AB35EBA62AA8DB8B006E3392 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB35EBA52AA8DB8B006E3392 /* AppDelegate.swift */; };
 		AB35EBA82AA8DB8B006E3392 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB35EBA72AA8DB8B006E3392 /* SceneDelegate.swift */; };
-		AB35EBAA2AA8DB8B006E3392 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB35EBA92AA8DB8B006E3392 /* ViewController.swift */; };
 		AB35EBAF2AA8DB8E006E3392 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB35EBAE2AA8DB8E006E3392 /* Assets.xcassets */; };
 		AB35EBB22AA8DB8E006E3392 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB35EBB02AA8DB8E006E3392 /* LaunchScreen.storyboard */; };
 		AB35EBBA2AA9012B006E3392 /* FarmDataStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB35EBB92AA9012B006E3392 /* FarmDataStructure.swift */; };
@@ -64,6 +64,7 @@
 		0F12A4322ABE461D005412C1 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		0F12A4352ABE4648005412C1 /* AppDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AppDataModel.xcdatamodel; sourceTree = "<group>"; };
 		0F12A4372ABE4E40005412C1 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
+		0F12A4512AC71626005412C1 /* BusinessListingPostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessListingPostCell.swift; sourceTree = "<group>"; };
 		0FA6FDFA2AB48CE600130021 /* ZipCodeStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZipCodeStruct.swift; sourceTree = "<group>"; };
 		0FA6FDFC2AB48D1800130021 /* DistanceCalcFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceCalcFunc.swift; sourceTree = "<group>"; };
 		0FA6FE012AB48D8900130021 /* UpdatedZIPCODES.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = UpdatedZIPCODES.json; sourceTree = "<group>"; };
@@ -78,7 +79,6 @@
 		AB35EBA22AA8DB8B006E3392 /* FarmersMarketSocialMedia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FarmersMarketSocialMedia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB35EBA52AA8DB8B006E3392 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB35EBA72AA8DB8B006E3392 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		AB35EBA92AA8DB8B006E3392 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AB35EBAE2AA8DB8E006E3392 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AB35EBB12AA8DB8E006E3392 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AB35EBB32AA8DB8E006E3392 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -168,7 +168,6 @@
 				F30CC0212AAB7BA40067DC44 /* UserBusinessProfileViewController.swift */,
 				AB35EBC52AAB7666006E3392 /* SearchCollectionViewController.swift */,
 				ABA47AE22AB4B0B6008F58EE /* FavoritesCollectionViewController.swift */,
-				AB35EBA92AA8DB8B006E3392 /* ViewController.swift */,
 				AB35EBA52AA8DB8B006E3392 /* AppDelegate.swift */,
 				AB35EBA72AA8DB8B006E3392 /* SceneDelegate.swift */,
 				0F0161D02ABCA3E100D704A1 /* SearchAndFavoritesMiddleManTab.swift */,
@@ -214,6 +213,7 @@
 			children = (
 				AB35EBC72AAB7BF1006E3392 /* BusinessSearchResultsCollectionViewCell.swift */,
 				ABA47AE02AB4ACE2008F58EE /* FavoritesCollectionViewCell.swift */,
+				0F12A4512AC71626005412C1 /* BusinessListingPostCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -311,7 +311,6 @@
 			files = (
 				AB35EBD42AB3478D006E3392 /* FindAFarmViewController.swift in Sources */,
 				AB35EBC62AAB7666006E3392 /* SearchCollectionViewController.swift in Sources */,
-				AB35EBAA2AA8DB8B006E3392 /* ViewController.swift in Sources */,
 				F30CC0222AAB7BA40067DC44 /* UserBusinessProfileViewController.swift in Sources */,
 				0F12A4202ABDD384005412C1 /* HexColorExtension.swift in Sources */,
 				AB35EBA62AA8DB8B006E3392 /* AppDelegate.swift in Sources */,
@@ -326,6 +325,7 @@
 				AB35EBBC2AA9021D006E3392 /* APIController.swift in Sources */,
 				0F12A4362ABE4648005412C1 /* AppDataModel.xcdatamodeld in Sources */,
 				ABA47AE32AB4B0B6008F58EE /* FavoritesCollectionViewController.swift in Sources */,
+				0F12A4522AC71626005412C1 /* BusinessListingPostCell.swift in Sources */,
 				0FC4EF412ABB347600A44030 /* MileToKilometer.swift in Sources */,
 				0FA6FE032AB48E5A00130021 /* BusinessListingStruct.swift in Sources */,
 				AB233CEF2AB35E54006A3DB7 /* SignUpViewController.swift in Sources */,
