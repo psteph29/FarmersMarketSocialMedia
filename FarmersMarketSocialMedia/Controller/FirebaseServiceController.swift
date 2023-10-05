@@ -327,6 +327,33 @@ struct FirebaseService {
             }
         }
     }
+    
+    // Upload or POST post for user generated business Listing
+    static func createPostForBusinessUser(post: Post) -> String? {
+        let db = Firestore.firestore()
+
+        guard let uid = UserDefaults.standard.string(forKey: "UserId") else {
+            print("Error: No uid found in UserDefaults with key 'UserId'")
+            return nil
+        }
+
+        let postData: [String: Any] = [
+            "description": post.description,
+            "date": post.date,
+            "image": post.imageURL as Any
+        ]
+
+        let newDocumentRef = db.collection("USDAFarmersMarkets").document(uid).collection("posts").document()
+        newDocumentRef.setData(postData) { error in
+            if let error = error {
+                print("Error adding post: \(error)")
+            } else {
+                print("Post added with ID: \(newDocumentRef.documentID) and ImageURL: \(post.imageURL ?? "No ImageURL")")
+            }
+        }
+
+        return newDocumentRef.documentID
+    }
 
     // Update or PUT image request
     func updateImageInFirebase(oldImageURL: String?, newImage: UIImage?, for listingUUID: String, completion: @escaping (Result<String?, Error>) -> Void) {

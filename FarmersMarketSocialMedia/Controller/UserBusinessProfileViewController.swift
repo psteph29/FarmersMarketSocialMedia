@@ -7,18 +7,20 @@
 
 import UIKit
 
-class UserBusinessProfileViewController: UIViewController {
+class UserBusinessProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var businessNameLabel: UILabel!
     @IBOutlet weak var businessAddressLabel: UILabel!
     @IBOutlet weak var descriptionTextView: UITextView!
-
+    
     @IBOutlet var favoriteButton: UIButton!
     
-    @IBOutlet weak var postsTableView: UITableView!
+    @IBOutlet weak var postsTableView: UITableView!    
     
     var businessListing: BusinessListing
+    
+    var posts: [Post] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,6 +60,20 @@ class UserBusinessProfileViewController: UIViewController {
 
         profileImage.alpha = 0.3
         profileImage.contentMode = .scaleAspectFill
+        
+        // Fetch posts by business listing
+        FirebaseService.fetchPostsByBusinessListing(listingUUID: businessListing.listing_uuid) { fetchedPosts in
+            guard let fetchedPosts = fetchedPosts else {
+                print("Error fetching posts or no posts available.")
+                return
+            }
+            self.posts = fetchedPosts
+            self.postsTableView.reloadData()
+        }
+        
+        // Set TableView Delegates
+        postsTableView.delegate = self
+        postsTableView.dataSource = self
     }
     
     init?(coder: NSCoder, businessListing: BusinessListing) {
@@ -72,6 +88,22 @@ class UserBusinessProfileViewController: UIViewController {
     @IBAction func favoriteButtonTapped(_ sender: UIButton) {
           CoreDataManager.shared.saveFavorite(businessListing: businessListing)
       }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return posts.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "UserBusinessProfilePosts", for: indexPath) as! BusinessListingPostCell
+        
+        let post = posts[indexPath.row]
+        
+        cell.dateLabel?.text = post.date.description
+        cell.descriptionLabel?.text = post.description
+//        cell.postImage.loadImage(from: post.imageURL ?? "https://mediaproxy.salon.com/width/1200/https://media.salon.com/2021/08/farmers-market-produce-0812211.jpg")
+        
+        return cell
+    }
   
 }
 
