@@ -50,24 +50,6 @@ class SearchCollectionViewController: UIViewController {
         return layout
     }
     
-    // This was for USDA API
-//    func loadFarms() {
-//        Task {
-//            guard let actualRadius = selectedRadius else {
-//                print("Selected radius is nil")
-//                return
-//            }
-//            
-//            do {
-//                let fetchedFarms = try await APIFarmController.fetchFarms(zip: zipCodeSearchBar.text, radius: actualRadius)
-//                print("Fetched farms: \(fetchedFarms)")
-//                updateUI(with: fetchedFarms)
-//            } catch {
-//                print("Error fetching farms: \(error)")
-//            }
-//        }
-//    }
-    
     func loadZipcodesData() -> Data? {
         guard let url = Bundle.main.url(forResource: "UpdatedZIPCODES", withExtension: "json") else {
             print("Error: Couldn't find UpdatedZIPCODES.json in the bundle.")
@@ -132,13 +114,6 @@ class SearchCollectionViewController: UIViewController {
             self.collectionView.reloadData()
         }
     }
-
-    
-//    func updateUI(with farms: [Farm]) { This was for USDA API
-//        print("Updating UI with farms: \(farms)") This was for USDA API
-//        self.farms = farms This was for USDA API
-//        collectionView.reloadData() This was for USDA API
-//    }
     
     func updateUI(with businessListings: [BusinessListing]) {
         print("Updating UI with farms: \(businessListings)")
@@ -178,7 +153,6 @@ class SearchCollectionViewController: UIViewController {
 
 extension SearchCollectionViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        //loadFarms()  This was for USDA API
         loadBusinessListings()
     }
 }
@@ -186,18 +160,12 @@ extension SearchCollectionViewController: UISearchBarDelegate {
 // UICollectionViewDataSource and UICollectionViewDelegate Extension
 extension SearchCollectionViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        print("Number of Items: \(farms.count)") This was for USDA API
-//        return farms.count This was for USDA API
         print("Number of Items: \(businessListings.count)")
         return businessListings.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "searchResultCell", for: indexPath) as! BusinessSearchResultsCollectionViewCell
-        
-//        let farm = farms[indexPath.item] This was for USDA API
-//        cell.businessNameLabel.text = farm.listingName This was for USDA API
-//        cell.addressLabel.text = farm.locationAddress This was for USDA API
         
         let businessListing = businessListings[indexPath.item]
         cell.businessNameLabel.text = businessListing.listing_name
