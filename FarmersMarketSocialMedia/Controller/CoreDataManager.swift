@@ -36,31 +36,35 @@ class CoreDataManager {
         }
     }
     
+//    create (CRUD)
     func saveFavorite(businessListing: BusinessListing) {
+        // make sure busimness listing isn't already favorited
+        // let currentFavorites = fetchFavorites()
+        // guard !currentFavorites.contains(wherer: { $0.id == businessListing.id }) else { return }
         let context = persistentContainer.viewContext
         let favoriteBusinessListing = FavoriteBusinessListing(context: context)
         
         favoriteBusinessListing.id = businessListing.id
-        favoriteBusinessListing.listing_profileImageURL = businessListing.listing_profileImageURL
-        favoriteBusinessListing.uid = businessListing.uid
-        favoriteBusinessListing.listing_USDA_id = Int32(businessListing.listing_USDA_id ?? 0)
-        favoriteBusinessListing.listing_uuid = businessListing.listing_uuid
-        favoriteBusinessListing.listing_name = businessListing.listing_name
-        favoriteBusinessListing.listing_address = businessListing.listing_address
-        favoriteBusinessListing.listing_zipcode = Int32(businessListing.listing_zipcode ?? 0)
-        favoriteBusinessListing.listing_username = businessListing.listing_username
-        favoriteBusinessListing.listing_description = businessListing.listing_description ?? "No description available."
-        favoriteBusinessListing.app_generated = businessListing.app_generated ?? false
+//        favoriteBusinessListing.listing_profileImageURL = businessListing.listing_profileImageURL
+//        favoriteBusinessListing.uid = businessListing.uid
+//        favoriteBusinessListing.listing_USDA_id = Int32(businessListing.listing_USDA_id ?? 0)
+//        favoriteBusinessListing.listing_uuid = businessListing.listing_uuid
+//        favoriteBusinessListing.listing_name = businessListing.listing_name
+//        favoriteBusinessListing.listing_address = businessListing.listing_address
+//        favoriteBusinessListing.listing_zipcode = Int32(businessListing.listing_zipcode ?? 0)
+//        favoriteBusinessListing.listing_username = businessListing.listing_username
+//        favoriteBusinessListing.listing_description = businessListing.listing_description ?? "No description available."
+//        favoriteBusinessListing.app_generated = businessListing.app_generated ?? false
         
         saveContext()
     }
-    
+//    delete (CRUD)
     func removeFavorite(_ favorite: FavoriteBusinessListing) {
         let context = persistentContainer.viewContext
         context.delete(favorite)
         saveContext()
     }
-    
+//    read (CRUD)
     func fetchFavorites() -> [FavoriteBusinessListing] {
         let context = persistentContainer.viewContext
         let fetchRequest: NSFetchRequest<FavoriteBusinessListing> = FavoriteBusinessListing.fetchRequest()

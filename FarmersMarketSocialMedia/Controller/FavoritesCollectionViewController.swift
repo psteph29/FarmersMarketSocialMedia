@@ -30,6 +30,9 @@ class FavoritesCollectionViewController: UICollectionViewController {
 
     func loadFavorites() {
         favoriteBusinessListings = coreDataManager.fetchFavorites()
+//        let first = favoriteBusinessListings.first!
+//        let favoriteListingIDs = coreDataManager.fetchFavorites()
+        // favoriteBusinessListings = await loadBusinessListings(with: favoriteListingIDs)
         collectionView.reloadData()
     }
 
