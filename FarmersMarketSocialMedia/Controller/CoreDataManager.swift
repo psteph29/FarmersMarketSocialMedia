@@ -11,6 +11,10 @@ import UIKit
 
 class CoreDataManager {
     
+    static let shared = CoreDataManager()
+    
+    private init() { }
+    
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "AppDataModel")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
@@ -21,8 +25,6 @@ class CoreDataManager {
         return container
     }()
 
-    static let shared = CoreDataManager()
-    
     func saveContext() {
         let context = persistentContainer.viewContext
         if context.hasChanges {
@@ -50,6 +52,12 @@ class CoreDataManager {
         favoriteBusinessListing.listing_description = businessListing.listing_description ?? "No description available."
         favoriteBusinessListing.app_generated = businessListing.app_generated ?? false
         
+        saveContext()
+    }
+    
+    func removeFavorite(_ favorite: FavoriteBusinessListing) {
+        let context = persistentContainer.viewContext
+        context.delete(favorite)
         saveContext()
     }
     
