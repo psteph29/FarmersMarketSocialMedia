@@ -21,9 +21,7 @@ class FavoritesCollectionViewController: UICollectionViewController {
       super.viewDidLoad()
 
       loadFavorites()
-      
     }
-    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -42,7 +40,7 @@ class FavoritesCollectionViewController: UICollectionViewController {
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: itemSize, subitem: item, count: 1)
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: itemSize, subitem: item, count: 2)
 
         
         let section = NSCollectionLayoutSection(group: group)
@@ -77,15 +75,25 @@ class FavoritesCollectionViewController: UICollectionViewController {
               cell.addressLabel.text = "Address not available"
           }
         
+        let numberOfImages: UInt32 = 23
+        let random = arc4random_uniform(numberOfImages)
+        let imageName = "\(random)"
+        
         if let profileImageUrl = favoriteBusinessListing.listing_profileImageURL {
             cell.backgroundImageView.loadImage(from: profileImageUrl)
         } else {
             // Handle the case where profileImageUrl is nil or an invalid URL
-            cell.backgroundImageView.image = nil // or set a placeholder image
+            cell.backgroundImageView.image = UIImage(named: imageName) // or set a placeholder image
         }
-
+        
+        cell.onFavorite = {
+            CoreDataManager.shared.removeFavorite(favoriteBusinessListing)
+        }
+        
         return cell
     }
+    
+
     
     
     @IBSegueAction func viewFavoriteListing(_ coder: NSCoder) -> UIViewController? {
