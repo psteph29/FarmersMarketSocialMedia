@@ -140,8 +140,13 @@ struct FirebaseService {
     }
     
     // Update or PUT
-    // Tested and successful.
-    func updateBusinessListing(businessListing: BusinessListing) {
+    // Was changed fom using UUID to UID as user generated content uses UID to id their corresponding firestore document businessListing
+    static func updateBusinessListing(businessListing: BusinessListing) {
+        guard let uid = businessListing.uid else {
+            print("UID is missing in the business listing. Cannot update.")
+            return
+        }
+        
         let db = Firestore.firestore()
         
         var data: [String: Any] = [
@@ -152,7 +157,7 @@ struct FirebaseService {
             "listing_description": businessListing.listing_description ?? "Test description",
         ]
         
-        db.collection("USDAFarmersMarkets").document(businessListing.listing_uuid).updateData(data) { error in
+        db.collection("USDAFarmersMarkets").document(uid).updateData(data) { error in
             if let error = error {
                 print("Error updating business listing: \(error)")
             } else {

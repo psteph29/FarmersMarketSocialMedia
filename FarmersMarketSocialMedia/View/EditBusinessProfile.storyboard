@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gFG-Tg-bVZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gFG-Tg-bVZ">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -47,6 +48,9 @@
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="baseBackgroundColor" red="0.8666666666666667" green="0.63137254901960782" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="saveButtonTapped:" destination="gFG-Tg-bVZ" eventType="touchUpInside" id="VdI-XV-lgM"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SvW-Mz-JWR">
                                 <rect key="frame" x="125" y="43" width="143" height="56"/>
@@ -109,11 +113,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <connections>
-                        <outlet property="DescriptionLabel" destination="7YR-pB-aBF" id="vKc-Q2-4HK"/>
                         <outlet property="backgroundImage" destination="7QQ-bD-hT2" id="eNT-Gs-fo2"/>
                         <outlet property="businessNameLabel" destination="v5N-8R-W8D" id="58L-Fb-7hF"/>
                         <outlet property="businessNameTextField" destination="0G2-Rz-bCt" id="Eso-8t-dGO"/>
-                        <outlet property="editDescriptionTextField" destination="xXW-b0-21j" id="2rY-XJ-BBN"/>
+                        <outlet property="descriptionLabel" destination="7YR-pB-aBF" id="vKc-Q2-4HK"/>
+                        <outlet property="descriptionTextField" destination="xXW-b0-21j" id="2rY-XJ-BBN"/>
                         <outlet property="editProfileLable" destination="SvW-Mz-JWR" id="6AG-RU-dxM"/>
                         <outlet property="profileImage" destination="559-u8-fjH" id="Fwc-9O-7uU"/>
                         <outlet property="profilePictureLabel" destination="Xd7-KF-rkQ" id="J4P-lN-2P7"/>
@@ -128,7 +132,7 @@
     <resources>
         <image name="leaves" width="989" height="1280"/>
         <systemColor name="labelColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="tertiaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29803921568627451" colorSpace="custom" customColorSpace="sRGB"/>
