@@ -17,8 +17,6 @@ class FindAFarmViewController: UIViewController {
     
     let gold = UIColor(hex: "#ffe700ff")
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,6 +24,4 @@ class FindAFarmViewController: UIViewController {
         backgroundImage.alpha = 0.8
         backgroundImage.contentMode = .scaleAspectFill
     }
-    
-
 }

@@ -15,6 +15,10 @@ class CreatePostsViewController: UIViewController, UIImagePickerControllerDelega
     @IBOutlet weak var businessNameLabel: UILabel!
     @IBOutlet weak var postDescriptionTextField: UITextView!
     @IBOutlet weak var leavesBackground: UIImageView!
+
+    
+    @IBOutlet var uploadedImage: UIImageView!
+
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var imageUploadView: UIImageView!
     
@@ -26,22 +30,6 @@ class CreatePostsViewController: UIViewController, UIImagePickerControllerDelega
         backgroundImage.alpha = 0.3
         backgroundImage.contentMode = .scaleAspectFill
         // Do any additional setup after loading the view.
-    }
-    
-    
-    @IBAction func postButtonTapped(_ sender: Any) {
-        // Get the post description from postDescriptionTextField
-        let postDescription = postDescriptionTextField.text ?? ""
-        
-        // Get the selected/taken photo from imageUploadView
-        
-        // Call createPostForBusinessListing with postDescription and photo data
-//        createPostForBusinessListing(description: postDescription, photo: selectedImage)
-        
-        // Update UITableViews in "BusinessProfile" and "UserBusinessProfile" views
-        // (Implement data communication or delegation between views)
-        
-        // Dismiss this view controller or perform any other necessary actions
     }
     
     @IBAction func cancelPostButton(_ sender: Any) {
@@ -102,14 +90,35 @@ class CreatePostsViewController: UIViewController, UIImagePickerControllerDelega
 //
 //    signUpViewController.businessNameDelegate = self
     
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+
+    @IBAction func postButtonTapped(_ sender: UIButton) {
+        guard let postDescription = postDescriptionTextField.text, !postDescription.isEmpty else {
+            print("Error: Post description is empty!")
+            return
+        }
+
+        let post = Post(
+            id: "",  // Will update after saving to Firestore
+            description: postDescription,
+            date: Date(),
+            imageURL: nil
+        )
+
+        if let postImage = uploadedImage.image {
+            FirebaseService.uploadImageToFirebase(image: postImage) { [weak self] result in
+                switch result {
+                case .success(let imageUrl):
+                    var postWithImage = post
+                    postWithImage.imageURL = imageUrl
+                    FirebaseService.createPostForBusinessUser(post: postWithImage)
+                case .failure(let error):
+                    print("Error uploading image: \(error)")
+                }
+            }
+        } else {
+            FirebaseService.createPostForBusinessUser(post: post)
+        }
     }
-    */
-
 }
+

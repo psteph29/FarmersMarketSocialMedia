@@ -9,35 +9,48 @@ import Foundation
 import CoreData
 import UIKit
 
+// Define a Core Data manager class.
 class CoreDataManager {
     
+    // Create a singleton instance of CoreDataManager.
+    static let shared = CoreDataManager()
+    
+    // Lazy initialization of the persistent container.
+    // This will create or load an SQLite database named "AppDataModel".
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "AppDataModel")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+            // Handle possible errors while loading the persistent store.
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
         })
         return container
     }()
-
-    static let shared = CoreDataManager()
     
+    // Method to save any changes in the managed object context to the persistent store.
     func saveContext() {
         let context = persistentContainer.viewContext
+        // Check if there are any changes in the context.
         if context.hasChanges {
             do {
+                // Attempt to save the changes.
                 try context.save()
             } catch {
+                // Handle possible errors while saving.
                 fatalError("Failed to save context: \(error)")
             }
         }
     }
     
+    // Method to save a business listing as a favorite.
     func saveFavorite(businessListing: BusinessListing) {
         let context = persistentContainer.viewContext
         let favoriteBusinessListing = FavoriteBusinessListing(context: context)
         
+        // Potentially change coreData to only save id and then perform a fetch when trying to view collection view and pass that fetched info along to the modal or detailed view page for listing.
+        
+        // Mapping the attributes from businessListing to favoriteBusinessListing.
         favoriteBusinessListing.id = businessListing.id
         favoriteBusinessListing.listing_profileImageURL = businessListing.listing_profileImageURL
         favoriteBusinessListing.uid = businessListing.uid
@@ -50,17 +63,21 @@ class CoreDataManager {
         favoriteBusinessListing.listing_description = businessListing.listing_description ?? "No description available."
         favoriteBusinessListing.app_generated = businessListing.app_generated ?? false
         
+        // Save the new favorite business listing to the persistent store.
         saveContext()
     }
     
+    // Method to fetch all favorite business listings from the persistent store.
     func fetchFavorites() -> [FavoriteBusinessListing] {
         let context = persistentContainer.viewContext
         let fetchRequest: NSFetchRequest<FavoriteBusinessListing> = FavoriteBusinessListing.fetchRequest()
         
         do {
+            // Attempt to fetch the favorites.
             let favorites = try context.fetch(fetchRequest)
             return favorites
         } catch {
+            // Handle possible errors while fetching.
             print("Failed to fetch favorites: \(error)")
             return []
         }

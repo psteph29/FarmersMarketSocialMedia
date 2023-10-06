@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BusinessProfileTableViewCell: UITableViewCell {
+class BusinessListingPostCell: UITableViewCell {
     
     @IBOutlet var dateLabel: UILabel!
     @IBOutlet var descriptionLabel: UILabel!
@@ -23,5 +23,4 @@ class BusinessProfileTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
 }
