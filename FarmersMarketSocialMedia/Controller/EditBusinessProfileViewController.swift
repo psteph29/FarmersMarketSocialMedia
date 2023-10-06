@@ -8,7 +8,6 @@
 import UIKit
 
 class EditBusinessProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
     weak var delegate: EditBusinessProfileDelegate?
     
     @IBOutlet weak var saveButton: UIButton!
@@ -26,12 +25,9 @@ class EditBusinessProfileViewController: UIViewController, UIImagePickerControll
     @IBOutlet weak var businessAddressTextField: UITextField!
     @IBOutlet weak var backgroundImage: UIImageView!
     
-    
     var currentBusinessListing: BusinessListing?
     
     @IBOutlet weak var cancelEditingProfileButton: UIButton!
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -47,7 +43,6 @@ class EditBusinessProfileViewController: UIViewController, UIImagePickerControll
             }
         }
     }
-    
     
     func populateUIFields(with listing: BusinessListing) {
         businessNameTextField.text = listing.listing_name
@@ -84,7 +79,6 @@ class EditBusinessProfileViewController: UIViewController, UIImagePickerControll
         }
     }
     
-    
     @IBAction func uploadImage(_ sender: UIButton) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
@@ -118,7 +112,6 @@ class EditBusinessProfileViewController: UIViewController, UIImagePickerControll
         self.dismiss(animated: true, completion: nil)
     }
     
-    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let selectedImage = info[.originalImage] as?
                 UIImage else { return }
@@ -127,10 +120,7 @@ class EditBusinessProfileViewController: UIViewController, UIImagePickerControll
         dismiss(animated: true, completion: nil)
     }
 }
-    
 
 protocol EditBusinessProfileDelegate: AnyObject {
     func didUpdateProfile()
 }
-
-
