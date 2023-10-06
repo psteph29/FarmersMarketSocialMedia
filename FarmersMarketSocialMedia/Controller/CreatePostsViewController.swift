@@ -72,24 +72,9 @@ class CreatePostsViewController: UIViewController, UIImagePickerControllerDelega
         dismiss(animated: true, completion: nil)
     }
     
-    func createPostForBusinessListing(description: String, photo: UIImage?) {
-            // Implement your logic to create a new post
-            // You can use the description and photo to create the post
-            // Call the necessary functions to save the post data
-        }
-    
     func didSelectBusinessName(_ name: String) {
         businessNameLabel.text = name
     }
-
-//    THIS CODE IS FOR CHANGING THE BUSINESS NAME LABEL TO WHATEVER THE BUSINESS NAME IS WHEN THEY SIGN UP!!!!
-//    let signUpViewController = SignUpViewController() // Instantiate your SignUpViewController
-//    signUpViewController.businessNameDelegate = self // Set the delegate
-//    self.navigationController?.pushViewController(signUpViewController, animated: true) // Push the SignUpViewController onto the navigation stack
-//
-//    signUpViewController.businessNameDelegate = self
-    
-
 
     @IBAction func postButtonTapped(_ sender: UIButton) {
         guard let postDescription = postDescriptionTextField.text, !postDescription.isEmpty else {

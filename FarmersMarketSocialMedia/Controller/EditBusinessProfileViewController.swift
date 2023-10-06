@@ -47,12 +47,17 @@ class EditBusinessProfileViewController: UIViewController, UIImagePickerControll
     func populateUIFields(with listing: BusinessListing) {
         businessNameTextField.text = listing.listing_name
         editDescriptionTextField.text = listing.listing_description
-        //... populate other fields when theyre available from MJ
+        businessAddressTextField.text = listing.listing_address
+        profileImage.loadImage(from: listing.listing_profileImageURL ?? "https://png.pngtree.com/png-vector/20210609/ourmid/pngtree-mountain-network-placeholder-png-image_3423368.jpg")
+
     }
     
     @IBAction func saveButtonTapped(_ sender: UIButton) {
         guard let listingName = businessNameTextField.text, !listingName.isEmpty,
-              let description = editDescriptionTextField.text, !description.isEmpty else {
+              let description = editDescriptionTextField.text, !description.isEmpty,
+              let listingAddress = businessAddressTextField.text, !listingAddress.isEmpty
+            // determine how to store image value?
+        else {
             // Show alert if fields are empty
             let alert = UIAlertController(title: "Error", message: "Please make sure no fields are empty.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default))
@@ -64,7 +69,8 @@ class EditBusinessProfileViewController: UIViewController, UIImagePickerControll
         var updatedListing = currentBusinessListing
         updatedListing?.listing_name = listingName
         updatedListing?.listing_description = description
-        //... update other fields when available by MJ
+        updatedListing?.listing_address = listingAddress
+      //  updatedListing?.listing_profileImageURL = // post image to firebase storage, retrieve the link and store it here
         
         if let updatedListing = updatedListing {
             FirebaseService.updateBusinessListing(businessListing: updatedListing) { success in
