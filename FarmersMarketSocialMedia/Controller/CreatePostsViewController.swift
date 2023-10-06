@@ -16,7 +16,6 @@ class CreatePostsViewController: UIViewController, UIImagePickerControllerDelega
     @IBOutlet weak var postDescriptionTextField: UITextView!
     @IBOutlet weak var leavesBackground: UIImageView!
 
-    
     @IBOutlet var uploadedImage: UIImageView!
 
     @IBOutlet weak var backgroundImage: UIImageView!
@@ -105,7 +104,7 @@ class CreatePostsViewController: UIViewController, UIImagePickerControllerDelega
             imageURL: nil
         )
 
-        if let postImage = uploadedImage.image {
+        if let postImage = imageUploadView.image {
             FirebaseService.uploadImageToFirebase(image: postImage) { [weak self] result in
                 switch result {
                 case .success(let imageUrl):
