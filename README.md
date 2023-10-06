@@ -21,4 +21,4 @@
 
 ## Feedback & Support
 
-We're always looking to improve. If you have any feedback, questions, or concerns, please reach out to us at [support@LocalHarborApp.com](mailto:koleervine@gmail.com).
+We're always looking to improve. If you have any feedback, questions, or concerns, please reach out to us at [support@LocalHarborApp.com](mailto:koleervine@gmail.com)

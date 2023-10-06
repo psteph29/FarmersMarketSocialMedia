@@ -13,6 +13,9 @@ import CoreData
 private let reuseIdentifier =  "favoritesCell"
 
 class FavoritesCollectionViewController: UICollectionViewController {
+    
+    @IBOutlet weak var backgroundImage: UIImageView!
+    
     let coreDataManager = CoreDataManager.shared
     var favoriteBusinessListings: [FavoriteBusinessListing] = []
     
@@ -20,6 +23,9 @@ class FavoritesCollectionViewController: UICollectionViewController {
       super.viewDidLoad()
 
       loadFavorites()
+      
+        backgroundImage.alpha = 0.3
+        backgroundImage.contentMode = .scaleAspectFill
     }
     
     override func awakeFromNib() {
