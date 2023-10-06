@@ -22,6 +22,8 @@ class EditBusinessProfileViewController: UIViewController, UIImagePickerControll
     @IBOutlet weak var businessAddressTextField: UITextField!
     @IBOutlet weak var backgroundImage: UIImageView!
     
+    @IBOutlet weak var cancelEditingProfileButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -65,6 +67,11 @@ class EditBusinessProfileViewController: UIViewController, UIImagePickerControll
         
         present(alertController, animated: true, completion: nil)
     }
+    
+    @IBAction func cancelEditingProfile(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let selectedImage = info[.originalImage] as?

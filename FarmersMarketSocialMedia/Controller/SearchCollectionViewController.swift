@@ -14,6 +14,7 @@ class SearchCollectionViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    @IBOutlet weak var backgroundImage: UIImageView!
     
     let APIFarmController = APIController()
     var farms: [Farm] = []
@@ -31,6 +32,9 @@ class SearchCollectionViewController: UIViewController {
         collectionView.delegate = self
         
         collectionView.setCollectionViewLayout(generateLayout(), animated: false)
+        
+        backgroundImage.alpha = 0.3
+        backgroundImage.contentMode = .scaleAspectFill
     }
     
     func generateLayout() -> UICollectionViewLayout {
