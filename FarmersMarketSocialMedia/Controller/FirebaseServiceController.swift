@@ -150,13 +150,18 @@ struct FirebaseService {
         
         let db = Firestore.firestore()
         
-        let data: [String: Any] = [
+        var data: [String: Any] = [
             "listing_name": businessListing.listing_name,
             "listing_address": businessListing.listing_address,
             "listing_zipcode": businessListing.listing_zipcode as Any,
             "listing_username": businessListing.listing_username ?? "Test username",
             "listing_description": businessListing.listing_description ?? "Test description",
         ]
+        
+        // Include the listing_profileImageURL if it's set
+          if let imageURL = businessListing.listing_profileImageURL {
+              data["listing_profileImageURL"] = imageURL
+          }
         
         db.collection("USDAFarmersMarkets").document(uid).updateData(data) { error in
             if let error = error {
@@ -364,7 +369,7 @@ struct FirebaseService {
     }
 
     // Update or PUT image request
-    func updateImageInFirebase(oldImageURL: String?, newImage: UIImage?, for listingUUID: String, completion: @escaping (Result<String?, Error>) -> Void) {
+    static func updateImageInFirebase(oldImageURL: String?, newImage: UIImage?, for listingUUID: String, completion: @escaping (Result<String?, Error>) -> Void) {
         // First, delete the old image if it exists
         if let oldImageURL = oldImageURL {
             let oldStorageRef = Storage.storage().reference(forURL: oldImageURL)

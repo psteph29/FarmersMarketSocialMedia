@@ -49,14 +49,15 @@ class EditBusinessProfileViewController: UIViewController, UIImagePickerControll
         editDescriptionTextField.text = listing.listing_description
         businessAddressTextField.text = listing.listing_address
         profileImage.loadImage(from: listing.listing_profileImageURL ?? "https://png.pngtree.com/png-vector/20210609/ourmid/pngtree-mountain-network-placeholder-png-image_3423368.jpg")
-
+        
     }
     
     @IBAction func saveButtonTapped(_ sender: UIButton) {
         guard let listingName = businessNameTextField.text, !listingName.isEmpty,
               let description = editDescriptionTextField.text, !description.isEmpty,
-              let listingAddress = businessAddressTextField.text, !listingAddress.isEmpty
-            // determine how to store image value?
+              let listingAddress = businessAddressTextField.text, !listingAddress.isEmpty,
+              let newImage = profileImage.image
+                // determine how to store image value?
         else {
             // Show alert if fields are empty
             let alert = UIAlertController(title: "Error", message: "Please make sure no fields are empty.", preferredStyle: .alert)
@@ -70,20 +71,33 @@ class EditBusinessProfileViewController: UIViewController, UIImagePickerControll
         updatedListing?.listing_name = listingName
         updatedListing?.listing_description = description
         updatedListing?.listing_address = listingAddress
-      //  updatedListing?.listing_profileImageURL = // post image to firebase storage, retrieve the link and store it here
         
-        if let updatedListing = updatedListing {
-            FirebaseService.updateBusinessListing(businessListing: updatedListing) { success in
-                if success {
-                    self.delegate?.didUpdateProfile()
-                    // Dismiss the modal on successful update
-                    self.dismiss(animated: true, completion: nil)
-                } else {
-                    // Optionally show an error message here if the update failed
-                }
-            }
-        }
-    }
+        
+        FirebaseService.updateImageInFirebase(
+              oldImageURL: updatedListing?.listing_profileImageURL,
+              newImage: newImage,
+              for: updatedListing?.listing_uuid ?? ""
+          ) { result in
+              switch result {
+              case .success(let newImageURL):
+                  updatedListing?.listing_profileImageURL = newImageURL
+                  if let updatedListing = updatedListing {
+                      FirebaseService.updateBusinessListing(businessListing: updatedListing) { success in
+                          if success {
+                              self.delegate?.didUpdateProfile()
+                              self.dismiss(animated: true, completion: nil)
+                          } else {
+                              // Optionally show an error message here if the update failed
+                          }
+                      }
+                  }
+              case .failure(let error):
+                  print("Error updating image: \(error)")
+                  // Optionally show an error message here if the image update failed
+              }
+          }
+      }
+
     
     @IBAction func uploadImage(_ sender: UIButton) {
         let imagePicker = UIImagePickerController()
