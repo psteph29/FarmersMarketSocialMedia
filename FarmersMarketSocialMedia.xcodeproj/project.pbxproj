@@ -28,6 +28,9 @@
 		0FC052F82ACF339200DC9288 /* zipcodeExtractionFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC052F72ACF339200DC9288 /* zipcodeExtractionFunc.swift */; };
 		0FC052FC2AD052DE00DC9288 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0FC052FB2AD052DE00DC9288 /* GoogleService-Info.plist */; };
 		0FC4EF412ABB347600A44030 /* MileToKilometer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC4EF402ABB347600A44030 /* MileToKilometer.swift */; };
+		0FF02C132AD36E570082C8AD /* SpawnRandomFruitOrVeggie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF02C122AD36E570082C8AD /* SpawnRandomFruitOrVeggie.swift */; };
+		0FF02C152AD36EBC0082C8AD /* AnimateFallingFruitVeggie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF02C142AD36EBC0082C8AD /* AnimateFallingFruitVeggie.swift */; };
+		0FF02C172AD376E40082C8AD /* FruitsAndVeggiesImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF02C162AD376E40082C8AD /* FruitsAndVeggiesImages.swift */; };
 		AB233CE92AB35E22006A3DB7 /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB233CE82AB35E22006A3DB7 /* SignIn.storyboard */; };
 		AB233CEB2AB35E28006A3DB7 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB233CEA2AB35E28006A3DB7 /* SignUp.storyboard */; };
 		AB233CED2AB35E4C006A3DB7 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB233CEC2AB35E4C006A3DB7 /* SignInViewController.swift */; };
@@ -75,6 +78,9 @@
 		0FC052F72ACF339200DC9288 /* zipcodeExtractionFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = zipcodeExtractionFunc.swift; sourceTree = "<group>"; };
 		0FC052FB2AD052DE00DC9288 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0FC4EF402ABB347600A44030 /* MileToKilometer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MileToKilometer.swift; sourceTree = "<group>"; };
+		0FF02C122AD36E570082C8AD /* SpawnRandomFruitOrVeggie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpawnRandomFruitOrVeggie.swift; sourceTree = "<group>"; };
+		0FF02C142AD36EBC0082C8AD /* AnimateFallingFruitVeggie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimateFallingFruitVeggie.swift; sourceTree = "<group>"; };
+		0FF02C162AD376E40082C8AD /* FruitsAndVeggiesImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitsAndVeggiesImages.swift; sourceTree = "<group>"; };
 		AB233CE82AB35E22006A3DB7 /* SignIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignIn.storyboard; sourceTree = "<group>"; };
 		AB233CEA2AB35E28006A3DB7 /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
 		AB233CEC2AB35E4C006A3DB7 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -135,6 +141,9 @@
 				0F12A4212ABDD724005412C1 /* ArrayExtension.swift */,
 				0F12A4372ABE4E40005412C1 /* UIImageExtension.swift */,
 				0FC052F72ACF339200DC9288 /* zipcodeExtractionFunc.swift */,
+				0FF02C122AD36E570082C8AD /* SpawnRandomFruitOrVeggie.swift */,
+				0FF02C142AD36EBC0082C8AD /* AnimateFallingFruitVeggie.swift */,
+				0FF02C162AD376E40082C8AD /* FruitsAndVeggiesImages.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -315,7 +324,9 @@
 				AB35EBD42AB3478D006E3392 /* FindAFarmViewController.swift in Sources */,
 				AB35EBC62AAB7666006E3392 /* SearchCollectionViewController.swift in Sources */,
 				F30CC0222AAB7BA40067DC44 /* UserBusinessProfileViewController.swift in Sources */,
+				0FF02C152AD36EBC0082C8AD /* AnimateFallingFruitVeggie.swift in Sources */,
 				0F12A4202ABDD384005412C1 /* HexColorExtension.swift in Sources */,
+				0FF02C132AD36E570082C8AD /* SpawnRandomFruitOrVeggie.swift in Sources */,
 				AB35EBA62AA8DB8B006E3392 /* AppDelegate.swift in Sources */,
 				AB35EBBC2AA9021D006E3392 /* APIController.swift in Sources */,
 				F30CC0262AAB7F3A0067DC44 /* EditBusinessProfileViewController.swift in Sources */,
@@ -336,6 +347,7 @@
 				ABA47AE12AB4ACE2008F58EE /* FavoritesCollectionViewCell.swift in Sources */,
 				0F0161D32ABCA5B900D704A1 /* SignedInMiddleManTab.swift in Sources */,
 				AB35EBC82AAB7BF1006E3392 /* BusinessSearchResultsCollectionViewCell.swift in Sources */,
+				0FF02C172AD376E40082C8AD /* FruitsAndVeggiesImages.swift in Sources */,
 				AB35EBA82AA8DB8B006E3392 /* SceneDelegate.swift in Sources */,
 				F30CC0202AAB7AB80067DC44 /* CreatePostsViewController.swift in Sources */,
 				AB35EBBA2AA9012B006E3392 /* FarmDataStructure.swift in Sources */,
