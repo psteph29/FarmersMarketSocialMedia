@@ -34,6 +34,10 @@ class SearchCollectionViewController: UIViewController {
         
         collectionView.setCollectionViewLayout(generateLayout(), animated: false)
         
+        setupBackgroundImage()
+    }
+    
+    private func setupBackgroundImage() {
         backgroundImage.alpha = 0.3
         backgroundImage.contentMode = .scaleAspectFill
     }

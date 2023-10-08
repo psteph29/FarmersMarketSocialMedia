@@ -26,9 +26,12 @@ class CreatePostsViewController: UIViewController, UIImagePickerControllerDelega
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupBackgroundImage()
+    }
+    
+    private func setupBackgroundImage() {
         backgroundImage.alpha = 0.3
         backgroundImage.contentMode = .scaleAspectFill
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func cancelPostButton(_ sender: Any) {

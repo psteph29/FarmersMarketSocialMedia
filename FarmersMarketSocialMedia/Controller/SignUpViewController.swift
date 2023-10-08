@@ -29,7 +29,10 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+       setupBackgroundImage()
+    }
+    
+    private func setupBackgroundImage() {
         backgroundImage.image = UIImage(named: "leaves")
         backgroundImage.alpha = 0.3
         backgroundImage.contentMode = .scaleAspectFill

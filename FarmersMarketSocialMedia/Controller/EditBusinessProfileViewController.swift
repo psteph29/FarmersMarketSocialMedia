@@ -28,21 +28,37 @@ class EditBusinessProfileViewController: UIViewController, UIImagePickerControll
     var currentBusinessListing: BusinessListing?
     
     @IBOutlet weak var cancelEditingProfileButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        backgroundImage.alpha = 0.3
-        backgroundImage.contentMode = .scaleAspectFill
-        // Fetch and display current business listing
-        if let userId = UserDefaults.standard.string(forKey: "UserId") {
-            FirebaseService.fetchBusinessListingByUID(uid: userId) { [weak self] (listing) in
-                if let listing = listing {
-                    self?.currentBusinessListing = listing
-                    self?.populateUIFields(with: listing)
-                }
-            }
-        }
+        setupBackgroundImage()
+        fetchAndDisplayBusinessListing()
     }
+    
+    private func setupBackgroundImage() {
+          backgroundImage.alpha = 0.3
+          backgroundImage.contentMode = .scaleAspectFill
+      }
+    
+    private func fetchAndDisplayBusinessListing() {
+           if let userId = getUserIdFromDefaults() {
+               fetchBusinessListing(by: userId) { [weak self] listing in
+                   if let listing = listing {
+                       self?.currentBusinessListing = listing
+                       self?.populateUIFields(with: listing)
+                   }
+               }
+           }
+       }
+    
+    private func getUserIdFromDefaults() -> String? {
+           return UserDefaults.standard.string(forKey: "UserId")
+       }
+       
+       private func fetchBusinessListing(by userId: String, completion: @escaping (BusinessListing?) -> Void) {
+           FirebaseService.fetchBusinessListingByUID(uid: userId, completion: completion)
+       }
     
     func populateUIFields(with listing: BusinessListing) {
         businessNameTextField.text = listing.listing_name
