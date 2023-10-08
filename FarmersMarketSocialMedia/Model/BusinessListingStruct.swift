@@ -24,6 +24,7 @@ struct BusinessListing: Identifiable, Encodable {
 
 extension BusinessListing {
     init(from favoriteListing: FavoriteBusinessListing) {
+        self.uid = favoriteListing.uid ?? "No uid"
         self.listing_name = favoriteListing.listing_name!
         self.listing_address = favoriteListing.listing_address!
         self.listing_description = favoriteListing.listing_description ?? "No description available."

@@ -114,15 +114,27 @@ class UserBusinessProfileViewController: UIViewController, UITableViewDataSource
              } else {
                  // If fetching by listingUUID fails or returns no posts, attempt to fetch by userUID
                  // Assuming businessListing has a userUID property
-                 FirebaseService.fetchPostsByUserUID(uid: self.businessListing.uid!) { fetchedPosts in
+                 if let uid = self.businessListing.uid {
+                     FirebaseService.fetchPostsByUserUID(uid: uid) { fetchedPosts in
+                         guard let fetchedPosts = fetchedPosts else {
+                             print("Error fetching posts or no posts available.")
+                             return
+                         }
+                         self.posts = fetchedPosts
+                         self.postsTableView.reloadData()
+                        }
+                    } else {
+                     print("UID is nil")
+                    }
+                 
                      guard let fetchedPosts = fetchedPosts else {
                          print("Error fetching posts or no posts available.")
                          return
                      }
+                 
                      self.posts = fetchedPosts
                      self.postsTableView.reloadData()
                  }
              }
          }
      }
-}

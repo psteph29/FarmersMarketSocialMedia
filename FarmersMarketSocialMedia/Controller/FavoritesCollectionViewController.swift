@@ -22,8 +22,9 @@ class FavoritesCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
       super.viewDidLoad()
 
-      loadFavorites()
-      
+        loadFavorites()
+        collectionView.collectionViewLayout = generateLayout()
+
         backgroundImage.alpha = 0.3
         backgroundImage.contentMode = .scaleAspectFill
     }
@@ -98,6 +99,5 @@ class FavoritesCollectionViewController: UICollectionViewController {
         let selectedFavoriteBusiness = favoriteBusinessListings[selectedIndexPath.item]
         let business = BusinessListing(from: selectedFavoriteBusiness)
         return UserBusinessProfileViewController(coder: coder, businessListing: business)
-
     }
 }
