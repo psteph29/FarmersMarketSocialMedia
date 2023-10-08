@@ -22,8 +22,8 @@ class FindAFarmViewController: UIViewController {
     }
     
     private func setupBackgroundImage() {
-        backgroundImage.image = UIImage(named: "leaves")
-        backgroundImage.alpha = 0.3
+        backgroundImage.image = UIImage(named: "signInImage")
+        backgroundImage.alpha = 0.8
         backgroundImage.contentMode = .scaleAspectFill
     }
 }
