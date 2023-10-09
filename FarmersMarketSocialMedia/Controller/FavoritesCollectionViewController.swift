@@ -77,12 +77,6 @@ class FavoritesCollectionViewController: UICollectionViewController {
             cell.businessNameLabel.text = "Name not available"
         }
         
-//          if let address = favoriteBusinessListing.listing_address {
-//              cell.addressLabel.text = address
-//          } else {
-//              cell.addressLabel.text = "Address not available"
-//          }
-        
         let numberOfImages: UInt32 = 23
         let random = arc4random_uniform(numberOfImages)
         let imageName = "\(random)"
