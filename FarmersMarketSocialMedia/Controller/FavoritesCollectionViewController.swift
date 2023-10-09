@@ -22,14 +22,13 @@ class FavoritesCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
       super.viewDidLoad()
 
-
         loadFavorites()
         collectionView.collectionViewLayout = generateLayout()
 
         backgroundImage.alpha = 0.3
         backgroundImage.contentMode = .scaleAspectFill
-
     }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -90,13 +89,11 @@ class FavoritesCollectionViewController: UICollectionViewController {
         
         cell.onFavorite = {
             CoreDataManager.shared.removeFavorite(favoriteBusinessListing)
+            self.loadFavorites()
+            collectionView.reloadData()
         }
-        
         return cell
     }
-    
-
-    
     
     @IBSegueAction func viewFavoriteListing(_ coder: NSCoder) -> UIViewController? {
         guard let selectedIndexPath = collectionView.indexPathsForSelectedItems?.first,

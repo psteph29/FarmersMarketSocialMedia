@@ -237,11 +237,10 @@ struct FirebaseService {
             let posts = snapshot?.documents.compactMap { document -> Post? in
                 print("Attempting to map document: \(document.documentID)")
                 if let post_description = document.get("description") as? String,
-                   let image = document.get("image") as? String,
                    let timestamp = document.get("date") as? Timestamp {
                     let post_date = timestamp.dateValue()
                     let post_id = document.documentID
-                    return Post(id: post_id, description: post_description, date: post_date, imageURL: image)
+                    return Post(id: post_id, description: post_description, date: post_date, imageURL: document.get("image") as? String)
                 } else {
                     print("Failed to map document: \(document.documentID)")
                     return nil
