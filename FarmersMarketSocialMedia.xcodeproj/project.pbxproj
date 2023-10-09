@@ -32,7 +32,7 @@
 		0FF02C152AD36EBC0082C8AD /* AnimateFallingFruitVeggie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF02C142AD36EBC0082C8AD /* AnimateFallingFruitVeggie.swift */; };
 		0FF02C172AD376E40082C8AD /* FruitsAndVeggiesImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF02C162AD376E40082C8AD /* FruitsAndVeggiesImages.swift */; };
 		0FF02C192AD398FB0082C8AD /* BubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF02C182AD398FB0082C8AD /* BubbleView.swift */; };
-		0FF02C1B2AD399B60082C8AD /* ShowBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF02C1A2AD399B60082C8AD /* ShowBubble.swift */; };
+		0FF02C1B2AD399B60082C8AD /* BubbleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF02C1A2AD399B60082C8AD /* BubbleManager.swift */; };
 		AB233CE92AB35E22006A3DB7 /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB233CE82AB35E22006A3DB7 /* SignIn.storyboard */; };
 		AB233CEB2AB35E28006A3DB7 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB233CEA2AB35E28006A3DB7 /* SignUp.storyboard */; };
 		AB233CED2AB35E4C006A3DB7 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB233CEC2AB35E4C006A3DB7 /* SignInViewController.swift */; };
@@ -84,7 +84,7 @@
 		0FF02C142AD36EBC0082C8AD /* AnimateFallingFruitVeggie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimateFallingFruitVeggie.swift; sourceTree = "<group>"; };
 		0FF02C162AD376E40082C8AD /* FruitsAndVeggiesImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitsAndVeggiesImages.swift; sourceTree = "<group>"; };
 		0FF02C182AD398FB0082C8AD /* BubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleView.swift; sourceTree = "<group>"; };
-		0FF02C1A2AD399B60082C8AD /* ShowBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowBubble.swift; sourceTree = "<group>"; };
+		0FF02C1A2AD399B60082C8AD /* BubbleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleManager.swift; sourceTree = "<group>"; };
 		AB233CE82AB35E22006A3DB7 /* SignIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignIn.storyboard; sourceTree = "<group>"; };
 		AB233CEA2AB35E28006A3DB7 /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
 		AB233CEC2AB35E4C006A3DB7 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -148,7 +148,7 @@
 				0FF02C122AD36E570082C8AD /* SpawnRandomFruitOrVeggie.swift */,
 				0FF02C142AD36EBC0082C8AD /* AnimateFallingFruitVeggie.swift */,
 				0FF02C162AD376E40082C8AD /* FruitsAndVeggiesImages.swift */,
-				0FF02C1A2AD399B60082C8AD /* ShowBubble.swift */,
+				0FF02C1A2AD399B60082C8AD /* BubbleManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -330,7 +330,7 @@
 				AB35EBD42AB3478D006E3392 /* FindAFarmViewController.swift in Sources */,
 				AB35EBC62AAB7666006E3392 /* SearchCollectionViewController.swift in Sources */,
 				F30CC0222AAB7BA40067DC44 /* UserBusinessProfileViewController.swift in Sources */,
-				0FF02C1B2AD399B60082C8AD /* ShowBubble.swift in Sources */,
+				0FF02C1B2AD399B60082C8AD /* BubbleManager.swift in Sources */,
 				0FF02C152AD36EBC0082C8AD /* AnimateFallingFruitVeggie.swift in Sources */,
 				0F12A4202ABDD384005412C1 /* HexColorExtension.swift in Sources */,
 				0FF02C132AD36E570082C8AD /* SpawnRandomFruitOrVeggie.swift in Sources */,
