@@ -18,11 +18,9 @@ class FavoritesCollectionViewController: UICollectionViewController {
     var favoriteBusinessListings: [FavoriteBusinessListing] = []
     
     override func viewDidLoad() {
-      super.viewDidLoad()
-
-      loadFavorites()
-        collectionView.collectionViewLayout = generateLayout()
-
+        super.viewDidLoad()
+        
+        loadFavorites()
     }
     override func awakeFromNib() {
         super.awakeFromNib()
