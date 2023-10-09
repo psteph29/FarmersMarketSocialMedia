@@ -31,6 +31,11 @@ class UserBusinessProfileViewController: UIViewController, UITableViewDataSource
          setupTableView()
      }
     
+    override func viewDidAppear(_ animated: Bool) {
+          super.viewDidAppear(animated)
+        BubbleManager.showBubble(over: businessAddressLabel, in: self.view)
+      }
+    
     init?(coder: NSCoder, businessListing: BusinessListing) {
         self.businessListing = businessListing
         super.init(coder: coder)
