@@ -30,8 +30,11 @@
                                     <rect key="frame" x="0.0" y="0.0" width="220" height="163"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cKJ-pv-KBE">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cKJ-pv-KBE">
                                             <rect key="frame" x="0.0" y="0.0" width="220" height="160"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="160" id="yer-lf-gHg"/>
+                                            </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" text="Business Name" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AFP-eA-NYB">
                                             <rect key="frame" x="8" y="7.9999999999999982" width="204" height="20.333333333333329"/>
@@ -44,9 +47,6 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="plain" image="heart.fill" catalog="system"/>
-                                            <connections>
-                                                <action selector="unFavorite:" destination="SW6-Z5-obv" eventType="touchUpInside" id="RBx-B0-0BO"/>
-                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
