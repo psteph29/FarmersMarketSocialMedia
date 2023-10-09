@@ -12,11 +12,15 @@ import UIKit
 // Define a Core Data manager class.
 class CoreDataManager {
     
+
     // Create a singleton instance of CoreDataManager.
     static let shared = CoreDataManager()
     
+    private init() { }
+    
     // Lazy initialization of the persistent container.
     // This will create or load an SQLite database named "AppDataModel".
+
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "AppDataModel")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
@@ -27,6 +31,7 @@ class CoreDataManager {
         })
         return container
     }()
+
     
     // Method to save any changes in the managed object context to the persistent store.
     func saveContext() {
@@ -42,9 +47,12 @@ class CoreDataManager {
             }
         }
     }
-    
-    // Method to save a business listing as a favorite.
+
+//    create (CRUD) Method to save a business listing as a favorite.
     func saveFavorite(businessListing: BusinessListing) {
+        // make sure busimness listing isn't already favorited
+        // let currentFavorites = fetchFavorites()
+        // guard !currentFavorites.contains(wherer: { $0.id == businessListing.id }) else { return }
         let context = persistentContainer.viewContext
         let favoriteBusinessListing = FavoriteBusinessListing(context: context)
         
@@ -66,8 +74,14 @@ class CoreDataManager {
         // Save the new favorite business listing to the persistent store.
         saveContext()
     }
-    
-    // Method to fetch all favorite business listings from the persistent store.
+
+//    delete (CRUD)
+    func removeFavorite(_ favorite: FavoriteBusinessListing) {
+        let context = persistentContainer.viewContext
+        context.delete(favorite)
+        saveContext()
+    }
+//    read (CRUD) Method to fetch all favorite business listings from the persistent store.
     func fetchFavorites() -> [FavoriteBusinessListing] {
         let context = persistentContainer.viewContext
         let fetchRequest: NSFetchRequest<FavoriteBusinessListing> = FavoriteBusinessListing.fetchRequest()

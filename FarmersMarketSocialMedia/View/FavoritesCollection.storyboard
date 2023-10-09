@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JZb-r4-SQE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JZb-r4-SQE">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -44,34 +43,32 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="249" text="Address" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tHn-SY-WwR">
-                                            <rect key="frame" x="8" y="36.333333333333343" width="204" height="60.666666666666657"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MbQ-dA-q8h">
+                                            <rect key="frame" x="161" y="120" width="51" height="35"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="plain" image="heart.fill" catalog="system"/>
+                                            <connections>
+                                                <action selector="unFavorite:" destination="SW6-Z5-obv" eventType="touchUpInside" id="RBx-B0-0BO"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.53213924160000003" green="0.29942746780000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="cKJ-pv-KBE" firstAttribute="leading" secondItem="PpW-cn-xyN" secondAttribute="leading" id="N8X-ur-9Te"/>
-                                        <constraint firstAttribute="trailing" secondItem="tHn-SY-WwR" secondAttribute="trailing" constant="8" id="PFL-DY-Rsj"/>
-                                        <constraint firstItem="tHn-SY-WwR" firstAttribute="centerX" secondItem="cKJ-pv-KBE" secondAttribute="centerX" id="RcS-4m-0oN"/>
                                         <constraint firstItem="cKJ-pv-KBE" firstAttribute="top" secondItem="PpW-cn-xyN" secondAttribute="top" id="RxX-Wd-4Re"/>
                                         <constraint firstAttribute="bottom" secondItem="cKJ-pv-KBE" secondAttribute="bottom" constant="3" id="S72-ol-tMG"/>
-                                        <constraint firstAttribute="bottom" secondItem="tHn-SY-WwR" secondAttribute="bottom" constant="66" id="U0m-P9-nbj"/>
                                         <constraint firstItem="AFP-eA-NYB" firstAttribute="top" secondItem="PpW-cn-xyN" secondAttribute="top" constant="8" id="awb-L2-7wk"/>
                                         <constraint firstItem="AFP-eA-NYB" firstAttribute="leading" secondItem="PpW-cn-xyN" secondAttribute="leading" constant="8" id="eOI-mV-z2y"/>
-                                        <constraint firstItem="tHn-SY-WwR" firstAttribute="leading" secondItem="PpW-cn-xyN" secondAttribute="leading" constant="8" id="gPG-Ez-NpU"/>
-                                        <constraint firstItem="tHn-SY-WwR" firstAttribute="top" secondItem="AFP-eA-NYB" secondAttribute="bottom" constant="8" id="tgl-yN-mtc"/>
                                         <constraint firstAttribute="trailing" secondItem="AFP-eA-NYB" secondAttribute="trailing" constant="8" id="uKa-D3-6ot"/>
                                         <constraint firstItem="AFP-eA-NYB" firstAttribute="centerX" secondItem="cKJ-pv-KBE" secondAttribute="centerX" id="zxj-9s-azQ"/>
                                     </constraints>
                                 </collectionViewCellContentView>
                                 <size key="customSize" width="220" height="163"/>
                                 <connections>
-                                    <outlet property="addressLabel" destination="tHn-SY-WwR" id="hra-Xi-0uY"/>
                                     <outlet property="backgroundImageView" destination="cKJ-pv-KBE" id="r7e-sU-Ag5"/>
                                     <outlet property="businessNameLabel" destination="AFP-eA-NYB" id="3He-K0-otA"/>
+                                    <outlet property="favoriteButton" destination="MbQ-dA-q8h" id="f72-tW-vAT"/>
                                     <segue destination="CZ0-am-NTe" kind="presentation" destinationCreationSelector="viewFavoriteListing:" id="vCb-WH-cuU"/>
                                 </connections>
                             </collectionViewCell>
@@ -102,7 +99,7 @@
     <resources>
         <image name="heart.circle" catalog="system" width="128" height="123"/>
         <image name="heart.circle.fill" catalog="system" width="128" height="123"/>
-        <image name="leaves" width="989" height="1280"/>
+        <image name="heart.fill" catalog="system" width="128" height="107"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -22,19 +22,23 @@ class FavoritesCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
       super.viewDidLoad()
 
+
         loadFavorites()
         collectionView.collectionViewLayout = generateLayout()
 
         backgroundImage.alpha = 0.3
         backgroundImage.contentMode = .scaleAspectFill
+
     }
-    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
 
     func loadFavorites() {
         favoriteBusinessListings = coreDataManager.fetchFavorites()
+//        let first = favoriteBusinessListings.first!
+//        let favoriteListingIDs = coreDataManager.fetchFavorites()
+        // favoriteBusinessListings = await loadBusinessListings(with: favoriteListingIDs)
         collectionView.reloadData()
     }
 
@@ -44,7 +48,7 @@ class FavoritesCollectionViewController: UICollectionViewController {
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: itemSize, subitem: item, count: 1)
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: itemSize, subitem: item, count: 2)
 
         
         let section = NSCollectionLayoutSection(group: group)
@@ -79,15 +83,25 @@ class FavoritesCollectionViewController: UICollectionViewController {
               cell.addressLabel.text = "Address not available"
           }
         
+        let numberOfImages: UInt32 = 23
+        let random = arc4random_uniform(numberOfImages)
+        let imageName = "\(random)"
+        
         if let profileImageUrl = favoriteBusinessListing.listing_profileImageURL {
             cell.backgroundImageView.loadImage(from: profileImageUrl)
         } else {
             // Handle the case where profileImageUrl is nil or an invalid URL
-            cell.backgroundImageView.image = nil // or set a placeholder image
+            cell.backgroundImageView.image = UIImage(named: imageName) // or set a placeholder image
         }
-
+        
+        cell.onFavorite = {
+            CoreDataManager.shared.removeFavorite(favoriteBusinessListing)
+        }
+        
         return cell
     }
+    
+
     
     
     @IBSegueAction func viewFavoriteListing(_ coder: NSCoder) -> UIViewController? {
