@@ -22,6 +22,7 @@ class FavoritesCollectionViewController: UICollectionViewController {
 
       loadFavorites()
         collectionView.collectionViewLayout = generateLayout()
+
     }
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -101,5 +102,7 @@ class FavoritesCollectionViewController: UICollectionViewController {
         let selectedFavoriteBusiness = favoriteBusinessListings[selectedIndexPath.item]
         let business = BusinessListing(from: selectedFavoriteBusiness)
         return UserBusinessProfileViewController(coder: coder, businessListing: business)
+
     }
+    
 }
