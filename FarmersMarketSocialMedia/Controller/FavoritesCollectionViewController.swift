@@ -13,14 +13,22 @@ import CoreData
 private let reuseIdentifier =  "favoritesCell"
 
 class FavoritesCollectionViewController: UICollectionViewController {
-
+    
+    @IBOutlet weak var backgroundImage: UIImageView!
+    
     let coreDataManager = CoreDataManager.shared
     var favoriteBusinessListings: [FavoriteBusinessListing] = []
     
     override func viewDidLoad() {
       super.viewDidLoad()
 
-      loadFavorites()
+
+        loadFavorites()
+        collectionView.collectionViewLayout = generateLayout()
+
+        backgroundImage.alpha = 0.3
+        backgroundImage.contentMode = .scaleAspectFill
+
     }
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -105,7 +113,5 @@ class FavoritesCollectionViewController: UICollectionViewController {
         let selectedFavoriteBusiness = favoriteBusinessListings[selectedIndexPath.item]
         let business = BusinessListing(from: selectedFavoriteBusiness)
         return UserBusinessProfileViewController(coder: coder, businessListing: business)
-
     }
-    
 }

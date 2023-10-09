@@ -14,6 +14,8 @@ class SearchCollectionViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+
+    @IBOutlet weak var backgroundImage: UIImageView!
     
     let APIFarmController = APIController()
     var farms: [Farm] = []
@@ -31,6 +33,13 @@ class SearchCollectionViewController: UIViewController {
         collectionView.delegate = self
         
         collectionView.setCollectionViewLayout(generateLayout(), animated: false)
+        
+        setupBackgroundImage()
+    }
+    
+    private func setupBackgroundImage() {
+        backgroundImage.alpha = 0.3
+        backgroundImage.contentMode = .scaleAspectFill
     }
 
     func generateLayout() -> UICollectionViewLayout {
@@ -122,7 +131,6 @@ class SearchCollectionViewController: UIViewController {
     }
     
     @IBAction func radiusButtonPressed(_ sender: UICommand) {
-        
         let title = sender.title
 
         switch title {
@@ -138,8 +146,6 @@ class SearchCollectionViewController: UIViewController {
             selectedRadius = 10
         }
     }
-    
-
     
     @IBSegueAction func viewBusiness(_ coder: NSCoder) -> UIViewController? {
         guard let selectedIndexPath = collectionView.indexPathsForSelectedItems?.first,
@@ -189,6 +195,4 @@ extension SearchCollectionViewController: UICollectionViewDataSource, UICollecti
         
         return cell
     }
-    
-    
 }

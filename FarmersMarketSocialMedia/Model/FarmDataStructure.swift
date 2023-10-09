@@ -46,8 +46,6 @@ struct Farm: Codable {
     }
 }
 
-
 struct SearchResponse: Codable {
     let data: [Farm]
 }
-

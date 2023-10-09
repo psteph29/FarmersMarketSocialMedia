@@ -22,6 +22,10 @@
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
+                        <imageView key="backgroundView" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="leaves" id="Y0H-zC-Lm5">
+                            <rect key="frame" x="0.0" y="-59" width="393" height="852"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="favoritesCell" id="SW6-Z5-obv" customClass="FavoritesCollectionViewCell" customModule="FarmersMarketSocialMedia" customModuleProvider="target">
                                 <rect key="frame" x="86.666666666666671" y="0.0" width="220" height="163"/>
@@ -75,10 +79,13 @@
                         </connections>
                     </collectionView>
                     <tabBarItem key="tabBarItem" title="Favorites" image="heart.circle" catalog="system" selectedImage="heart.circle.fill" id="9Cy-Ed-FJu"/>
+                    <connections>
+                        <outlet property="backgroundImage" destination="Y0H-zC-Lm5" id="rKi-kv-nUc"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SN0-Vv-8Ey" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-360" y="-481"/>
+            <point key="canvasLocation" x="-361.06870229007632" y="-481.69014084507046"/>
         </scene>
         <!--UserBusinessProfile-->
         <scene sceneID="VEv-rJ-6IZ">

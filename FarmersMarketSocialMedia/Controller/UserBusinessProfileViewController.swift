@@ -23,58 +23,18 @@ class UserBusinessProfileViewController: UIViewController, UITableViewDataSource
     var posts: [Post] = []
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-
-        businessNameLabel.text = businessListing.listing_name
-        businessAddressLabel.text = businessListing.listing_address
-        descriptionTextView.text = businessListing.listing_description ?? "The farm has not listed a description"
-
-        // Check if we have a valid profile image URL
-        var validProfileImageURL: URL?
-
-        if let imageURLString = businessListing.listing_profileImageURL,
-           let potentialURL = URL(string: imageURLString),
-           UIApplication.shared.canOpenURL(potentialURL) {
-            validProfileImageURL = potentialURL
-        } else {
-            // If not, fall back to the default image URL
-            validProfileImageURL = URL(string: "https://mediaproxy.salon.com/width/1200/https://media.salon.com/2021/08/farmers-market-produce-0812211.jpg")
-        }
-
-        guard let finalURL = validProfileImageURL else {
-            print("Invalid URL and fallback URL is also not working.")
-            return
-        }
-
-        let task = URLSession.shared.dataTask(with: finalURL) { data, response, error in
-            guard let data = data, error == nil else {
-                print("Error downloading image: \(error?.localizedDescription ?? "No error description")")
-                return
-            }
-            DispatchQueue.main.async {
-                // Set the downloaded image to the UIImageView
-                self.profileImage.image = UIImage(data: data)
-            }
-        }
-        task.resume()
-
-        profileImage.alpha = 0.3
-        profileImage.contentMode = .scaleAspectFill
-        
-        // Fetch posts by business listing
-        FirebaseService.fetchPostsByBusinessListing(listingUUID: businessListing.listing_uuid) { fetchedPosts in
-            guard let fetchedPosts = fetchedPosts else {
-                print("Error fetching posts or no posts available.")
-                return
-            }
-            self.posts = fetchedPosts
-            self.postsTableView.reloadData()
-        }
-        
-        // Set TableView Delegates
-        postsTableView.delegate = self
-        postsTableView.dataSource = self
-    }
+         super.viewDidLoad()
+         
+         setupUI()
+         fetchProfileImage()
+         fetchPosts()
+         setupTableView()
+     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+          super.viewDidAppear(animated)
+        BubbleManager.showBubble(over: businessAddressLabel, in: self.view)
+      }
     
     init?(coder: NSCoder, businessListing: BusinessListing) {
         self.businessListing = businessListing
@@ -86,8 +46,29 @@ class UserBusinessProfileViewController: UIViewController, UITableViewDataSource
     }
     
     @IBAction func favoriteButtonTapped(_ sender: UIButton) {
-          CoreDataManager.shared.saveFavorite(businessListing: businessListing)
-      }
+        // Save the business listing as a favorite using Core Data
+        CoreDataManager.shared.saveFavorite(businessListing: businessListing)
+        
+        let totalSegments = 5
+        let itemsPerSegment = 2  // or any other number you wish
+
+        let shuffledSegments = Array(0..<totalSegments).shuffled()
+
+        for (segmentIndex, segment) in shuffledSegments.enumerated() {
+            // Shuffle the images and take the first 'itemsPerSegment' items
+            let segmentImages = FruitsAndVeggieImages.shuffled().prefix(itemsPerSegment)
+
+            for itemIndex in 0..<itemsPerSegment {
+                let delay = Double(segmentIndex * itemsPerSegment + itemIndex) * 0.3
+
+                DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
+                    let fruitOrVeggie = spawnFruitOrVeggie(in: self.view, segment: segment, totalSegments: totalSegments, itemIndex: itemIndex, shuffledImages: Array(segmentImages))
+                    animateFall(of: fruitOrVeggie, in: self.view)
+                }
+            }
+        }
+    }
+
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return posts.count
@@ -104,6 +85,82 @@ class UserBusinessProfileViewController: UIViewController, UITableViewDataSource
         
         return cell
     }
-  
-}
-
+    
+    // Organizing the ui and other elements that used to be in the viewdidload moved into their own funcs below.
+    
+    private func setupUI() {
+         businessNameLabel.text = businessListing.listing_name
+         businessAddressLabel.text = businessListing.listing_address
+         descriptionTextView.text = businessListing.listing_description ?? "The farm has not listed a description"
+     }
+     
+     private func fetchProfileImage() {
+         var validProfileImageURL: URL?
+         
+         if let imageURLString = businessListing.listing_profileImageURL,
+            let potentialURL = URL(string: imageURLString),
+            UIApplication.shared.canOpenURL(potentialURL) {
+             validProfileImageURL = potentialURL
+         } else {
+             validProfileImageURL = URL(string: "https://mediaproxy.salon.com/width/1200/https://media.salon.com/2021/08/farmers-market-produce-0812211.jpg")
+         }
+         
+         guard let finalURL = validProfileImageURL else {
+             print("Invalid URL and fallback URL is also not working.")
+             return
+         }
+         
+         let task = URLSession.shared.dataTask(with: finalURL) { [weak self] data, response, error in
+             guard let data = data, error == nil, let self = self else {
+                 print("Error downloading image: \(error?.localizedDescription ?? "No error description")")
+                 return
+             }
+             DispatchQueue.main.async {
+                 self.profileImage.image = UIImage(data: data)
+                 self.profileImage.alpha = 0.3
+                 self.profileImage.contentMode = .scaleAspectFill
+             }
+         }
+         task.resume()
+     }
+     
+     private func setupTableView() {
+         postsTableView.delegate = self
+         postsTableView.dataSource = self
+     }
+    
+    func fetchPosts() {
+         // Attempt to fetch posts by listingUUID
+         FirebaseService.fetchPostsByBusinessListing(listingUUID: businessListing.listing_uuid) { [weak self] fetchedPosts in
+             guard let self = self else { return }
+             
+             if let fetchedPosts = fetchedPosts, !fetchedPosts.isEmpty {
+                 self.posts = fetchedPosts
+                 self.postsTableView.reloadData()
+             } else {
+                 // If fetching by listingUUID fails or returns no posts, attempt to fetch by userUID
+                 // Assuming businessListing has a userUID property
+                 if let uid = self.businessListing.uid {
+                     FirebaseService.fetchPostsByUserUID(uid: uid) { fetchedPosts in
+                         guard let fetchedPosts = fetchedPosts else {
+                             print("Error fetching posts or no posts available.")
+                             return
+                         }
+                         self.posts = fetchedPosts
+                         self.postsTableView.reloadData()
+                        }
+                    } else {
+                     print("UID is nil")
+                    }
+                 
+                     guard let fetchedPosts = fetchedPosts else {
+                         print("Error fetching posts or no posts available.")
+                         return
+                     }
+                 
+                     self.posts = fetchedPosts
+                     self.postsTableView.reloadData()
+                 }
+             }
+         }
+     }

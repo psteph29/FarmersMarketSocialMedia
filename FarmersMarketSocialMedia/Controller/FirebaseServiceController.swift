@@ -140,8 +140,14 @@ struct FirebaseService {
     }
     
     // Update or PUT
-    // Tested and successful.
-    func updateBusinessListing(businessListing: BusinessListing) {
+    // Was changed fom using UUID to UID as user generated content uses UID to id their corresponding firestore document businessListing
+    static func updateBusinessListing(businessListing: BusinessListing, completion: @escaping (Bool) -> Void) {
+        guard let uid = businessListing.uid else {
+            print("UID is missing in the business listing. Cannot update.")
+            completion(false)
+            return
+        }
+        
         let db = Firestore.firestore()
         
         var data: [String: Any] = [
@@ -152,11 +158,18 @@ struct FirebaseService {
             "listing_description": businessListing.listing_description ?? "Test description",
         ]
         
-        db.collection("USDAFarmersMarkets").document(businessListing.listing_uuid).updateData(data) { error in
+        // Include the listing_profileImageURL if it's set
+          if let imageURL = businessListing.listing_profileImageURL {
+              data["listing_profileImageURL"] = imageURL
+          }
+        
+        db.collection("USDAFarmersMarkets").document(uid).updateData(data) { error in
             if let error = error {
                 print("Error updating business listing: \(error)")
+                completion(false)
             } else {
                 print("Business listing updated.")
+                completion(true)
             }
         }
     }
@@ -356,7 +369,7 @@ struct FirebaseService {
     }
 
     // Update or PUT image request
-    func updateImageInFirebase(oldImageURL: String?, newImage: UIImage?, for listingUUID: String, completion: @escaping (Result<String?, Error>) -> Void) {
+    static func updateImageInFirebase(oldImageURL: String?, newImage: UIImage?, for listingUUID: String, completion: @escaping (Result<String?, Error>) -> Void) {
         // First, delete the old image if it exists
         if let oldImageURL = oldImageURL {
             let oldStorageRef = Storage.storage().reference(forURL: oldImageURL)

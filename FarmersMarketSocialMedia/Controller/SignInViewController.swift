@@ -22,6 +22,10 @@ class SignInViewController: UIViewController {
         userName.text = "test@gmail.com"
         password.text = "password"
 
+       setupBackgroundImage()
+    }
+    
+    private func setupBackgroundImage() {
         backgroundImage.image = UIImage(named: "leaves")
         backgroundImage.alpha = 0.3
         backgroundImage.contentMode = .scaleAspectFill
