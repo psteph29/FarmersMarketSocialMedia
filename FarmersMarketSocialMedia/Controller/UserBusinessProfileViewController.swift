@@ -29,6 +29,10 @@ class UserBusinessProfileViewController: UIViewController, UITableViewDataSource
         fetchProfileImage()
         fetchPosts()
         setupTableView()
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(openAddressOptions))
+            businessAddressLabel.isUserInteractionEnabled = true
+            businessAddressLabel.addGestureRecognizer(tapGesture)
     }
     
     override func viewDidAppear(_ animated: Bool) {
