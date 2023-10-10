@@ -23,4 +23,31 @@ class BusinessListingPostCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        setupViews()
+        setupConstraints()
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        setupViews()
+        setupConstraints()
+    }
+
+    func setupViews() {
+        // Here, add your views (if they're not added via storyboard) and set properties like number of lines, content modes, etc.
+        descriptionLabel.numberOfLines = 0
+        descriptionLabel.lineBreakMode = .byWordWrapping
+        postImage.contentMode = .scaleAspectFit
+    }
+    
+
+    func setupConstraints() {
+        // Your constraints code goes here
+    }
+
 }
