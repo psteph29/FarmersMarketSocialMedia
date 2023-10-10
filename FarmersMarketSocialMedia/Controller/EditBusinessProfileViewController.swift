@@ -28,31 +28,53 @@ class EditBusinessProfileViewController: UIViewController, UIImagePickerControll
     var currentBusinessListing: BusinessListing?
     
     @IBOutlet weak var cancelEditingProfileButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        backgroundImage.alpha = 0.3
-        backgroundImage.contentMode = .scaleAspectFill
-        // Fetch and display current business listing
-        if let userId = UserDefaults.standard.string(forKey: "UserId") {
-            FirebaseService.fetchBusinessListingByUID(uid: userId) { [weak self] (listing) in
-                if let listing = listing {
-                    self?.currentBusinessListing = listing
-                    self?.populateUIFields(with: listing)
-                }
-            }
-        }
+        setupBackgroundImage()
+        fetchAndDisplayBusinessListing()
     }
+    
+    private func setupBackgroundImage() {
+          backgroundImage.alpha = 0.3
+          backgroundImage.contentMode = .scaleAspectFill
+      }
+    
+    private func fetchAndDisplayBusinessListing() {
+           if let userId = getUserIdFromDefaults() {
+               fetchBusinessListing(by: userId) { [weak self] listing in
+                   if let listing = listing {
+                       self?.currentBusinessListing = listing
+                       self?.populateUIFields(with: listing)
+                   }
+               }
+           }
+       }
+    
+    private func getUserIdFromDefaults() -> String? {
+           return UserDefaults.standard.string(forKey: "UserId")
+       }
+       
+       private func fetchBusinessListing(by userId: String, completion: @escaping (BusinessListing?) -> Void) {
+           FirebaseService.fetchBusinessListingByUID(uid: userId, completion: completion)
+       }
     
     func populateUIFields(with listing: BusinessListing) {
         businessNameTextField.text = listing.listing_name
         editDescriptionTextField.text = listing.listing_description
-        //... populate other fields when theyre available from MJ
+        businessAddressTextField.text = listing.listing_address
+        profileImage.loadImage(from: listing.listing_profileImageURL ?? "https://png.pngtree.com/png-vector/20210609/ourmid/pngtree-mountain-network-placeholder-png-image_3423368.jpg")
+        
     }
     
     @IBAction func saveButtonTapped(_ sender: UIButton) {
         guard let listingName = businessNameTextField.text, !listingName.isEmpty,
-              let description = editDescriptionTextField.text, !description.isEmpty else {
+              let description = editDescriptionTextField.text, !description.isEmpty,
+              let listingAddress = businessAddressTextField.text, !listingAddress.isEmpty,
+              let newImage = profileImage.image
+                // determine how to store image value?
+        else {
             // Show alert if fields are empty
             let alert = UIAlertController(title: "Error", message: "Please make sure no fields are empty.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default))
@@ -64,20 +86,34 @@ class EditBusinessProfileViewController: UIViewController, UIImagePickerControll
         var updatedListing = currentBusinessListing
         updatedListing?.listing_name = listingName
         updatedListing?.listing_description = description
-        //... update other fields when available by MJ
+        updatedListing?.listing_address = listingAddress
         
-        if let updatedListing = updatedListing {
-            FirebaseService.updateBusinessListing(businessListing: updatedListing) { success in
-                if success {
-                    self.delegate?.didUpdateProfile()
-                    // Dismiss the modal on successful update
-                    self.dismiss(animated: true, completion: nil)
-                } else {
-                    // Optionally show an error message here if the update failed
-                }
-            }
-        }
-    }
+        
+        FirebaseService.updateImageInFirebase(
+              oldImageURL: updatedListing?.listing_profileImageURL,
+              newImage: newImage,
+              for: updatedListing?.listing_uuid ?? ""
+          ) { result in
+              switch result {
+              case .success(let newImageURL):
+                  updatedListing?.listing_profileImageURL = newImageURL
+                  if let updatedListing = updatedListing {
+                      FirebaseService.updateBusinessListing(businessListing: updatedListing) { success in
+                          if success {
+                              self.delegate?.didUpdateProfile()
+                              self.dismiss(animated: true, completion: nil)
+                          } else {
+                              // Optionally show an error message here if the update failed
+                          }
+                      }
+                  }
+              case .failure(let error):
+                  print("Error updating image: \(error)")
+                  // Optionally show an error message here if the image update failed
+              }
+          }
+      }
+
     
     @IBAction func uploadImage(_ sender: UIButton) {
         let imagePicker = UIImagePickerController()

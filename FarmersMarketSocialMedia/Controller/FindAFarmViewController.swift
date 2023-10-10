@@ -18,6 +18,10 @@ class FindAFarmViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupBackgroundImage()
+    }
+    
+    private func setupBackgroundImage() {
         backgroundImage.image = UIImage(named: "signInImage")
         backgroundImage.alpha = 0.8
         backgroundImage.contentMode = .scaleAspectFill

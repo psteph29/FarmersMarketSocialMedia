@@ -34,10 +34,14 @@ class SearchCollectionViewController: UIViewController {
         
         collectionView.setCollectionViewLayout(generateLayout(), animated: false)
         
+        setupBackgroundImage()
+    }
+    
+    private func setupBackgroundImage() {
         backgroundImage.alpha = 0.3
         backgroundImage.contentMode = .scaleAspectFill
     }
-    
+
     func generateLayout() -> UICollectionViewLayout {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(150))
 //        item size is set to full width of the group
@@ -166,13 +170,28 @@ extension SearchCollectionViewController: UICollectionViewDataSource, UICollecti
         print("Number of Items: \(businessListings.count)")
         return businessListings.count
     }
+
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "searchResultCell", for: indexPath) as! BusinessSearchResultsCollectionViewCell
         
         let businessListing = businessListings[indexPath.item]
         cell.businessNameLabel.text = businessListing.listing_name
-        cell.addressLabel.text = businessListing.listing_address
+//        cell.addressLabel.text = businessListing.listing_address
+        
+        let numberOfImages: UInt32 = 23
+        let random = arc4random_uniform(numberOfImages)
+        let imageName = "\(random)"
+        
+        if let imageURL = businessListing.listing_profileImageURL {
+            cell.imageView.loadImage(from: imageURL)
+        } else {
+            cell.imageView.image = UIImage(named: imageName)
+        }
+        
+        cell.onFavorite = {
+            CoreDataManager.shared.saveFavorite(businessListing: businessListing)
+        }
         
         return cell
     }

@@ -22,8 +22,9 @@ class FavoritesCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
       super.viewDidLoad()
 
-      loadFavorites()
-      
+        loadFavorites()
+        collectionView.collectionViewLayout = generateLayout()
+
         backgroundImage.alpha = 0.3
         backgroundImage.contentMode = .scaleAspectFill
     }
@@ -34,6 +35,9 @@ class FavoritesCollectionViewController: UICollectionViewController {
 
     func loadFavorites() {
         favoriteBusinessListings = coreDataManager.fetchFavorites()
+//        let first = favoriteBusinessListings.first!
+//        let favoriteListingIDs = coreDataManager.fetchFavorites()
+        // favoriteBusinessListings = await loadBusinessListings(with: favoriteListingIDs)
         collectionView.reloadData()
     }
 
@@ -72,22 +76,24 @@ class FavoritesCollectionViewController: UICollectionViewController {
             cell.businessNameLabel.text = "Name not available"
         }
         
-          if let address = favoriteBusinessListing.listing_address {
-              cell.addressLabel.text = address
-          } else {
-              cell.addressLabel.text = "Address not available"
-          }
+        let numberOfImages: UInt32 = 23
+        let random = arc4random_uniform(numberOfImages)
+        let imageName = "\(random)"
         
         if let profileImageUrl = favoriteBusinessListing.listing_profileImageURL {
             cell.backgroundImageView.loadImage(from: profileImageUrl)
         } else {
             // Handle the case where profileImageUrl is nil or an invalid URL
-            cell.backgroundImageView.image = nil // or set a placeholder image
+            cell.backgroundImageView.image = UIImage(named: imageName) // or set a placeholder image
         }
-
+        
+        cell.onFavorite = {
+            CoreDataManager.shared.removeFavorite(favoriteBusinessListing)
+            self.loadFavorites()
+            collectionView.reloadData()
+        }
         return cell
     }
-    
     
     @IBSegueAction func viewFavoriteListing(_ coder: NSCoder) -> UIViewController? {
         guard let selectedIndexPath = collectionView.indexPathsForSelectedItems?.first,
@@ -98,6 +104,5 @@ class FavoritesCollectionViewController: UICollectionViewController {
         let selectedFavoriteBusiness = favoriteBusinessListings[selectedIndexPath.item]
         let business = BusinessListing(from: selectedFavoriteBusiness)
         return UserBusinessProfileViewController(coder: coder, businessListing: business)
-
     }
 }

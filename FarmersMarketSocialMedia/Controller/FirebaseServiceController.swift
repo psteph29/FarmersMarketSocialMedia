@@ -150,13 +150,18 @@ struct FirebaseService {
         
         let db = Firestore.firestore()
         
-        let data: [String: Any] = [
+        var data: [String: Any] = [
             "listing_name": businessListing.listing_name,
             "listing_address": businessListing.listing_address,
             "listing_zipcode": businessListing.listing_zipcode as Any,
             "listing_username": businessListing.listing_username ?? "Test username",
             "listing_description": businessListing.listing_description ?? "Test description",
         ]
+        
+        // Include the listing_profileImageURL if it's set
+          if let imageURL = businessListing.listing_profileImageURL {
+              data["listing_profileImageURL"] = imageURL
+          }
         
         db.collection("USDAFarmersMarkets").document(uid).updateData(data) { error in
             if let error = error {
@@ -232,11 +237,10 @@ struct FirebaseService {
             let posts = snapshot?.documents.compactMap { document -> Post? in
                 print("Attempting to map document: \(document.documentID)")
                 if let post_description = document.get("description") as? String,
-                   let image = document.get("image") as? String,
                    let timestamp = document.get("date") as? Timestamp {
                     let post_date = timestamp.dateValue()
                     let post_id = document.documentID
-                    return Post(id: post_id, description: post_description, date: post_date, imageURL: image)
+                    return Post(id: post_id, description: post_description, date: post_date, imageURL: document.get("image") as? String)
                 } else {
                     print("Failed to map document: \(document.documentID)")
                     return nil
@@ -364,7 +368,7 @@ struct FirebaseService {
     }
 
     // Update or PUT image request
-    func updateImageInFirebase(oldImageURL: String?, newImage: UIImage?, for listingUUID: String, completion: @escaping (Result<String?, Error>) -> Void) {
+    static func updateImageInFirebase(oldImageURL: String?, newImage: UIImage?, for listingUUID: String, completion: @escaping (Result<String?, Error>) -> Void) {
         // First, delete the old image if it exists
         if let oldImageURL = oldImageURL {
             let oldStorageRef = Storage.storage().reference(forURL: oldImageURL)

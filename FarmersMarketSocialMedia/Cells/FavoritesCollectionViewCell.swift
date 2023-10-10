@@ -9,7 +9,18 @@ import UIKit
 
 class FavoritesCollectionViewCell: UICollectionViewCell {
     
+    var onFavorite: (() -> Void)?
+    
     @IBOutlet weak var businessNameLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var backgroundImageView: UIImageView!
+    
+    
+    @IBOutlet weak var favoriteButton: UIButton!
+    
+    @IBOutlet weak var favoriteButtonTapped: UIButton!
+    
+    @IBAction func unFavorite(_ sender: UIButton) {
+        self.onFavorite?()
+    }
 }

@@ -30,24 +30,47 @@ class BusinessProfileViewController: UIViewController, UITableViewDataSource, UI
     @IBOutlet weak var postTableView: UITableView!
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        
+          super.viewDidLoad()
+          
+          setupNewPostButton()
+          setupTableView()
+          setupNavigationItem()
+          setupBackgroundImage()
+          setupUserId()
+          fetchBusinessListingAndPosts()
+      }
+    
+    private func setupNewPostButton() {
         newPost.addTarget(self, action: #selector(createPostTapped), for: .touchUpInside)
-
-        
+    }
+    
+    private func setupTableView() {
         postTableView.dataSource = self
         postTableView.delegate = self
-        
+    }
+    
+    private func setupNavigationItem() {
         self.navigationItem.hidesBackButton = true
-
+    }
+    
+    private func setupBackgroundImage() {
         backgroundImage.alpha = 0.3
         backgroundImage.contentMode = .scaleAspectFill
-
+    }
+    
+    private func setupUserId() {
         if let userIdFromDefaults = UserDefaults.standard.string(forKey: "UserId") {
-              self.userId = userIdFromDefaults
-          }
+            self.userId = userIdFromDefaults
+        }
+    }
+    
+    private func fetchBusinessListingAndPosts() {
+        guard let userId = userId else {
+            print("Error: UserId is nil.")
+            return
+        }
         
-        FirebaseService.fetchBusinessListingByUID(uid: userId!) { [weak self] businessListing in
+        FirebaseService.fetchBusinessListingByUID(uid: userId) { [weak self] businessListing in
             guard let businessListing = businessListing else {
                 print("Error: Failed to fetch business listing.")
                 return
@@ -59,7 +82,6 @@ class BusinessProfileViewController: UIViewController, UITableViewDataSource, UI
             print(businessListing.listing_uuid)
             self?.fetchPosts()
         }
-   
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -73,8 +95,6 @@ class BusinessProfileViewController: UIViewController, UITableViewDataSource, UI
         performSegue(withIdentifier: "toCreatePost", sender: self)
     }
 
-    // The following was changed to look up documents by UID rather than UUID, as user generated listings have their document ID set as the UID vs usda content has its document ID as the UUID.
-    // The document ID discrepency may need to be changed later for clarity and ease of use
     func fetchPosts() {
         print(userId ?? "No userID")
         FirebaseService.fetchPostsByUserUID(uid: userId!) { [weak self] fetchedPosts in
