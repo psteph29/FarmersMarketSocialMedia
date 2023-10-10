@@ -105,4 +105,6 @@ class FavoritesCollectionViewController: UICollectionViewController {
         let business = BusinessListing(from: selectedFavoriteBusiness)
         return UserBusinessProfileViewController(coder: coder, businessListing: business)
     }
+    
+//    This is to test a git commit 
 }
