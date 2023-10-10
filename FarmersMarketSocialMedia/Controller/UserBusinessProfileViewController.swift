@@ -76,18 +76,25 @@ class UserBusinessProfileViewController: UIViewController, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UserBusinessProfilePosts", for: indexPath) as! BusinessListingPostCell
-        
+
         let post = posts[indexPath.row]
-        
+
         cell.dateLabel?.text = post.date.description
+
         cell.descriptionLabel?.text = post.description
-//        cell.postImage.loadImage(from: post.imageURL ?? "https://mediaproxy.salon.com/width/1200/https://media.salon.com/2021/08/farmers-market-produce-0812211.jpg")
-        
+
+        if let imageURL = post.imageURL, !imageURL.isEmpty {
+            cell.postImage.loadImage(from: imageURL)
+            cell.toggleConstraintsForImage(present: true)
+        } else {
+            cell.postImage.image = nil
+            cell.toggleConstraintsForImage(present: false)
+        }
+
         return cell
     }
     
     // Organizing the ui and other elements that used to be in the viewdidload moved into their own funcs below.
-    
     private func setupUI() {
          businessNameLabel.text = businessListing.listing_name
          businessAddressLabel.text = businessListing.listing_address
