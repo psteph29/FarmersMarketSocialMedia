@@ -32,6 +32,7 @@
 		0FF02C172AD376E40082C8AD /* FruitsAndVeggiesImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF02C162AD376E40082C8AD /* FruitsAndVeggiesImages.swift */; };
 		0FF02C192AD398FB0082C8AD /* BubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF02C182AD398FB0082C8AD /* BubbleView.swift */; };
 		0FF02C1B2AD399B60082C8AD /* BubbleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF02C1A2AD399B60082C8AD /* BubbleManager.swift */; };
+		0FF02C1D2AD5A3BF0082C8AD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0FF02C1C2AD5A3BF0082C8AD /* GoogleService-Info.plist */; };
 		AB233CE92AB35E22006A3DB7 /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB233CE82AB35E22006A3DB7 /* SignIn.storyboard */; };
 		AB233CEB2AB35E28006A3DB7 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB233CEA2AB35E28006A3DB7 /* SignUp.storyboard */; };
 		AB233CED2AB35E4C006A3DB7 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB233CEC2AB35E4C006A3DB7 /* SignInViewController.swift */; };
@@ -59,7 +60,6 @@
 		F30CC0222AAB7BA40067DC44 /* UserBusinessProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30CC0212AAB7BA40067DC44 /* UserBusinessProfileViewController.swift */; };
 		F30CC0242AAB7F120067DC44 /* BusinessProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30CC0232AAB7F120067DC44 /* BusinessProfileViewController.swift */; };
 		F30CC0262AAB7F3A0067DC44 /* EditBusinessProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30CC0252AAB7F3A0067DC44 /* EditBusinessProfileViewController.swift */; };
-		F3D9BC972AD069C700FEEE54 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F3D9BC962AD069C700FEEE54 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +84,7 @@
 		0FF02C162AD376E40082C8AD /* FruitsAndVeggiesImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitsAndVeggiesImages.swift; sourceTree = "<group>"; };
 		0FF02C182AD398FB0082C8AD /* BubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleView.swift; sourceTree = "<group>"; };
 		0FF02C1A2AD399B60082C8AD /* BubbleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleManager.swift; sourceTree = "<group>"; };
+		0FF02C1C2AD5A3BF0082C8AD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AB233CE82AB35E22006A3DB7 /* SignIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignIn.storyboard; sourceTree = "<group>"; };
 		AB233CEA2AB35E28006A3DB7 /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
 		AB233CEC2AB35E4C006A3DB7 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -113,7 +114,6 @@
 		F30CC0212AAB7BA40067DC44 /* UserBusinessProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserBusinessProfileViewController.swift; sourceTree = "<group>"; };
 		F30CC0232AAB7F120067DC44 /* BusinessProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessProfileViewController.swift; sourceTree = "<group>"; };
 		F30CC0252AAB7F3A0067DC44 /* EditBusinessProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBusinessProfileViewController.swift; sourceTree = "<group>"; };
-		F3D9BC962AD069C700FEEE54 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,7 +214,7 @@
 		AB35EBA42AA8DB8B006E3392 /* FarmersMarketSocialMedia */ = {
 			isa = PBXGroup;
 			children = (
-				F3D9BC962AD069C700FEEE54 /* GoogleService-Info.plist */,
+				0FF02C1C2AD5A3BF0082C8AD /* GoogleService-Info.plist */,
 				ABA47ADF2AB4AC9D008F58EE /* Cells */,
 				0FA6FE002AB48D4200130021 /* Controller */,
 				0FA6FDFF2AB48D3300130021 /* View */,
@@ -305,7 +305,7 @@
 			files = (
 				AB35EBD22AB21D7A006E3392 /* EditBusinessProfile.storyboard in Resources */,
 				AB35EBCA2AB21844006E3392 /* SearchCollection.storyboard in Resources */,
-				F3D9BC972AD069C700FEEE54 /* GoogleService-Info.plist in Resources */,
+				0FF02C1D2AD5A3BF0082C8AD /* GoogleService-Info.plist in Resources */,
 				AB35EBCE2AB21CA9006E3392 /* UserBusinessProfile.storyboard in Resources */,
 				AB8ACFAC2ABC9EF40097959E /* middlemantab.storyboard in Resources */,
 				AB35EBB22AA8DB8E006E3392 /* LaunchScreen.storyboard in Resources */,
