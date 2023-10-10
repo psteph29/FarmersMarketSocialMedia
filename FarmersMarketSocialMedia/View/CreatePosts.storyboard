@@ -118,7 +118,6 @@
                         <outlet property="leavesBackground" destination="XY9-ZK-d3K" id="Ix8-rj-041"/>
                         <outlet property="postButton" destination="Aqf-Ig-uZ8" id="MNH-IZ-ePL"/>
                         <outlet property="postDescriptionTextField" destination="AoF-GC-GxT" id="Xw1-pU-QQk"/>
-                        <outlet property="uploadedImage" destination="Bjc-fy-Ps6" id="MAT-0t-jj4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GVW-I6-5gM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

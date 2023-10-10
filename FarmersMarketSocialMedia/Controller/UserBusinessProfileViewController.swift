@@ -88,6 +88,41 @@ class UserBusinessProfileViewController: UIViewController, UITableViewDataSource
         return cell
     }
     
+
+    func openInAppleMaps() {
+        let address = businessListing.listing_address
+        if let url = URL(string: "http://maps.apple.com/?address=\(address.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)") {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+    }
+    
+    func openInGoogleMaps() {
+        let address = businessListing.listing_address
+        if let url = URL(string: "comgooglemaps://?q=\(address.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)") {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+    }
+    
+    @objc func openAddressOptions() {
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        // Option to open in Apple Maps
+        actionSheet.addAction(UIAlertAction(title: "Open in Apple Maps", style: .default) { _ in
+            self.openInAppleMaps()
+        })
+        
+        // Option to open in Google Maps (if available)
+        if UIApplication.shared.canOpenURL(URL(string: "comgooglemaps://")!) {
+            actionSheet.addAction(UIAlertAction(title: "Open in Google Maps", style: .default) { _ in
+                self.openInGoogleMaps()
+            })
+        }
+        
+        // Cancel option
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        present(actionSheet, animated: true, completion: nil)
+
     // Organizing the ui and other elements that used to be in the viewdidload moved into their own funcs below.
     
     private func setupUI() {
