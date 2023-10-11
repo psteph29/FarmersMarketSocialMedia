@@ -4,6 +4,8 @@
 <dict>
 	<key>NSCameraUsageDescription</key>
 	<string>Share photos from the camera</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We need your location to provide nearby business listings</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

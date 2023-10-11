@@ -6,9 +6,12 @@
 //
 
 import UIKit
+import CoreLocation
 
 class SearchCollectionViewController: UIViewController {
     
+    let coreLocationManager = CoreLocationManager()
+
     @IBOutlet weak var zipCodeSearchBar: UISearchBar!
     @IBOutlet weak var radiusButton: UIButton!
     
@@ -35,6 +38,9 @@ class SearchCollectionViewController: UIViewController {
         collectionView.setCollectionViewLayout(generateLayout(), animated: false)
         
         setupBackgroundImage()
+        
+        coreLocationManager.delegate = self
+        coreLocationManager.requestLocation()
     }
     
     private func setupBackgroundImage() {
@@ -196,3 +202,29 @@ extension SearchCollectionViewController: UICollectionViewDataSource, UICollecti
         return cell
     }
 }
+
+// extension to make core location work
+extension SearchCollectionViewController: CoreLocationManagerDelegate {
+    func didUpdateZipCode(_ zipCode: String) {
+        DispatchQueue.main.async {
+            self.zipCodeSearchBar.text = zipCode
+            self.loadBusinessListings()
+        }
+    }
+    
+    func showLocationServicesAlert() {
+        let alert = UIAlertController(title: "Location Services Disabled",
+                                      message: "Please enable Location Services or manually input your ZIP code.",
+                                      preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        
+        present(alert, animated: true, completion: nil)
+    }
+
+    func didFailWithError(_ error: Error) {
+        // Handle the error
+        showLocationServicesAlert()
+    }
+}
+
