@@ -22,12 +22,16 @@ class SearchCollectionViewController: UIViewController {
     
     var businessListings: [BusinessListing] = []
     
-    var selectedRadius: Int? = 10
+    var selectedRadius: Int? = 10 {
+        didSet {
+            loadBusinessListings()
+            collectionView.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // selectedRadius = 10
         zipCodeSearchBar.delegate = self
         collectionView.dataSource = self
         collectionView.delegate = self
