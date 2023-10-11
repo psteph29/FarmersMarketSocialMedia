@@ -14,8 +14,6 @@ class UserBusinessProfileViewController: UIViewController, UITableViewDataSource
     @IBOutlet weak var businessAddressLabel: UILabel!
     @IBOutlet weak var descriptionTextView: UITextView!
     
-    @IBOutlet var favoriteButton: UIButton!
-    
     @IBOutlet weak var postsTableView: UITableView!
     
     var businessListing: BusinessListing

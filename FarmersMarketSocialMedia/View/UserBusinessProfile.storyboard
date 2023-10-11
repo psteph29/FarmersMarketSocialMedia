@@ -103,15 +103,6 @@
                                     <constraint firstAttribute="trailing" secondItem="zOF-Dp-q8I" secondAttribute="trailing" id="mtp-gt-7uA"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qdw-EP-qNE">
-                                <rect key="frame" x="317" y="16" width="45" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="&lt;3"/>
-                                <connections>
-                                    <action selector="favoriteButtonTapped:" destination="2n3-zJ-mpx" eventType="touchUpInside" id="11p-AY-Xa4"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="PXz-zG-gze"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -129,7 +120,6 @@
                         <outlet property="businessAddressLabel" destination="zOF-Dp-q8I" id="cwc-GH-akH"/>
                         <outlet property="businessNameLabel" destination="Zh0-RY-2KM" id="Dzf-0J-aQ0"/>
                         <outlet property="descriptionTextView" destination="ZWF-8T-1MZ" id="UgO-ia-ozb"/>
-                        <outlet property="favoriteButton" destination="qdw-EP-qNE" id="La9-HQ-Trq"/>
                         <outlet property="postsTableView" destination="LmO-ob-BO6" id="sdk-AP-KDL"/>
                         <outlet property="profileImage" destination="dbD-XZ-70T" id="mDF-W3-BsF"/>
                     </connections>
