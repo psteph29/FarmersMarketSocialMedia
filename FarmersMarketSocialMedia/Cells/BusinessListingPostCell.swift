@@ -40,9 +40,9 @@ class BusinessListingPostCell: UITableViewCell {
 
     func setupViews() {
         // Here, add your views (if they're not added via storyboard) and set properties like number of lines, content modes, etc.
-        descriptionLabel.numberOfLines = 0
-        descriptionLabel.lineBreakMode = .byWordWrapping
-        postImage.contentMode = .scaleAspectFit
+//        descriptionLabel.numberOfLines = 0
+//        descriptionLabel.lineBreakMode = .byWordWrapping
+//        postImage.contentMode = .scaleAspectFit
     }
     
 
