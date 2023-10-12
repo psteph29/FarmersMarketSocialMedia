@@ -12,9 +12,8 @@ class UserBusinessProfileViewController: UIViewController, UITableViewDataSource
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var businessNameLabel: UILabel!
     @IBOutlet weak var businessAddressLabel: UILabel!
-    @IBOutlet weak var descriptionTextView: UITextView!
-    
-    @IBOutlet var favoriteButton: UIButton!
+
+    @IBOutlet var businessDescriptionLabel: UILabel!
     
     @IBOutlet weak var postsTableView: UITableView!
     
@@ -108,14 +107,26 @@ class UserBusinessProfileViewController: UIViewController, UITableViewDataSource
         
         present(actionSheet, animated: true, completion: nil)
     }
-
         
         // Organizing the ui and other elements that used to be in the viewdidload moved into their own funcs below.
-        
         private func setupUI() {
             businessNameLabel.text = businessListing.listing_name
             businessAddressLabel.text = businessListing.listing_address
-            descriptionTextView.text = businessListing.listing_description ?? "The farm has not listed a description"
+            
+            if let addressText = businessAddressLabel.text {
+                let underlineAttribute: [NSAttributedString.Key: Any] = [
+                    .underlineStyle: NSUnderlineStyle.single.rawValue
+                ]
+                let underlinedAddress = NSAttributedString(string: addressText, attributes: underlineAttribute)
+                businessAddressLabel.attributedText = underlinedAddress
+            }
+
+            if let description = businessListing.listing_description, !description.isEmpty {
+                businessDescriptionLabel.text = description
+                businessDescriptionLabel.isHidden = false
+            } else {
+                businessDescriptionLabel.isHidden = true
+            }
         }
         
         private func fetchProfileImage() {
