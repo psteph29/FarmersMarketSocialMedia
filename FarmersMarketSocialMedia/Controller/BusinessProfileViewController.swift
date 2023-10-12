@@ -8,9 +8,11 @@
 import UIKit
 import FirebaseFirestore
 
-class BusinessProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, EditBusinessProfileDelegate {
+class BusinessProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, EditBusinessProfileDelegate, CreatePostDelegate {
     
     weak var delegate: EditBusinessProfileDelegate?
+    
+    
     
     // Array of posts
     var posts: [Post] = []
@@ -153,9 +155,21 @@ class BusinessProfileViewController: UIViewController, UITableViewDataSource, UI
     }
     
     @IBSegueAction func moveToNewPostPage(_ coder: NSCoder) -> UIViewController? {
-        return CreatePostsViewController(coder: coder)
+        let createPostVC = CreatePostsViewController(coder: coder)
+        createPostVC?.delegate = self
+        return createPostVC
     }
     
+    func didCreatePost() {
+        // Fetch the latest posts after a new one has been created
+        fetchPosts()
+        postTableView.reloadData()
+
+        // Optionally show an alert
+        let alert = UIAlertController(title: "Success", message: "Your post was created successfully!", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true)
+    }
 }
 
 extension BusinessProfileViewController {
