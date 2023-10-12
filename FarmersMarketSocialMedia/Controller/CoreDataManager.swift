@@ -9,10 +9,8 @@ import Foundation
 import CoreData
 import UIKit
 
-// Define a Core Data manager class.
 class CoreDataManager {
     
-
     // Create a singleton instance of CoreDataManager.
     static let shared = CoreDataManager()
     
@@ -32,7 +30,6 @@ class CoreDataManager {
         return container
     }()
 
-    
     // Method to save any changes in the managed object context to the persistent store.
     func saveContext() {
         let context = persistentContainer.viewContext
@@ -48,15 +45,28 @@ class CoreDataManager {
         }
     }
 
-//    create (CRUD) Method to save a business listing as a favorite.
+    // create (CRUD) Method to save a business listing as a favorite.
     func saveFavorite(businessListing: BusinessListing) {
-        // make sure busimness listing isn't already favorited
-        // let currentFavorites = fetchFavorites()
-        // guard !currentFavorites.contains(wherer: { $0.id == businessListing.id }) else { return }
         let context = persistentContainer.viewContext
-        let favoriteBusinessListing = FavoriteBusinessListing(context: context)
         
-        // Potentially change coreData to only save id and then perform a fetch when trying to view collection view and pass that fetched info along to the modal or detailed view page for listing.
+        // Check if the business listing is already favorited
+        let fetchRequest: NSFetchRequest<FavoriteBusinessListing> = FavoriteBusinessListing.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "id == %@", businessListing.id as CVarArg)
+        
+        do {
+            let existingFavorites = try context.fetch(fetchRequest)
+            // If the fetch results in any objects, the listing is already favorited
+            if existingFavorites.count > 0 {
+                print("Business listing is already favorited.")
+                return
+            }
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+            return
+        }
+        
+        // If the listing isn't already favorited, proceed with the save
+        let favoriteBusinessListing = FavoriteBusinessListing(context: context)
         
         // Mapping the attributes from businessListing to favoriteBusinessListing.
         favoriteBusinessListing.id = businessListing.id
@@ -75,13 +85,13 @@ class CoreDataManager {
         saveContext()
     }
 
-//    delete (CRUD)
+    // delete (CRUD)
     func removeFavorite(_ favorite: FavoriteBusinessListing) {
         let context = persistentContainer.viewContext
         context.delete(favorite)
         saveContext()
     }
-//    read (CRUD) Method to fetch all favorite business listings from the persistent store.
+    // read (CRUD) Method to fetch all favorite business listings from the persistent store.
     func fetchFavorites() -> [FavoriteBusinessListing] {
         let context = persistentContainer.viewContext
         let fetchRequest: NSFetchRequest<FavoriteBusinessListing> = FavoriteBusinessListing.fetchRequest()

@@ -29,15 +29,18 @@ class FavoritesCollectionViewController: UICollectionViewController {
         backgroundImage.contentMode = .scaleAspectFill
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        loadFavorites()
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
 
     func loadFavorites() {
         favoriteBusinessListings = coreDataManager.fetchFavorites()
-//        let first = favoriteBusinessListings.first!
-//        let favoriteListingIDs = coreDataManager.fetchFavorites()
-        // favoriteBusinessListings = await loadBusinessListings(with: favoriteListingIDs)
         collectionView.reloadData()
     }
 
