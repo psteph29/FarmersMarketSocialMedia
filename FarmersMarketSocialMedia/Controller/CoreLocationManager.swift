@@ -32,13 +32,16 @@ class CoreLocationManager: NSObject, CLLocationManagerDelegate {
         locationManager.requestWhenInUseAuthorization()
     }
     
-    // Function to request the current location.
     func requestLocation() {
         // Check if the location permission status is not determined.
-        if CLLocationManager.authorizationStatus() == .notDetermined {
+        let status = CLLocationManager.authorizationStatus()
+        if status == .notDetermined {
             didRequestPermission = true
+        } else if status == .authorizedAlways || status == .authorizedWhenInUse {
+            // Only request location if we have the required permissions
+            locationManager.requestLocation()
         }
-        locationManager.requestLocation()
+        // Handle other cases if necessary (e.g., if permission is denied or restricted)
     }
 
     // Delegate method called when the location manager updates locations.
@@ -61,6 +64,19 @@ class CoreLocationManager: NSObject, CLLocationManagerDelegate {
             }
         }
     }
+
+    // Delegate method called when the location authorization status changes.
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if status == .authorizedAlways || status == .authorizedWhenInUse {
+            // Now that we have the required permissions, request the location.
+            locationManager.requestLocation()
+        } else if status == .denied || status == .restricted {
+            // Handle denied or restricted scenarios. Maybe alert the user or provide instructions.
+        }
+        // Reset the flag after handling.
+        didRequestPermission = false
+    }
+
     
     // Delegate method called when there's an error with location updates.
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

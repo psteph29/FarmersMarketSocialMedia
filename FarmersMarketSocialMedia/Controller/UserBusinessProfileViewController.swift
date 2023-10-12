@@ -107,7 +107,6 @@ class UserBusinessProfileViewController: UIViewController, UITableViewDataSource
         
         present(actionSheet, animated: true, completion: nil)
     }
-
         
         // Organizing the ui and other elements that used to be in the viewdidload moved into their own funcs below.
         private func setupUI() {
