@@ -141,7 +141,6 @@
                         <outlet property="businessAddressLabel" destination="zOF-Dp-q8I" id="cwc-GH-akH"/>
                         <outlet property="businessDescriptionLabel" destination="PCM-6n-OwB" id="TnF-I4-cWg"/>
                         <outlet property="businessNameLabel" destination="Zh0-RY-2KM" id="Dzf-0J-aQ0"/>
-                        <outlet property="modalDismissalButton" destination="uY4-Ca-wWy" id="L4R-tJ-32O"/>
                         <outlet property="postsTableView" destination="LmO-ob-BO6" id="sdk-AP-KDL"/>
                         <outlet property="profileImage" destination="dbD-XZ-70T" id="mDF-W3-BsF"/>
                     </connections>
