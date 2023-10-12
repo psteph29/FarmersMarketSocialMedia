@@ -9,8 +9,6 @@ import UIKit
 
 class UserBusinessProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    @IBOutlet var modalDismissalButton: UIButton!
-    
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var businessNameLabel: UILabel!
     @IBOutlet weak var businessAddressLabel: UILabel!
