@@ -9,6 +9,8 @@ import UIKit
 
 class UserBusinessProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    @IBOutlet var modalDismissalButton: UIButton!
+    
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var businessNameLabel: UILabel!
     @IBOutlet weak var businessAddressLabel: UILabel!
@@ -53,6 +55,9 @@ class UserBusinessProfileViewController: UIViewController, UITableViewDataSource
         CoreDataManager.shared.saveFavorite(businessListing: businessListing)
     }
     
+    @IBAction func backButtonTapped(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return posts.count
