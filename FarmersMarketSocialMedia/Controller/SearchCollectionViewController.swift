@@ -11,6 +11,8 @@ import CoreLocation
 class SearchCollectionViewController: UIViewController {
     
     let coreLocationManager = CoreLocationManager()
+    
+    var activityIndicator: UIActivityIndicatorView!
 
     @IBOutlet weak var zipCodeSearchBar: UISearchBar!
     @IBOutlet weak var radiusButton: UIButton!
@@ -42,6 +44,7 @@ class SearchCollectionViewController: UIViewController {
         
         coreLocationManager.delegate = self
         coreLocationManager.requestLocation()
+        setupActivityIndicator()
     }
     
     private func setupBackgroundImage() {
@@ -82,6 +85,8 @@ class SearchCollectionViewController: UIViewController {
     }
     
     func loadBusinessListings() {
+        self.activityIndicator.startAnimating()
+        
         // makes the list shrink if the user selects a shorter distance with less markets within the new radius
         self.businessListings = []
         
@@ -128,6 +133,7 @@ class SearchCollectionViewController: UIViewController {
         // When all queries have completed
         group.notify(queue: .main) {
             self.collectionView.reloadData()
+            self.activityIndicator.stopAnimating()
         }
     }
     
@@ -136,6 +142,14 @@ class SearchCollectionViewController: UIViewController {
         self.businessListings = businessListings
         collectionView.reloadData()
     }
+    
+    func setupActivityIndicator() {
+        activityIndicator = UIActivityIndicatorView(style: .large)
+        activityIndicator.center = view.center
+        activityIndicator.hidesWhenStopped = true
+        view.addSubview(activityIndicator)
+    }
+
     
     @IBAction func radiusButtonPressed(_ sender: UICommand) {
         let title = sender.title

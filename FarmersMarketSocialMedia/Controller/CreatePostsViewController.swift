@@ -9,6 +9,12 @@ import UIKit
 
 class CreatePostsViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
     
+    weak var delegate: CreatePostDelegate?
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+    
     @IBOutlet weak var createPostLabel: UILabel!
     @IBOutlet weak var postButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
@@ -61,9 +67,7 @@ class CreatePostsViewController: UIViewController, UIImagePickerControllerDelega
             })
             alertController.addAction(photoLibraryAction)
         }
-        
         alertController.popoverPresentationController?.sourceView = sender as! UIView
-        
         present(alertController, animated: true, completion: nil)
     }
     
@@ -84,28 +88,35 @@ class CreatePostsViewController: UIViewController, UIImagePickerControllerDelega
             print("Error: Post description is empty!")
             return
         }
-
+        
         let post = Post(
             id: "",  // Will update after saving to Firestore
             description: postDescription,
             date: Date(),
             imageURL: nil
         )
-
+        
         if let postImage = imageUploadView.image {
             FirebaseService.uploadImageToFirebase(image: postImage) { [weak self] result in
                 switch result {
                 case .success(let imageUrl):
                     var postWithImage = post
                     postWithImage.imageURL = imageUrl
+                    self?.delegate?.didCreatePost() // Inform the delegate that post is created
                     FirebaseService.createPostForBusinessUser(post: postWithImage)
+                    self?.dismiss(animated: true, completion: nil) // Dismiss the modal
                 case .failure(let error):
                     print("Error uploading image: \(error)")
                 }
             }
         } else {
+            self.delegate?.didCreatePost() // Inform the delegate that post is created
             FirebaseService.createPostForBusinessUser(post: post)
+            self.dismiss(animated: true, completion: nil) // Dismiss the modal
         }
     }
 }
 
+protocol CreatePostDelegate: AnyObject {
+    func didCreatePost()
+}
