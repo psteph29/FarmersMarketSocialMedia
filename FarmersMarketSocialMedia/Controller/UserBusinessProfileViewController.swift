@@ -9,6 +9,8 @@ import UIKit
 
 class UserBusinessProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    static var hasShownBubbleThisSession = false
+
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var businessNameLabel: UILabel!
     @IBOutlet weak var businessAddressLabel: UILabel!
@@ -36,9 +38,13 @@ class UserBusinessProfileViewController: UIViewController, UITableViewDataSource
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        BubbleManager.showBubble(over: businessAddressLabel, in: self.view)
+        
+        if !UserBusinessProfileViewController.hasShownBubbleThisSession {
+            BubbleManager.showBubble(over: businessAddressLabel, in: self.view)
+            UserBusinessProfileViewController.hasShownBubbleThisSession = true
+        }
     }
-    
+
     init?(coder: NSCoder, businessListing: BusinessListing) {
         self.businessListing = businessListing
         super.init(coder: coder)
