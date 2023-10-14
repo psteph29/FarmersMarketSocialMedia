@@ -91,6 +91,7 @@ class CoreDataManager {
         context.delete(favorite)
         saveContext()
     }
+    
     // read (CRUD) Method to fetch all favorite business listings from the persistent store.
     func fetchFavorites() -> [FavoriteBusinessListing] {
         let context = persistentContainer.viewContext
@@ -106,4 +107,31 @@ class CoreDataManager {
             return []
         }
     }
+    
+    // check if a cell is favorited
+    func isFavorited(_ businessListingId: String) -> Bool {
+        let context = persistentContainer.viewContext
+        let fetchRequest: NSFetchRequest<FavoriteBusinessListing> = FavoriteBusinessListing.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "id == %@", businessListingId)
+
+      let count = (try? context.count(for: fetchRequest)) ?? 0
+      return count > 0
+    }
+    
+    // fetch a single favorite for the search result controller
+    func fetchFavorite(by businessListingId: String) -> FavoriteBusinessListing? {
+        let context = persistentContainer.viewContext
+        let fetchRequest: NSFetchRequest<FavoriteBusinessListing> = FavoriteBusinessListing.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "id == %@", businessListingId)
+        fetchRequest.fetchLimit = 1
+
+        do {
+            let fetchedFavorites = try context.fetch(fetchRequest)
+            return fetchedFavorites.first
+        } catch {
+            print("Failed to fetch favorite by ID: \(businessListingId), error: \(error)")
+            return nil
+        }
+    }
+
 }

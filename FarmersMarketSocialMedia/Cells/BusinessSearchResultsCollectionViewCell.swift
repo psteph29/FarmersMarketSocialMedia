@@ -15,8 +15,31 @@ class BusinessSearchResultsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     
     @IBOutlet weak var favoriteButton: UIButton!
+    var isFavorited: Bool = false
+    
+    override func awakeFromNib() {
+      super.awakeFromNib()
+
+      // Set initial image
+      favoriteButton.setImage(UIImage(systemName: "heart"), for: .normal)
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        favoriteButton.setImage(UIImage(systemName: "heart"), for: .normal)
+        onFavorite = nil
+    }
     
     @IBAction func favoriteButtonTapped(_ sender: UIButton) {
+        
+        if isFavorited {
+          favoriteButton.setImage(UIImage(systemName: "heart"), for: .normal)
+        } else {
+          favoriteButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+        }
+        
+        isFavorited.toggle()
+        
         self.onFavorite?()
         
         // animation code
