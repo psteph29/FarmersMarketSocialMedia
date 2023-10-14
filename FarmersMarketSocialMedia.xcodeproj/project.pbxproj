@@ -35,6 +35,7 @@
 		0FF02C1D2AD5A3BF0082C8AD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0FF02C1C2AD5A3BF0082C8AD /* GoogleService-Info.plist */; };
 		0FF02C1F2AD748C70082C8AD /* CoreLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF02C1E2AD748C70082C8AD /* CoreLocationManager.swift */; };
 		0FF02C3F2ADB03DB0082C8AD /* SearchCollectionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF02C3E2ADB03DB0082C8AD /* SearchCollectionExtension.swift */; };
+		0FF02C412ADB356F0082C8AD /* DateConversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF02C402ADB356F0082C8AD /* DateConversion.swift */; };
 		AB233CE92AB35E22006A3DB7 /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB233CE82AB35E22006A3DB7 /* SignIn.storyboard */; };
 		AB233CEB2AB35E28006A3DB7 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB233CEA2AB35E28006A3DB7 /* SignUp.storyboard */; };
 		AB233CED2AB35E4C006A3DB7 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB233CEC2AB35E4C006A3DB7 /* SignInViewController.swift */; };
@@ -89,6 +90,7 @@
 		0FF02C1C2AD5A3BF0082C8AD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0FF02C1E2AD748C70082C8AD /* CoreLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLocationManager.swift; sourceTree = "<group>"; };
 		0FF02C3E2ADB03DB0082C8AD /* SearchCollectionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionExtension.swift; sourceTree = "<group>"; };
+		0FF02C402ADB356F0082C8AD /* DateConversion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateConversion.swift; sourceTree = "<group>"; };
 		AB233CE82AB35E22006A3DB7 /* SignIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignIn.storyboard; sourceTree = "<group>"; };
 		AB233CEA2AB35E28006A3DB7 /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
 		AB233CEC2AB35E4C006A3DB7 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				0FF02C142AD36EBC0082C8AD /* AnimateFallingFruitVeggie.swift */,
 				0FF02C162AD376E40082C8AD /* FruitsAndVeggiesImages.swift */,
 				0FF02C1A2AD399B60082C8AD /* BubbleManager.swift */,
+				0FF02C402ADB356F0082C8AD /* DateConversion.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -352,6 +355,7 @@
 				AB233CED2AB35E4C006A3DB7 /* SignInViewController.swift in Sources */,
 				0FA6FE122AB4E30900130021 /* PostStruct.swift in Sources */,
 				AB35EBBC2AA9021D006E3392 /* APIController.swift in Sources */,
+				0FF02C412ADB356F0082C8AD /* DateConversion.swift in Sources */,
 				0F12A4362ABE4648005412C1 /* AppDataModel.xcdatamodeld in Sources */,
 				ABA47AE32AB4B0B6008F58EE /* FavoritesCollectionViewController.swift in Sources */,
 				0F12A4522AC71626005412C1 /* BusinessListingPostCell.swift in Sources */,

@@ -72,7 +72,11 @@ class UserBusinessProfileViewController: UIViewController, UITableViewDataSource
         
         let post = posts[indexPath.row]
         
-        cell.dateLabel?.text = post.date.description
+        if let formattedDate = DateConverter.userFriendlyDate(from: post.date.description) {
+             cell.dateLabel?.text = formattedDate
+         } else {
+             cell.dateLabel?.text = "Invalid Date"
+         }
         
         cell.descriptionLabel?.text = post.description
         
