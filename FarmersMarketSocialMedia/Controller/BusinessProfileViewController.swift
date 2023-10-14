@@ -141,8 +141,13 @@ class BusinessProfileViewController: UIViewController, UITableViewDataSource, UI
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! BusinessListingPostCell
         
         let post = posts[indexPath.row]
+                
+        if let formattedDate = DateConverter.userFriendlyDate(from: post.date.description) {
+             cell.dateLabel?.text = formattedDate
+         } else {
+             cell.dateLabel?.text = "Invalid Date"
+         }
         
-        cell.dateLabel?.text = post.date.description
         cell.descriptionLabel?.text = post.description
         cell.postImage.loadImage(from: post.imageURL ?? "https://mediaproxy.salon.com/width/1200/https://media.salon.com/2021/08/farmers-market-produce-0812211.jpg")
         
