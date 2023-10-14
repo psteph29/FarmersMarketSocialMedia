@@ -149,7 +149,13 @@ class BusinessProfileViewController: UIViewController, UITableViewDataSource, UI
          }
         
         cell.descriptionLabel?.text = post.description
-        cell.postImage.loadImage(from: post.imageURL ?? "https://mediaproxy.salon.com/width/1200/https://media.salon.com/2021/08/farmers-market-produce-0812211.jpg")
+
+        if let imageURL = post.imageURL, !imageURL.isEmpty {
+              cell.postImage.loadImage(from: imageURL)
+              cell.postImage.isHidden = false // Ensure the ImageView is visible if the image exists
+          } else {
+              cell.postImage.isHidden = true  // Hide ImageView and adjust your cell's UI accordingly when no image URL
+          }
         
         return cell
     }
