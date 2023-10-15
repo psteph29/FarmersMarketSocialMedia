@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JZb-r4-SQE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JZb-r4-SQE">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -28,49 +27,54 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="favoritesCell" id="SW6-Z5-obv" customClass="FavoritesCollectionViewCell" customModule="FarmersMarketSocialMedia" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="favoritesCell" id="Chu-la-ZXL" customClass="FavoritesCollectionViewCell" customModule="FarmersMarketSocialMedia" customModuleProvider="target">
                                 <rect key="frame" x="86.666666666666671" y="0.0" width="220" height="163"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="PpW-cn-xyN">
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="rVQ-jJ-ugP">
                                     <rect key="frame" x="0.0" y="0.0" width="220" height="163"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cKJ-pv-KBE">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SJc-xu-9B2">
                                             <rect key="frame" x="0.0" y="0.0" width="220" height="160"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="180" id="NUv-I3-bV1"/>
+                                            </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" text="Business Name" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AFP-eA-NYB">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" text="Business Name" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cxP-wo-vhz">
                                             <rect key="frame" x="8" y="7.9999999999999982" width="204" height="20.333333333333329"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
+                                            <color key="backgroundColor" red="1" green="0.98489852320000004" blue="0.88028306960000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
+                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MbQ-dA-q8h">
-                                            <rect key="frame" x="161" y="120" width="51" height="35"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nI8-Xn-usG">
+                                            <rect key="frame" x="158" y="120" width="51" height="35"/>
+                                            <color key="backgroundColor" red="0.98804811079999999" green="0.9731271252" blue="0.86976202380000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="tintColor" red="1" green="0.028135999830000001" blue="0.19617627260000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="plain" image="heart.fill" catalog="system"/>
                                             <connections>
-                                                <action selector="unFavorite:" destination="SW6-Z5-obv" eventType="touchUpInside" id="RBx-B0-0BO"/>
+                                                <action selector="favoriteButtonTapped:" destination="Chu-la-ZXL" eventType="touchUpInside" id="qle-pu-4JM"/>
                                             </connections>
                                         </button>
                                     </subviews>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstItem="cKJ-pv-KBE" firstAttribute="leading" secondItem="PpW-cn-xyN" secondAttribute="leading" id="N8X-ur-9Te"/>
-                                        <constraint firstItem="cKJ-pv-KBE" firstAttribute="top" secondItem="PpW-cn-xyN" secondAttribute="top" id="RxX-Wd-4Re"/>
-                                        <constraint firstAttribute="bottom" secondItem="cKJ-pv-KBE" secondAttribute="bottom" constant="3" id="S72-ol-tMG"/>
-                                        <constraint firstItem="AFP-eA-NYB" firstAttribute="top" secondItem="PpW-cn-xyN" secondAttribute="top" constant="8" id="awb-L2-7wk"/>
-                                        <constraint firstItem="AFP-eA-NYB" firstAttribute="leading" secondItem="PpW-cn-xyN" secondAttribute="leading" constant="8" id="eOI-mV-z2y"/>
-                                        <constraint firstAttribute="trailing" secondItem="AFP-eA-NYB" secondAttribute="trailing" constant="8" id="uKa-D3-6ot"/>
-                                        <constraint firstItem="AFP-eA-NYB" firstAttribute="centerX" secondItem="cKJ-pv-KBE" secondAttribute="centerX" id="zxj-9s-azQ"/>
+                                        <constraint firstItem="cxP-wo-vhz" firstAttribute="leading" secondItem="rVQ-jJ-ugP" secondAttribute="leading" constant="8" id="3Pc-8M-ADY"/>
+                                        <constraint firstAttribute="bottom" secondItem="SJc-xu-9B2" secondAttribute="bottom" constant="3" id="7wA-Yu-30Q"/>
+                                        <constraint firstAttribute="trailing" secondItem="nI8-Xn-usG" secondAttribute="trailing" constant="11" id="NwR-du-dDJ"/>
+                                        <constraint firstAttribute="bottom" secondItem="nI8-Xn-usG" secondAttribute="bottom" constant="8" id="P78-Wk-44q"/>
+                                        <constraint firstItem="cxP-wo-vhz" firstAttribute="centerX" secondItem="SJc-xu-9B2" secondAttribute="centerX" id="R39-Fo-dC0"/>
+                                        <constraint firstAttribute="trailing" secondItem="cxP-wo-vhz" secondAttribute="trailing" constant="8" id="ePy-gb-cDt"/>
+                                        <constraint firstItem="SJc-xu-9B2" firstAttribute="leading" secondItem="rVQ-jJ-ugP" secondAttribute="leading" id="mE2-rf-ke3"/>
+                                        <constraint firstItem="SJc-xu-9B2" firstAttribute="top" secondItem="rVQ-jJ-ugP" secondAttribute="top" id="vKE-dN-FJs"/>
+                                        <constraint firstItem="cxP-wo-vhz" firstAttribute="top" secondItem="rVQ-jJ-ugP" secondAttribute="top" constant="8" id="vnw-1Y-kQV"/>
                                     </constraints>
                                 </collectionViewCellContentView>
                                 <size key="customSize" width="220" height="163"/>
                                 <connections>
-                                    <outlet property="backgroundImageView" destination="cKJ-pv-KBE" id="r7e-sU-Ag5"/>
-                                    <outlet property="businessNameLabel" destination="AFP-eA-NYB" id="3He-K0-otA"/>
-                                    <outlet property="favoriteButton" destination="MbQ-dA-q8h" id="f72-tW-vAT"/>
-                                    <segue destination="CZ0-am-NTe" kind="presentation" destinationCreationSelector="viewFavoriteListing:" id="vCb-WH-cuU"/>
+                                    <outlet property="backgroundImageView" destination="SJc-xu-9B2" id="XZg-DR-XbV"/>
+                                    <outlet property="businessNameLabel" destination="cxP-wo-vhz" id="gXc-CW-mhL"/>
+                                    <outlet property="favoriteButton" destination="nI8-Xn-usG" id="Q5Z-ca-tIx"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
