@@ -80,7 +80,13 @@ class UserBusinessProfileViewController: UIViewController, UITableViewDataSource
         
         cell.descriptionLabel?.text = post.description
         
-        cell.postImage.loadImage(from: post.imageURL ?? "https://mediaproxy.salon.com/width/1200/https://media.salon.com/2021/08/farmers-market-produce-0812211.jpg")
+        if let imageURL = post.imageURL, !imageURL.isEmpty {
+              cell.postImage.loadImage(from: imageURL)
+              cell.postImage.isHidden = false
+          } else {
+              cell.postImage.isHidden = true
+          }
+        
         
         return cell
     }
