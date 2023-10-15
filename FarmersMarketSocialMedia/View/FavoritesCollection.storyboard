@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JZb-r4-SQE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JZb-r4-SQE">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -35,18 +34,23 @@
                                     <rect key="frame" x="0.0" y="0.0" width="220" height="163"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cKJ-pv-KBE">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cKJ-pv-KBE">
                                             <rect key="frame" x="0.0" y="0.0" width="220" height="160"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="160" id="ez0-n3-Xjg"/>
+                                            </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" text="Business Name" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AFP-eA-NYB">
                                             <rect key="frame" x="8" y="7.9999999999999982" width="204" height="20.333333333333329"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="backgroundColor" red="1" green="0.98489852320000004" blue="0.88028306960000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MbQ-dA-q8h">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MbQ-dA-q8h">
                                             <rect key="frame" x="161" y="120" width="51" height="35"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="1" green="0.98489852320000004" blue="0.88028306960000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="tintColor" red="1" green="0.028135999830000001" blue="0.19617627260000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="plain" image="heart.fill" catalog="system"/>
                                             <connections>
@@ -57,8 +61,10 @@
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="cKJ-pv-KBE" firstAttribute="leading" secondItem="PpW-cn-xyN" secondAttribute="leading" id="N8X-ur-9Te"/>
+                                        <constraint firstAttribute="bottom" secondItem="MbQ-dA-q8h" secondAttribute="bottom" constant="8" id="QIC-Zh-ANk"/>
                                         <constraint firstItem="cKJ-pv-KBE" firstAttribute="top" secondItem="PpW-cn-xyN" secondAttribute="top" id="RxX-Wd-4Re"/>
                                         <constraint firstAttribute="bottom" secondItem="cKJ-pv-KBE" secondAttribute="bottom" constant="3" id="S72-ol-tMG"/>
+                                        <constraint firstAttribute="trailing" secondItem="MbQ-dA-q8h" secondAttribute="trailing" constant="8" id="VTq-11-hIl"/>
                                         <constraint firstItem="AFP-eA-NYB" firstAttribute="top" secondItem="PpW-cn-xyN" secondAttribute="top" constant="8" id="awb-L2-7wk"/>
                                         <constraint firstItem="AFP-eA-NYB" firstAttribute="leading" secondItem="PpW-cn-xyN" secondAttribute="leading" constant="8" id="eOI-mV-z2y"/>
                                         <constraint firstAttribute="trailing" secondItem="AFP-eA-NYB" secondAttribute="trailing" constant="8" id="uKa-D3-6ot"/>
