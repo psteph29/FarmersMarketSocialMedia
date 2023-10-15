@@ -145,34 +145,19 @@
                                     <action selector="uploadImage:" destination="gFG-Tg-bVZ" eventType="touchUpInside" id="tJE-52-Dvl"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DOc-BG-du2">
-                                <rect key="frame" x="16" y="59" width="40" height="25"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.86666666670000003" green="0.63137254899999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Cancel">
-                                    <fontDescription key="titleFontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="25"/>
-                                </buttonConfiguration>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="15"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="cancelEditingProfile:" destination="gFG-Tg-bVZ" eventType="touchUpInside" id="jdZ-QI-RLD"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D7b-p2-wFK">
-                                <rect key="frame" x="50" y="54" width="77" height="35"/>
+                                <rect key="frame" x="7" y="54" width="77" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Cancel">
                                     <backgroundConfiguration key="background">
                                         <color key="backgroundColor" red="0.86666666670000003" green="0.63137254899999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </backgroundConfiguration>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="cancelEditingProfile:" destination="gFG-Tg-bVZ" eventType="touchUpInside" id="OKA-fS-nsJ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="tIM-yv-Sfk"/>
@@ -184,7 +169,7 @@
                         <outlet property="businessAddressTextField" destination="jSX-Oh-4La" id="4DH-GL-IKP"/>
                         <outlet property="businessNameLabel" destination="v5N-8R-W8D" id="58L-Fb-7hF"/>
                         <outlet property="businessNameTextField" destination="0G2-Rz-bCt" id="Eso-8t-dGO"/>
-                        <outlet property="cancelEditingProfileButton" destination="DOc-BG-du2" id="Wm4-KT-Gz2"/>
+                        <outlet property="cancelEditingProfileButton" destination="D7b-p2-wFK" id="uqR-ea-Hpy"/>
                         <outlet property="editDescriptionTextField" destination="xXW-b0-21j" id="2rY-XJ-BBN"/>
                         <outlet property="editProfileLable" destination="SvW-Mz-JWR" id="6AG-RU-dxM"/>
                         <outlet property="profileImage" destination="559-u8-fjH" id="Fwc-9O-7uU"/>
