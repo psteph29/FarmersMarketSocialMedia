@@ -47,11 +47,12 @@ class CreatePostsViewController: UIViewController, UIImagePickerControllerDelega
     @IBAction func uploadImage(_ sender: Any) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
-        
+
         let alertController = UIAlertController(title: "Choose Image Source", message: nil, preferredStyle: .actionSheet)
-        
+
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        
+        alertController.addAction(cancelAction)  // This line adds the cancel action
+
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             let cameraAction = UIAlertAction(title: "Camera", style: .default, handler: { action in
                 imagePicker.sourceType = .camera
@@ -59,7 +60,7 @@ class CreatePostsViewController: UIViewController, UIImagePickerControllerDelega
             })
             alertController.addAction(cameraAction)
         }
-        
+
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
             let photoLibraryAction = UIAlertAction(title: "Photo Library", style: .default, handler: { action in
                 imagePicker.sourceType = .photoLibrary
@@ -67,9 +68,11 @@ class CreatePostsViewController: UIViewController, UIImagePickerControllerDelega
             })
             alertController.addAction(photoLibraryAction)
         }
-        alertController.popoverPresentationController?.sourceView = sender as! UIView
+
+        alertController.popoverPresentationController?.sourceView = sender as? UIView
         present(alertController, animated: true, completion: nil)
     }
+
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let selectedImage = info[.originalImage] as?
