@@ -22,6 +22,9 @@ class BusinessSearchResultsCollectionViewCell: UICollectionViewCell {
 
       // Set initial image
       favoriteButton.setImage(UIImage(systemName: "heart"), for: .normal)
+        
+        favoriteButton.layer.cornerRadius = 10  /*favoriteButton.frame.size.width / 2*/
+        favoriteButton.clipsToBounds = true
     }
     
     override func prepareForReuse() {

@@ -51,7 +51,7 @@
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MbQ-dA-q8h">
                                             <rect key="frame" x="161" y="120" width="51" height="35"/>
                                             <color key="backgroundColor" red="1" green="0.98489852320000004" blue="0.88028306960000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <color key="tintColor" red="1" green="0.028135999830000001" blue="0.19617627260000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="tintColor" red="0.25098039220000001" green="0.015686274510000001" blue="0.023529411760000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="plain" image="heart.fill" catalog="system"/>
                                             <connections>

@@ -15,10 +15,15 @@ class FavoritesCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var backgroundImageView: UIImageView!
     
-    
     @IBOutlet weak var favoriteButton: UIButton!
     
-    @IBOutlet weak var favoriteButtonTapped: UIButton!
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        // Set corner radius for the favoriteButton
+        favoriteButton.layer.cornerRadius = 10
+        favoriteButton.clipsToBounds = true
+    }
     
     @IBAction func unFavorite(_ sender: UIButton) {
         self.onFavorite?()

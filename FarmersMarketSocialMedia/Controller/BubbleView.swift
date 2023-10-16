@@ -12,8 +12,6 @@ class BubbleView: UIView {
     
     private let messageLabel = UILabel()
     
-    var greenColor = UIColor(hex: "515a47")
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()

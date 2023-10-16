@@ -27,6 +27,8 @@
 		0FA6FE122AB4E30900130021 /* PostStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA6FE112AB4E30900130021 /* PostStruct.swift */; };
 		0FC052F82ACF339200DC9288 /* zipcodeExtractionFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC052F72ACF339200DC9288 /* zipcodeExtractionFunc.swift */; };
 		0FC4EF412ABB347600A44030 /* MileToKilometer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC4EF402ABB347600A44030 /* MileToKilometer.swift */; };
+		0FE6EE812ADCFD090080B21A /* NavigationBarAppearanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE6EE802ADCFD090080B21A /* NavigationBarAppearanceManager.swift */; };
+		0FE6EE832ADD03F10080B21A /* ColorChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE6EE822ADD03F10080B21A /* ColorChart.swift */; };
 		0FF02C132AD36E570082C8AD /* SpawnRandomFruitOrVeggie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF02C122AD36E570082C8AD /* SpawnRandomFruitOrVeggie.swift */; };
 		0FF02C152AD36EBC0082C8AD /* AnimateFallingFruitVeggie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF02C142AD36EBC0082C8AD /* AnimateFallingFruitVeggie.swift */; };
 		0FF02C172AD376E40082C8AD /* FruitsAndVeggiesImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF02C162AD376E40082C8AD /* FruitsAndVeggiesImages.swift */; };
@@ -82,6 +84,8 @@
 		0FA6FE112AB4E30900130021 /* PostStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostStruct.swift; sourceTree = "<group>"; };
 		0FC052F72ACF339200DC9288 /* zipcodeExtractionFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = zipcodeExtractionFunc.swift; sourceTree = "<group>"; };
 		0FC4EF402ABB347600A44030 /* MileToKilometer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MileToKilometer.swift; sourceTree = "<group>"; };
+		0FE6EE802ADCFD090080B21A /* NavigationBarAppearanceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarAppearanceManager.swift; sourceTree = "<group>"; };
+		0FE6EE822ADD03F10080B21A /* ColorChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorChart.swift; sourceTree = "<group>"; };
 		0FF02C122AD36E570082C8AD /* SpawnRandomFruitOrVeggie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpawnRandomFruitOrVeggie.swift; sourceTree = "<group>"; };
 		0FF02C142AD36EBC0082C8AD /* AnimateFallingFruitVeggie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimateFallingFruitVeggie.swift; sourceTree = "<group>"; };
 		0FF02C162AD376E40082C8AD /* FruitsAndVeggiesImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitsAndVeggiesImages.swift; sourceTree = "<group>"; };
@@ -156,6 +160,7 @@
 				0FF02C162AD376E40082C8AD /* FruitsAndVeggiesImages.swift */,
 				0FF02C1A2AD399B60082C8AD /* BubbleManager.swift */,
 				0FF02C402ADB356F0082C8AD /* DateConversion.swift */,
+				0FE6EE822ADD03F10080B21A /* ColorChart.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -200,6 +205,7 @@
 				0FF02C182AD398FB0082C8AD /* BubbleView.swift */,
 				0FF02C1E2AD748C70082C8AD /* CoreLocationManager.swift */,
 				0FF02C3E2ADB03DB0082C8AD /* SearchCollectionExtension.swift */,
+				0FE6EE802ADCFD090080B21A /* NavigationBarAppearanceManager.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -338,6 +344,7 @@
 			files = (
 				AB35EBD42AB3478D006E3392 /* FindAFarmViewController.swift in Sources */,
 				AB35EBC62AAB7666006E3392 /* SearchCollectionViewController.swift in Sources */,
+				0FE6EE832ADD03F10080B21A /* ColorChart.swift in Sources */,
 				F30CC0222AAB7BA40067DC44 /* UserBusinessProfileViewController.swift in Sources */,
 				0FF02C1B2AD399B60082C8AD /* BubbleManager.swift in Sources */,
 				0FF02C152AD36EBC0082C8AD /* AnimateFallingFruitVeggie.swift in Sources */,
@@ -359,6 +366,7 @@
 				0F12A4362ABE4648005412C1 /* AppDataModel.xcdatamodeld in Sources */,
 				ABA47AE32AB4B0B6008F58EE /* FavoritesCollectionViewController.swift in Sources */,
 				0F12A4522AC71626005412C1 /* BusinessListingPostCell.swift in Sources */,
+				0FE6EE812ADCFD090080B21A /* NavigationBarAppearanceManager.swift in Sources */,
 				0FC052F82ACF339200DC9288 /* zipcodeExtractionFunc.swift in Sources */,
 				0FC4EF412ABB347600A44030 /* MileToKilometer.swift in Sources */,
 				0FA6FE032AB48E5A00130021 /* BusinessListingStruct.swift in Sources */,
