@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="90L-OJ-QgX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="90L-OJ-QgX">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -49,65 +50,6 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9EE-Yf-pA9">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="yPc-pZ-9wu">
-                                <rect key="frame" x="116" y="730.33333333333337" width="172" height="77.666666666666629"/>
-                                <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Business" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SOT-P4-rNd">
-                                        <rect key="frame" x="0.0" y="0.0" width="172" height="35.666666666666664"/>
-                                        <color key="backgroundColor" red="1" green="0.98489852320000004" blue="0.88028306960000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="25"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="JuQ-Z9-chn">
-                                        <rect key="frame" x="0.0" y="43.666666666666629" width="172" height="34"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hD5-zq-G8H">
-                                                <rect key="frame" x="0.0" y="0.0" width="73" height="34"/>
-                                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="21"/>
-                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" title="Sign In"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="Sign In">
-                                                    <backgroundConfiguration key="background">
-                                                        <color key="backgroundColor" red="1" green="0.98489852320000004" blue="0.88028306960000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </backgroundConfiguration>
-                                                    <fontDescription key="titleFontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="14"/>
-                                                    <color key="baseForegroundColor" systemColor="labelColor"/>
-                                                </buttonConfiguration>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <integer key="value" value="15"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <segue destination="dc8-8F-9mU" kind="show" id="ZPW-Mm-bWZ"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" preferredBehavioralStyle="pad" translatesAutoresizingMaskIntoConstraints="NO" id="riH-Fj-Zii">
-                                                <rect key="frame" x="99" y="0.0" width="73" height="34"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="Sign Up">
-                                                    <backgroundConfiguration key="background">
-                                                        <color key="backgroundColor" red="1" green="0.98489852320000004" blue="0.88028306960000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </backgroundConfiguration>
-                                                    <fontDescription key="titleFontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="14"/>
-                                                    <color key="baseForegroundColor" systemColor="labelColor"/>
-                                                </buttonConfiguration>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <integer key="value" value="15"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <segue destination="htB-v5-oZF" kind="show" id="16F-PH-e47"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                            </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vMM-IC-G7T">
                                 <rect key="frame" x="71" y="382" width="250" height="85"/>
                                 <constraints>
@@ -132,20 +74,79 @@
                                     <segue destination="o2s-y1-XSq" kind="show" id="xgy-bg-i9P"/>
                                 </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="yPc-pZ-9wu">
+                                <rect key="frame" x="111" y="722" width="171" height="77.666666666666629"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Business" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SOT-P4-rNd">
+                                        <rect key="frame" x="0.0" y="0.0" width="171" height="35.666666666666664"/>
+                                        <color key="backgroundColor" red="1" green="0.98489852320000004" blue="0.88028306960000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="JuQ-Z9-chn">
+                                        <rect key="frame" x="0.0" y="43.666666666666629" width="171" height="34"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hD5-zq-G8H">
+                                                <rect key="frame" x="0.0" y="0.0" width="72.666666666666671" height="34"/>
+                                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="21"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Sign In"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Sign In">
+                                                    <backgroundConfiguration key="background">
+                                                        <color key="backgroundColor" red="1" green="0.98489852320000004" blue="0.88028306960000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </backgroundConfiguration>
+                                                    <fontDescription key="titleFontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="14"/>
+                                                    <color key="baseForegroundColor" systemColor="labelColor"/>
+                                                </buttonConfiguration>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="15"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <segue destination="dc8-8F-9mU" kind="show" id="ZPW-Mm-bWZ"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" preferredBehavioralStyle="pad" translatesAutoresizingMaskIntoConstraints="NO" id="riH-Fj-Zii">
+                                                <rect key="frame" x="98.666666666666657" y="0.0" width="72.333333333333343" height="34"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Sign Up">
+                                                    <backgroundConfiguration key="background">
+                                                        <color key="backgroundColor" red="1" green="0.98489852320000004" blue="0.88028306960000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </backgroundConfiguration>
+                                                    <fontDescription key="titleFontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="14"/>
+                                                    <color key="baseForegroundColor" systemColor="labelColor"/>
+                                                </buttonConfiguration>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="15"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <segue destination="htB-v5-oZF" kind="show" id="16F-PH-e47"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="9xQ-rO-miE"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="yPc-pZ-9wu" firstAttribute="leading" secondItem="9xQ-rO-miE" secondAttribute="leading" constant="116" id="2Gw-as-bdP"/>
                             <constraint firstItem="9EE-Yf-pA9" firstAttribute="leading" secondItem="9xQ-rO-miE" secondAttribute="leading" id="2Pi-2S-g6N"/>
                             <constraint firstItem="vMM-IC-G7T" firstAttribute="leading" secondItem="9xQ-rO-miE" secondAttribute="leading" constant="71" id="86s-wF-eIC"/>
-                            <constraint firstItem="9xQ-rO-miE" firstAttribute="bottom" secondItem="yPc-pZ-9wu" secondAttribute="bottom" constant="10" id="NGn-ir-fzk"/>
                             <constraint firstItem="9EE-Yf-pA9" firstAttribute="top" secondItem="lTD-IQ-Yoj" secondAttribute="top" id="R9G-Jm-mFv"/>
                             <constraint firstItem="9EE-Yf-pA9" firstAttribute="leading" secondItem="9xQ-rO-miE" secondAttribute="leading" id="UOR-MI-iC3"/>
                             <constraint firstItem="9EE-Yf-pA9" firstAttribute="trailing" secondItem="9xQ-rO-miE" secondAttribute="trailing" id="WbU-gT-oPy"/>
-                            <constraint firstItem="9xQ-rO-miE" firstAttribute="trailing" secondItem="yPc-pZ-9wu" secondAttribute="trailing" constant="105" id="ZiL-Dy-Y0g"/>
+                            <constraint firstItem="yPc-pZ-9wu" firstAttribute="leading" secondItem="9xQ-rO-miE" secondAttribute="leading" constant="111" id="YKx-fH-CpW"/>
                             <constraint firstAttribute="bottom" secondItem="9EE-Yf-pA9" secondAttribute="bottom" id="g2Z-U5-kDM"/>
+                            <constraint firstItem="9xQ-rO-miE" firstAttribute="bottom" secondItem="yPc-pZ-9wu" secondAttribute="bottom" constant="18.329999999999998" id="lOJ-yR-5RI"/>
                             <constraint firstItem="9xQ-rO-miE" firstAttribute="trailing" secondItem="vMM-IC-G7T" secondAttribute="trailing" constant="72" id="me5-4a-Blj"/>
+                            <constraint firstItem="9xQ-rO-miE" firstAttribute="trailing" secondItem="yPc-pZ-9wu" secondAttribute="trailing" constant="111" id="u9H-TY-8kV"/>
                             <constraint firstItem="vMM-IC-G7T" firstAttribute="top" secondItem="9xQ-rO-miE" secondAttribute="top" constant="279" id="uvf-KQ-SzJ"/>
                         </constraints>
                     </view>
@@ -182,7 +183,7 @@
     </scenes>
     <resources>
         <systemColor name="labelColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>
