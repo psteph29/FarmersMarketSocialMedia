@@ -18,9 +18,6 @@ class SignInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        userName.text = "test@gmail.com"
-        password.text = "password"
 
        setupBackgroundImage()
     }
