@@ -12,6 +12,8 @@ class BubbleView: UIView {
     
     private let messageLabel = UILabel()
     
+    var greenColor = UIColor(hex: "515a47")
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
@@ -23,7 +25,7 @@ class BubbleView: UIView {
     }
     
     private func setup() {
-        self.backgroundColor = .systemBlue
+        self.backgroundColor = greenColor // .systemBlue
         self.layer.cornerRadius = 10
         self.clipsToBounds = true
         
