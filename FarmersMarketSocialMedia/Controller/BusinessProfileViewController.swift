@@ -12,8 +12,6 @@ class BusinessProfileViewController: UIViewController, UITableViewDataSource, UI
     
     weak var delegate: EditBusinessProfileDelegate?
     
-    
-    
     // Array of posts
     var posts: [Post] = []
     

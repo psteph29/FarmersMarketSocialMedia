@@ -84,11 +84,11 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="JuQ-Z9-chn">
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="JuQ-Z9-chn">
                                         <rect key="frame" x="0.0" y="43.666666666666629" width="171" height="34"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hD5-zq-G8H">
-                                                <rect key="frame" x="0.0" y="0.0" width="72.666666666666671" height="34"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="73.666666666666671" height="34"/>
                                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="21"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="Sign In"/>
@@ -110,7 +110,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" preferredBehavioralStyle="pad" translatesAutoresizingMaskIntoConstraints="NO" id="riH-Fj-Zii">
-                                                <rect key="frame" x="98.666666666666657" y="0.0" width="72.333333333333343" height="34"/>
+                                                <rect key="frame" x="97.666666666666657" y="0.0" width="73.333333333333343" height="34"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Sign Up">
                                                     <backgroundConfiguration key="background">
@@ -140,14 +140,14 @@
                             <constraint firstItem="9EE-Yf-pA9" firstAttribute="leading" secondItem="9xQ-rO-miE" secondAttribute="leading" id="2Pi-2S-g6N"/>
                             <constraint firstItem="vMM-IC-G7T" firstAttribute="leading" secondItem="9xQ-rO-miE" secondAttribute="leading" constant="71" id="86s-wF-eIC"/>
                             <constraint firstItem="9EE-Yf-pA9" firstAttribute="top" secondItem="lTD-IQ-Yoj" secondAttribute="top" id="R9G-Jm-mFv"/>
+                            <constraint firstItem="9xQ-rO-miE" firstAttribute="bottom" secondItem="yPc-pZ-9wu" secondAttribute="bottom" constant="18.329999999999998" id="RdN-qW-pJN"/>
                             <constraint firstItem="9EE-Yf-pA9" firstAttribute="leading" secondItem="9xQ-rO-miE" secondAttribute="leading" id="UOR-MI-iC3"/>
+                            <constraint firstItem="9xQ-rO-miE" firstAttribute="trailing" secondItem="yPc-pZ-9wu" secondAttribute="trailing" constant="111" id="Uik-aG-eyK"/>
                             <constraint firstItem="9EE-Yf-pA9" firstAttribute="trailing" secondItem="9xQ-rO-miE" secondAttribute="trailing" id="WbU-gT-oPy"/>
-                            <constraint firstItem="yPc-pZ-9wu" firstAttribute="leading" secondItem="9xQ-rO-miE" secondAttribute="leading" constant="111" id="YKx-fH-CpW"/>
                             <constraint firstAttribute="bottom" secondItem="9EE-Yf-pA9" secondAttribute="bottom" id="g2Z-U5-kDM"/>
-                            <constraint firstItem="9xQ-rO-miE" firstAttribute="bottom" secondItem="yPc-pZ-9wu" secondAttribute="bottom" constant="18.329999999999998" id="lOJ-yR-5RI"/>
                             <constraint firstItem="9xQ-rO-miE" firstAttribute="trailing" secondItem="vMM-IC-G7T" secondAttribute="trailing" constant="72" id="me5-4a-Blj"/>
-                            <constraint firstItem="9xQ-rO-miE" firstAttribute="trailing" secondItem="yPc-pZ-9wu" secondAttribute="trailing" constant="111" id="u9H-TY-8kV"/>
                             <constraint firstItem="vMM-IC-G7T" firstAttribute="top" secondItem="9xQ-rO-miE" secondAttribute="top" constant="279" id="uvf-KQ-SzJ"/>
+                            <constraint firstItem="yPc-pZ-9wu" firstAttribute="leading" secondItem="9xQ-rO-miE" secondAttribute="leading" constant="111" id="z2J-Km-nbf"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Sgg-G4-2lD"/>
