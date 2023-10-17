@@ -124,12 +124,11 @@
                                     <color key="baseBackgroundColor" red="0.86666666670000003" green="0.63137254899999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="addNewPost:" destination="EKp-4N-vHT" eventType="touchUpInside" id="Egx-nF-dEg"/>
                                     <action selector="createPostTapped:" destination="EKp-4N-vHT" eventType="touchUpInside" id="rki-Rj-nVD"/>
                                 </connections>
                             </button>
                             <connections>
-                                <segue destination="Ss2-PN-FYF" kind="presentation" identifier="toCreatePost" id="jPK-kK-RsV"/>
+                                <segue destination="Ss2-PN-FYF" kind="presentation" identifier="toCreatePost" id="N7v-UN-5pI"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

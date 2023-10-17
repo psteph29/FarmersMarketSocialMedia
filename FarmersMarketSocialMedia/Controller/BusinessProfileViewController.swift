@@ -85,7 +85,7 @@ class BusinessProfileViewController: UIViewController, UITableViewDataSource, UI
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let editVC = segue.destination as? EditBusinessProfileViewController {
+        if segue.identifier == "toCreatePost", let editVC = segue.destination as? CreatePostsViewController {
             editVC.delegate = self
         }
     }
@@ -156,17 +156,6 @@ class BusinessProfileViewController: UIViewController, UITableViewDataSource, UI
           }
         
         return cell
-    }
-     
-    
-    @IBAction func addNewPost(_ sender: UIButton) {
-        print("Button pressed")
-    }
-    
-    @IBSegueAction func moveToNewPostPage(_ coder: NSCoder) -> UIViewController? {
-        let createPostVC = CreatePostsViewController(coder: coder)
-        createPostVC?.delegate = self
-        return createPostVC
     }
     
     func didCreatePost() {
